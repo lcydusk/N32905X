@@ -1,4 +1,8 @@
 arm-linux-g++ -o demo sample.cpp base64.cpp ./curl/lib/libcurl.a ./json-cpp/lib/libjson.a -static
 
+
+arm-linux-g++ sample_wget.cpp base64.cpp -o BaiduVoice ./json-cpp/lib/libjson.a  ./curl/lib/libcurl.a -static
+
+
 arm-linux-g++ -o demo sample.cpp base64.cpp ./curl/lib/libcurl.a ./json-cpp/lib/libjson.a -L/usr/local/ssl/lib -lssl -lcrypto -L/usr/local/arm_linux_4.2/arm-none-linux-gnueabi/lib -ldl -static
 
