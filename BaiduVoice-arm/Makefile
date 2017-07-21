@@ -12,7 +12,7 @@ WEC_LDFLAGS=-L$(LIB) -L$(LIB1)
 STRIP=arm-linux-strip
 
 TARGET = BaiduVoice
-SRCS := sample_wget.cpp base64.cpp 
+SRCS := sample.cpp base64.cpp 
 #LIBS= -lc -lgcc -lpthread
 LIBS=
 LDFLAGS= ./json-cpp/lib/libjson.a ./curl/lib/libcurl.a

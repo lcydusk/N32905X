@@ -18,7 +18,7 @@ LIBS=
 LDFLAGS= ./json-cpp/lib/libjson.a ./curl/lib/libcurl.a
 
 all: 
-	$(CXX) $(WEC_LDFLAGS) $(SRCS) -o $(TARGET) $(LIBS) $(EXLIBS) -static
+	$(CXX) $(WEC_LDFLAGS) $(SRCS) -o $(TARGET) $(LIBS) $(LDFLAGS) -static
 	$(STRIP) $(TARGET) 
 	#cp $(TARGET) ../../initramfs/usr/
 	echo "Please also copy input patterns to storage"
