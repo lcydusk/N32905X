@@ -6,10 +6,12 @@ CXX = g++
 TARGET = BaiduVoice
 SRCS := sample.cpp base64.cpp 
 LIBS = -lcurl
+STRIP = strip
 LDFLAGS= ./json-cpp/lib/libjson.a ./curl/lib/libcurl.a
 
 all: 
 	$(CXX) $(SRCS) -o $(TARGET) $(LIBS) $(LDFLAGS)
+	$(STRIP) $(TARGET) 
 clean:
 	rm -f *.o 
 	rm -f *.x 
