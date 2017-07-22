@@ -1,0 +1,118 @@
+shmarea.lo: shmarea.c \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdio.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/features.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs-soft.h \
+ /usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stddef.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/types.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/libio.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/_G_config.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/wchar.h \
+ /usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stdarg.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/malloc.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/string.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/xlocale.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/linux/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/poll.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/poll.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/time.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/mman.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/mman.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/mman-linux.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/shm.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/ipc.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/ipctypes.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/ipc.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/shm.h \
+ ../include/list.h
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdio.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/features.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs-soft.h:
+
+/usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stddef.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/types.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/libio.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/_G_config.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/wchar.h:
+
+/usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stdarg.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/malloc.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/string.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/xlocale.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/linux/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/poll.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/poll.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/time.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/mman.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/mman.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/mman-linux.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/shm.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/ipc.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/ipctypes.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/ipc.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/shm.h:
+
+../include/list.h:

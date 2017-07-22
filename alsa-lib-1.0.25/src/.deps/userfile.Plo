@@ -1,0 +1,58 @@
+userfile.lo: userfile.c \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+ ../include/config.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/string.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/features.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs-soft.h \
+ /usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stddef.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/xlocale.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/linux/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/wordexp.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/assert.h
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+
+../include/config.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/string.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/features.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/gnu/stubs-soft.h:
+
+/usr/local/arm-2014.05/lib/gcc/arm-none-linux-gnueabi/4.8.3/include/stddef.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/xlocale.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/linux/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/wordexp.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/assert.h:

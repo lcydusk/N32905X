@@ -1,0 +1,7 @@
+control_symbols.lo: control_symbols.c \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h \
+ /usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/stdc-predef.h:
+
+/usr/local/arm-2014.05/arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
