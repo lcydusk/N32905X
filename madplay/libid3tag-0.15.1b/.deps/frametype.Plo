@@ -1,0 +1,28 @@
+frametype.lo frametype.o: frametype.c config.h global.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/string.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/features.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_config.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_arch_features.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
+  id3tag.h frametype.h
+
+config.h:
+
+global.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/string.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/features.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_config.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_arch_features.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
+
+id3tag.h:
+
+frametype.h:

@@ -1,0 +1,26 @@
+layer12.lo layer12.o: layer12.c config.h global.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/limits.h \
+  fixed.h bit.h stream.h frame.h timer.h layer12.h sf_table.dat \
+  qc_table.dat
+
+config.h:
+
+global.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/limits.h:
+
+fixed.h:
+
+bit.h:
+
+stream.h:
+
+frame.h:
+
+timer.h:
+
+layer12.h:
+
+sf_table.dat:
+
+qc_table.dat:

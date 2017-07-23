@@ -1,0 +1,10 @@
+audio_null.o audio_null.o: audio_null.c config.h global.h \
+  /home/sunny/workspace/madplay/_install_arm/include/mad.h audio.h
+
+config.h:
+
+global.h:
+
+/home/sunny/workspace/madplay/_install_arm/include/mad.h:
+
+audio.h:

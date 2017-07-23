@@ -1,0 +1,36 @@
+rgain.o rgain.o: rgain.c config.h global.h \
+  /home/sunny/workspace/madplay/_install_arm/include/mad.h rgain.h \
+  gettext.h intl/libintl.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/locale.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/features.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_config.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_arch_features.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_locale.h
+
+config.h:
+
+global.h:
+
+/home/sunny/workspace/madplay/_install_arm/include/mad.h:
+
+rgain.h:
+
+gettext.h:
+
+intl/libintl.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/locale.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/features.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_config.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_arch_features.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/sys/cdefs.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/../../../../arm-none-linux-gnueabi/include/bits/uClibc_locale.h:

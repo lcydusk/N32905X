@@ -1,0 +1,11 @@
+bit.lo bit.o: bit.c config.h global.h \
+  /usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/limits.h \
+  bit.h
+
+config.h:
+
+global.h:
+
+/usr/local/arm_linux_4.2/lib/gcc/arm-none-linux-gnueabi/4.2.1/include/limits.h:
+
+bit.h:
