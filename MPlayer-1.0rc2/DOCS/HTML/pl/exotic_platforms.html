@@ -1,0 +1,34 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>12.6. Egzotyczne Platformy</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="ports.html" title="Rozdział 12. Porty"><link rel="prev" href="macos.html" title="12.5. Mac OS"><link rel="next" href="mencoder.html" title="Rozdział 13. Podstawy używania MEncodera"><link rel="preface" href="howtoread.html" title="Jak czytać tę dokumentację"><link rel="chapter" href="intro.html" title="Rozdział 1. Wprowadzenie"><link rel="chapter" href="install.html" title="Rozdział 2. Instalacja"><link rel="chapter" href="usage.html" title="Rozdział 3. Sposób użycia"><link rel="chapter" href="cd-dvd.html" title="Rozdział 4. Używanie CD/DVD"><link rel="chapter" href="faq.html" title="Rozdział 5. FAQ - Często Zadawane Pytania"><link rel="chapter" href="formats.html" title="Rozdział 6. Kontenery"><link rel="chapter" href="codecs.html" title="Rozdział 7. Obsługiwane kodeki"><link rel="chapter" href="video.html" title="Rozdział 8. Urządzenia wyjścia video"><link rel="chapter" href="audio.html" title="Rozdział 9. Urządzenia wyjściowe audio"><link rel="chapter" href="tv.html" title="Rozdział 10. TV"><link rel="chapter" href="radio.html" title="Rozdział 11. Radio"><link rel="chapter" href="ports.html" title="Rozdział 12. Porty"><link rel="chapter" href="mencoder.html" title="Rozdział 13. Podstawy używania MEncodera"><link rel="chapter" href="encoding-guide.html" title="Rozdział 14. Kodowanie przy użyciu MEncodera"><link rel="appendix" href="bugreports.html" title="Dodatek A. Jak zgłaszać błędy"><link rel="appendix" href="bugs.html" title="Dodatek B. Znane błędy"><link rel="appendix" href="skin.html" title="Dodatek C. Format skórki MPlayera"><link rel="appendix" href="history.html" title="Dodatek D. Historia"><link rel="subsection" href="exotic_platforms.html#qnx" title="12.6.1. QNX"><link rel="subsection" href="exotic_platforms.html#amiga" title="12.6.2. Amiga/MorphOS (GeekGadgets)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">12.6. Egzotyczne Platformy</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="macos.html">Poprzedni</a> </td><th width="60%" align="center">Rozdział 12. Porty</th><td width="20%" align="right"> <a accesskey="n" href="mencoder.html">Następny</a></td></tr></table><hr></div><div class="sect1" lang="pl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="exotic_platforms"></a>12.6. Egzotyczne Platformy</h2></div></div></div><p>
+<span class="application">MPlayer</span> dziła na wielu egzotycznych platfromach, ale
+większość zmian dla konkretnych platform nie trafiła do głównego drzewa ze źródłami
+programu.
+Instrukcji co do budowy szukaj w dokumentacji do określonych systemów.
+</p><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="qnx"></a>12.6.1. QNX</h3></div></div></div><p>
+Będziesz musiał ściągnąć bibliotekę SDL dla QNX i zainstalować ją. Wtedy
+uruchom <span class="application">MPlayera</span> z opcją
+<tt class="option">-vo sdl:driver=photon</tt>
+i <tt class="option">-ao sdl:nto</tt>, powinno działać szybko.
+</p><p>
+Wyjście <tt class="option">-vo x11</tt> będzie nawet wolniejsze niż na Linuksie,
+ponieważ QNX ma tylko <span class="emphasis"><em>emulację</em></span> X'ów, która jest bardzo
+wolna. 
+</p></div><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="amiga"></a>12.6.2. Amiga/MorphOS (GeekGadgets)</h3></div></div></div><p>
+Ludzie z <a href="www.amigasoft.net" target="_top">www.amigasoft.net</a>
+tworzą aktualne paczki z <span class="application">MPlayerem</span> i
+<span class="application">MEncoderem</span>.
+</p><p>
+Nicholas Det at Genesi stworzył potężny port <span class="application">MPlayera
+</span> dla MorphOS. Niestety oparty jest on o serię 0.90.
+</p><p>
+Pobierz go z <a href="http://www.morphzone.org/" target="_top">MorphZone</a>:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+<a href="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=90" target="_top">
+pakiet binarny <span class="application">MPlayer</span> 0.91</a>
+</p></li><li><p>
+<a href="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=91" target="_top">
+źródła <span class="application">MPlayera</span> 0.91</a>
+</p></li><li><p>
+<a href="http://www.morphzone.org/modules/mydownloads/singlefile.php?lid=92" target="_top">
+pakiet binarny <span class="application">MEncodera</span> 1.0pre3</a>
+</p></li></ul></div><p>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="macos.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="ports.html">Początek rozdziału</a></td><td width="40%" align="right"> <a accesskey="n" href="mencoder.html">Następny</a></td></tr><tr><td width="40%" align="left" valign="top">12.5. Mac OS </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis treści</a></td><td width="40%" align="right" valign="top"> Rozdział 13. Podstawy używania <span class="application">MEncodera</span></td></tr></table></div></body></html>

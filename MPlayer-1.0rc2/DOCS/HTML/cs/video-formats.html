@@ -1,0 +1,221 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>6.1. Video formáty</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="up" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="prev" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="next" href="audio-formats.html" title="6.2. Audio formáty"><link rel="preface" href="howtoread.html" title="Jak číst tuto dokumentaci"><link rel="chapter" href="intro.html" title="Kapitola 1. Představení"><link rel="chapter" href="install.html" title="Kapitola 2. Instalace"><link rel="chapter" href="usage.html" title="Kapitola 3. Použití"><link rel="chapter" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="chapter" href="faq.html" title="Kapitola 5. Často Kladené Dotazy (FAQ)"><link rel="chapter" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="chapter" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="chapter" href="video.html" title="Kapitola 8. Výstupní video zařízení/rozhraní"><link rel="chapter" href="audio.html" title="Kapitola 9. Výstupní zvuková zařízení"><link rel="chapter" href="tv.html" title="Kapitola 10. TV"><link rel="chapter" href="radio.html" title="Kapitola 11. Rádio"><link rel="chapter" href="ports.html" title="Kapitola 12. Porty"><link rel="chapter" href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><link rel="chapter" href="encoding-guide.html" title="Kapitola 14. Enkódování s MEncoderem"><link rel="appendix" href="bugreports.html" title="Příloha A. Jak hlásit chyby"><link rel="appendix" href="bugs.html" title="Příloha B. Známé chyby"><link rel="appendix" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="appendix" href="history.html" title="Příloha D. Historie"><link rel="subsection" href="video-formats.html#mpg-vob-dat" title="6.1.1. MPEG soubory"><link rel="subsection" href="video-formats.html#avi" title="6.1.2. AVI soubory"><link rel="subsection" href="video-formats.html#asf-wmv" title="6.1.3. ASF/WMV soubory"><link rel="subsection" href="video-formats.html#mov" title="6.1.4. QuickTime/MOV soubory"><link rel="subsection" href="video-formats.html#vivo" title="6.1.5. VIVO soubory"><link rel="subsection" href="video-formats.html#fli" title="6.1.6. FLI soubory"><link rel="subsection" href="video-formats.html#realmedia" title="6.1.7. RealMedia (RM) soubory"><link rel="subsection" href="video-formats.html#nuppelvideo" title="6.1.8. NuppelVideo soubory"><link rel="subsection" href="video-formats.html#yuv4mpeg" title="6.1.9. yuv4mpeg soubory"><link rel="subsection" href="video-formats.html#film" title="6.1.10. FILM soubory"><link rel="subsection" href="video-formats.html#roq" title="6.1.11. RoQ soubory"><link rel="subsection" href="video-formats.html#ogg" title="6.1.12. OGG/OGM soubory"><link rel="subsection" href="video-formats.html#sdp" title="6.1.13. SDP soubory"><link rel="subsection" href="video-formats.html#pva" title="6.1.14. PVA soubory"><link rel="subsection" href="video-formats.html#nsv" title="6.1.15. NSV soubory"><link rel="subsection" href="video-formats.html#matroska" title="6.1.16. Soubory Matroska"><link rel="subsection" href="video-formats.html#nut" title="6.1.17. Soubory NUT"><link rel="subsection" href="video-formats.html#gif" title="6.1.18. GIF soubory"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.1. Video formáty</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="containers.html">Předcházející</a> </td><th width="60%" align="center">Kapitola 6. Nosné formáty (Containers)</th><td width="20%" align="right"> <a accesskey="n" href="audio-formats.html">Další</a></td></tr></table><hr></div><div class="sect1" lang="cs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="video-formats"></a>6.1. Video formáty</h2></div></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="mpg-vob-dat"></a>6.1.1. MPEG soubory</h3></div></div></div><p>
+MPEG soubory se vyskytují v různých obálkách:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  MPG: Toto je <span class="bold"><strong>nejjednodušší</strong></span> forma souborových
+  formátů MPEG. Obsahuje MPEG-1 video a MP2 (MPEG-1 layer 2) nebo méně často
+  MP1 audio.
+</p></li><li><p>
+  DAT: Toto je naprosto stejný formát jako MPG, jen s jinou příponou. Používá se
+  na <span class="bold"><strong>Video CD</strong></span>. Díky způsobu, jak jsou VCD
+  vytvářeny a Linux navržen, nemohou být DAT soubory přehrávány nebo kopírovány
+  z VCD jako běžné soubory. Musíte použít <tt class="option">vcd://</tt>
+  pro přehrávání Video CD.
+</p></li><li><p>
+  VOB: Toto je souborový formát MPEG na <span class="bold"><strong>DVD</strong></span>.
+  Je stejný jako MPG, plus schopnost obsahovat titulky nebo ne-MPEG
+  (AC3) audio. Obsahuje video enkódované do MPEG-2 a obvykle AC3 audio, ale DTS,
+  MP2 a nekomprimovaný LPCM jsou rovněž povoleny. <span class="bold"><strong>Přečtěte
+  si <a href="dvd.html" title="4.2. Přehrávání DVD">DVD</a> sekci</strong></span>!
+</p></li><li><p>
+  TY: Toto je TiVo MPEG datový proud. Obsahuje MPEG PES data pro audio a
+  video datové proudy, spolu s dodatečnými informacemi jako closed captions.
+  Kontejner není produktem MPEG programu, ale je to uzavřený formát vytvořený
+  firmou TiVo. Více informací o TiVo proudovém formátu naleznete na
+  <a href="http://dvd-create.sourceforge.net/tystudio/tystream.shtml" target="_top">
+  stránkách TyStudia</a>.
+</p></li></ul></div><p>
+Série snímků tvoří nezávislé skupiny v MPEG souborech. To znamená, že můžete
+MPEG soubory stříhat/spojovat pomocí standardních souborových nástrojů (jako je
+<span><strong class="command">dd</strong></span>, <span><strong class="command">cut</strong></span>) a soubor zůstává naprosto
+funkční.
+</p><p>
+Důležitou vlastností MPG je pole obsahující poměr stran obsaženého videa.
+Například SVCD mají rozlišení videa 480x480 a v hlavičce mají nastaven poměr
+stran na 4:3, takže jsou přehrávány na 640x480.
+AVI soubory toto pole neobsahují, takže musí být přeškálovány během enkódování,
+nebo přehrávány s volbou <tt class="option">-aspect</tt>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="avi"></a>6.1.2. AVI soubory</h3></div></div></div><p>
+Navrženy Microsoftem, 
+<span class="bold"><strong>AVI (Audio Video Interleaved)</strong></span>
+je rozšířený víceúčelový formát. V současnosti je většinou používaný pro MPEG-4
+(DivX a DivX4) video.
+Má mnoho známých nedostatků a nedokonalostí (například ve streamování).
+Podporuje jeden video datový proud a 0 až 99 audio proudů a může být veliký až
+2GB, avšak existuje rozšíření umožňující větší soubory nazývané
+<span class="bold"><strong>OpenDML</strong></span>. V současnosti Microsoft velmi odrazuje
+od jeho používání a podporuje ASF/WMV. Ne že by to někoho zajímalo.
+</p><p>
+Existuje hack, který umožňuje vkládat do AVI souborů Ogg Vorbis audio proudy,
+ale činí je nekompatibilní se standardním AVI.
+<span class="application">MPlayer</span> podporuje přehrávání těchto souborů.
+Převíjení je rovněž implementováno, ale často znemožňováno špatně enkódovanými
+soubory se zmatenými hlavičkami. Naneštěstí jediný enkodér schopný vytvořit tyto
+soubory, <span class="application">NanDub</span>, má tento problém.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Poznámka</h3><p>
+DV kamery vytváří surové DV datové proudy, které jsou konvertovány DV
+grabovacími utilitami do dvou odlišných AVI souborů. AVI pak obsahuje buď
+oddělené video a audio proudy které <span class="application">MPlayer</span> umí
+přehrávat, nebo surový DV proud, jehož podpora je ve vývoji.
+</p></div><p>
+Známe dva druhy AVI souborů:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><strong>Prokládaný:</strong></span> Audio a video obsah je
+  proložený. Toto je obvyklé použití. Doporučené a většinou používané. Některé
+  nástroje vytvářejí AVI se špatnou synchronizací.
+  <span class="application">MPlayer</span> detekuje tyto soubory jako prokládané a to
+  vyvrcholí ztrátou A/V synchronizace, pravděpodobně při přetáčení.
+  Tyto soubory by měly být přehrávány jako neprokládané
+  (s volbou <tt class="option">-ni</tt>).
+</p></li><li><p>
+  <span class="bold"><strong>Neprokládané:</strong></span> Nejprve jde celý video proud,
+  pak celý audio proud. To vyžaduje mnoho hledání, což činí přehrávání ze sítě
+  nebo CD-ROM obtížným.
+</p></li></ul></div><p>
+</p><p>
+<span class="application">MPlayer</span> podporuje dva druhy časování pro AVI soubory:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><strong>založený na bps:</strong></span> Vychází z bitové/vzorkové
+  rychlosti video/audio proudu. Tuto metodu používá většina přehrávačů,
+  včetně <a href="http://avifile.sf.net" target="_top">avifile</a>
+  a <span class="application">Windows Media Player</span>u. Soubory s poškozenými
+  hlavičkami a soubory obsahující VBR audio nevytvořené VBR slučitelným
+  enkodérem vyústí v rozejití zvuku a videa při použití této metody
+  (zpravidla při převíjení).
+</p></li><li><p>
+  <span class="bold"><strong>založený na prokládání:</strong></span> Nepoužívá hodnotu
+  bitové rychlosti z hlavičky, místo toho využívá relativní pozici prokládaných
+  audio a video chunků, což umožňuje přehrávat špatně enkódované soubory s VBR
+  zvukem.
+</p></li></ul></div><p>
+</p><p>
+Jakýkoli audio a video kodek je povolen, ale berte na vědomí, že VBR audio není
+většinou přehrávačů dobře podporován. Formát souboru umožňuje použití VBR audia,
+ale většina přehrávačů očekává CBR zvuk, takže selžou s VBR. VBR je neobvyklé a
+Microsoftí AVI specifikace popisuje pouze CBR audio. Rovněž jsme si všimli, že
+většina AVI enkodérů/multiplexerů vytváří vadné soubory, když je použito VBR
+audio. Existují pouze dvě známé výjimky: <span class="application">NanDub</span> a
+<a href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><span class="application">MEncoder</span></a>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="asf-wmv"></a>6.1.3. ASF/WMV soubory</h3></div></div></div><p>
+ASF (Active Streaming Format) pochází z dílny Microsoftu. Tam vytvořili dvě
+varianty ASF, v1.0 a v2.0. v1.0 je používána jejich mediálními nástroji
+(<span class="application">Windows Media Player</span>em a
+<span class="application">Windows Media Encoder</span>em)
+a je přísně tajný. v2.0 je publikován a patentován :). Samozřejmě se od sebe
+liší a nejsou vůbec kompatibilní (je to jen další právnická hra).
+<span class="application">MPlayer</span> podporuje pouze v1.0, protože nikdo nikdy
+neviděl v2.0 soubory :). Poznamenejme že ASF soubory se v těchto dnech vyskytují
+s příponou <tt class="filename">.WMA</tt> nebo <tt class="filename">.WMV</tt>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="mov"></a>6.1.4. QuickTime/MOV soubory</h3></div></div></div><p>
+Tyto formáty byly vytvořeny v Apple a mohou obsahovat jakýkoli kodek, CBR nebo
+VBR. Obvykle mají příponu <tt class="filename">.QT</tt> nebo
+<tt class="filename">.MOV</tt>. Poznamenejme, že vzhledem k tomu, že si skupina
+MPEG-4 vybrala QuickTime jako doporučený formát souboru pro MPEG-4,
+jejich MOV soubory mají příponu <tt class="filename">.MPG</tt> nebo
+<tt class="filename">.MP4</tt> (Zajímavé je, že video a audio proudy v těchto
+souborech jsou skutečné MPG a AAC soubory. Dokonce je můžete extrahovat pomocí
+voleb <tt class="option">-dumpvideo</tt> a <tt class="option">-dumpaudio</tt>.).
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="vivo"></a>6.1.5. VIVO soubory</h3></div></div></div><p>
+<span class="application">MPlayer</span> šťastně demuxuje souborový formát VIVO.
+Největší nevýhoda tohoto formátu je, že nemá indexový blok ani pevnou délku
+paketu nebo synchronizační bity a mnoha souborům schází dokonce i klíčové
+snímky, takže zapomeňte na převíjení!
+</p><p>
+Video kodekem VIVO/1.0 souborů je standardní
+<span class="bold"><strong>h.263</strong></span>.
+Video kodekem VIVO/2.0 souborů je upravený, nestandardní
+<span class="bold"><strong>h.263v2</strong></span>. Zvuk mají stejný, může to být
+<span class="bold"><strong>g.723 (standard)</strong></span> nebo
+<span class="bold"><strong>Vivo Siren</strong></span>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="fli"></a>6.1.6. FLI soubory</h3></div></div></div><p>
+<span class="bold"><strong>FLI</strong></span> je velmi starý souborový formát používaný
+Autodesk Animatorem, ale je běžným formátem pro krátké animace na netu.
+<span class="application">MPlayer</span> demuxuje a dekóduje FLI filmy a je dokonce
+schopen v nich převíjet (použitelné při přeskakování s volbou
+<tt class="option">-loop</tt>). FLI soubory neobsahují klíčové snímky, takže bude obraz
+ještě chvíli po převíjení roztříštěný.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="realmedia"></a>6.1.7. RealMedia (RM) soubory</h3></div></div></div><p>
+Ano, <span class="application">MPlayer</span> umí číst (demux) RealMedia
+(<tt class="filename">.rm</tt>) soubory.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="nuppelvideo"></a>6.1.8. NuppelVideo soubory</h3></div></div></div><p>
+NuppelVideo
+je nástroj pro zachytávání TV (AFAIK:). <span class="application">MPlayer</span> umí
+číst tyto <tt class="filename">.NUV</tt> soubory (pouze NuppelVideo 5.0). Tyto
+soubory mohou obsahovat nekomprimované YV12, YV12+RTJpeg komprimované,
+YV12 RTJpeg+lzo komprimované a YV12+lzo komprimované snímky.
+<span class="application">MPlayer</span> je dekóduje (a také je všechny
+<span class="bold"><strong>enkóduje</strong></span>
+<span class="application">MEncoder</span>em do MPEG-4 (DivX)/atd.!).
+Převíjení funguje.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="yuv4mpeg"></a>6.1.9. yuv4mpeg soubory</h3></div></div></div><p>
+<a href="http://mjpeg.sf.net" target="_top">yuv4mpeg / yuv4mpeg2</a>
+je souborový formát používaný
+<a href="http://mjpeg.sf.net" target="_top">mjpegtools programy</a>.
+Můžete zachytávat, vytvářet, filtrovat nebo enkódovat video v tomto formátu
+pomocí těchto nástrojů. Formát souboru je ve skutečnosti sekvence
+nekomprimovaných YUV 4:2:0 obrázků.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="film"></a>6.1.10. FILM soubory</h3></div></div></div><p>
+Tento formát používaly staré CD-ROM hry pro Sega Saturn.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="roq"></a>6.1.11. RoQ soubory</h3></div></div></div><p>
+RoQ soubory jsou multimediální soubory používané v některých hrách od ID, jako
+Quake III a Return to Castle Wolfenstein.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="ogg"></a>6.1.12. OGG/OGM soubory</h3></div></div></div><p>
+Toto je nový souborový formát od
+<a href="http://www.xiph.org" target="_top">Xiphophorus</a>.
+Může obsahovat jakýkoli video nebo audio kodek, CBR nebo VBR. Budete potřebovat
+<code class="systemitem">libogg</code> a
+<code class="systemitem">libvorbis</code> nainstalovány před kompilací
+<span class="application">MPlayer</span>u, aby byl schopen je přehrávat.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="sdp"></a>6.1.13. SDP soubory</h3></div></div></div><p>
+<a href="ftp://ftp.rfc-editor.org/in-notes/rfc2327.txt" target="_top">SDP</a> je
+IETF standardní formát pro popis video a/nebo audio RTP datových proudů.
+(Vyžaduje
+"<a href="http://www.live555.com/mplayer/" target="_top">LIVE555 Streaming Media</a>".)
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="pva"></a>6.1.14. PVA soubory</h3></div></div></div><p>
+PVA je formát podobný MPEG, používaný softwarem pro DVB TV desky (např.:
+<span class="application">MultiDec</span>,
+<span class="application">WinTV</span> pod Windows).
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="nsv"></a>6.1.15. NSV soubory</h3></div></div></div><p>
+NSV (NullSoft Video) je souborový formát používaný přehrávačem
+<span class="application">Winamp</span> pro streamování audia a videa.
+Video je VP3, VP5 nebo VP6, audio je MP3, AAC nebo VLB.
+Jen zvuková verze NSV užívá příponu <tt class="filename">.nsa</tt>.
+<span class="application">MPlayer</span> umí přehrávat jak NSV datové proudy, tak
+soubory. Poznamenejme, že většina souborů ze
+<a href="http://www.winamp.com" target="_top">stránek Winampu</a> používá VLB audio,
+které zatím nelze dekódovat. Mimo to proudy z tohoto serveru vyžadují další
+depaketovací vrstvu, která ještě musí být implementována (stejně jsou ty soubory
+nepřehratelné, protože mají VLB audio).
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="matroska"></a>6.1.16. Soubory Matroska</h3></div></div></div><p>
+Matroska je otevřený nosný (container) formát.
+Více se dozvíte na <a href="http://www.matroska.org/" target="_top">oficiálním serveru</a>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="nut"></a>6.1.17. Soubory NUT</h3></div></div></div><p>
+NUT je nosný formát vyvíjený týmy <span class="application">MPlayer</span> a
+<span class="application">FFmpeg</span>. Oba projekty jej podporují.
+Více se dozvíte na <a href="http://www.nut.hu/" target="_top">oficiálním serveru</a>.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="gif"></a>6.1.18. GIF soubory</h3></div></div></div><p>
+Formát <span class="bold"><strong>GIF</strong></span> je obecný formát pro webovou
+grafiku. Existují dvě verze GIF specifikace, GIF87a a GIF89a. Hlavní rozdíl
+je, že GIF89a umožňuje animaci. <span class="application">MPlayer</span> podporuje
+oba formáty pomocí <code class="systemitem">libungif</code> nebo
+jiné libgif-kompatibilní knihovny. Neanimované GIFy budou zobrazeny jako
+jednoobrázková videa. (Použijte volby <tt class="option">-loop</tt> a
+<tt class="option">-fixed-vo</tt> pro delší zobrazení.)
+</p><p>
+<span class="application">MPlayer</span> v současnosti nepodporuje převíjení v GIF
+souborech. GIF soubory nemusí mít nutně pevnou velikost rámce, anebo pevnou
+snímkovou rychlost. Spíše má každý snímek nezávislou velikost a předpokládá se
+jeho umístění do určitého místa v poli pevné velikosti. Snímková rychlost je
+ovládána volitelným blokem před každým snímkem, který udává zpoždění dalšího
+snímku v setinách sekundy.
+</p><p>
+Standardní GIF soubory obsahují 24-bitové RGB snímky s maximálně 8-bitovou
+indexovanou paletou. Snímky jsou obvykle komprimovány algoritmem LZW, ačkoli
+některé GIF enkodéry produkují nekomprimované snímky, aby se vyhnuly
+patentovým problémům s LZW kompresí.
+</p><p>
+Pokud vaše distribuce neobsahuje <code class="systemitem">libungif</code>,
+stáhněte si ji z
+<a href="http://sourceforge.net/projects/libungif" target="_top">domácí stránky libungif
+</a>. Podrobné technické informace naleznete v
+<a href="http://www.w3.org/Graphics/GIF/spec-gif89a.txt" target="_top">GIF89a specifikaci</a>.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="containers.html">Předcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="containers.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="audio-formats.html">Další</a></td></tr><tr><td width="40%" align="left" valign="top">Kapitola 6. Nosné formáty (Containers) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Domů</a></td><td width="40%" align="right" valign="top"> 6.2. Audio formáty</td></tr></table></div></body></html>

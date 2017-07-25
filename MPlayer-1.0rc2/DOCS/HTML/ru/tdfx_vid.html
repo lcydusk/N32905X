@@ -1,0 +1,28 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>10.9. tdfx_vid</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="video.html" title="Глава 10. Устройства вывода видео"><link rel="prev" href="tdfxfb.html" title="10.8. Поддержка 3Dfx YUV"><link rel="next" href="opengl.html" title="10.10. OpenGL вывод"><link rel="preface" href="howtoread.html" title="Как читать эту документацию"><link rel="chapter" href="intro.html" title="Глава 1. Введение"><link rel="chapter" href="install.html" title="Глава 2. Установка"><link rel="chapter" href="usage.html" title="Глава 3. Использование"><link rel="chapter" href="cd-dvd.html" title="Глава 4. Использование CD/DVD"><link rel="chapter" href="faq.html" title="Глава 5. Часто Задаваемые вопросы"><link rel="chapter" href="containers.html" title="Глава 6. Поддерживаемые форматы"><link rel="chapter" href="codecs.html" title="Глава 7. Поддерживаемые кодеки"><link rel="chapter" href="tv.html" title="Глава 8. TV"><link rel="chapter" href="radio.html" title="Глава 9. Радио"><link rel="chapter" href="video.html" title="Глава 10. Устройства вывода видео"><link rel="chapter" href="audio.html" title="Глава 11. Устройства вывода звука"><link rel="chapter" href="ports.html" title="Глава 12. Портинг"><link rel="chapter" href="mencoder.html" title="Глава 13. Основы использования MEncoder"><link rel="chapter" href="encoding-guide.html" title="Глава 14. Кодирование с MEncoder"><link rel="appendix" href="bugreports.html" title="Приложение A. Как сообщать об ошибках"><link rel="appendix" href="bugs.html" title="Приложение B. Известные проблемы"><link rel="appendix" href="skin.html" title="Приложение C. Формат скинов MPlayer"><link rel="appendix" href="history.html" title="Приложение D. История"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10.9. tdfx_vid</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tdfxfb.html">Пред.</a> </td><th width="60%" align="center">Глава 10. Устройства вывода видео</th><td width="20%" align="right"> <a accesskey="n" href="opengl.html">След.</a></td></tr></table><hr></div><div class="sect1" lang="ru"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tdfx_vid"></a>10.9. tdfx_vid</h2></div></div></div><p>
+Это комбинация модуля Linux ядра и драйвера вывода видео, аналогичный 
+<a href="mga_vid.html" title="10.7. Matrox фреймбуфер (mga_vid)">mga_vid</a>.
+Вам потребуется 2.4.x ядро с драйвером <code class="systemitem">agpgart</code>,
+поскольку <code class="systemitem">tdfx_vid</code> использует AGP.
+Укажите <span><strong class="command">configure</strong></span> опцию <tt class="option">--enable-tdfxfb</tt>
+для сборки драйвера вывода видео и соберите модуль ядра, как указано далее.
+</p><div class="procedure"><a name="id2575418"></a><p class="title"><b>Установка tdfx_vid.o модуля ядра:</b></p><ol type="1"><li><p>
+  Скомпилируйте <tt class="filename">tdfx_vid.o</tt>
+  </p><pre class="screen">
+cd drivers
+make</pre><p>
+</p></li><li><p>
+  Запустите (от <code class="systemitem">root</code>):
+  </p><pre class="screen">make install</pre><p>
+  что должно установить модуль и создать для Вас файл устройства.
+  Загрузите драйвер:
+  </p><pre class="screen">insmod tdfx_vid.o</pre><p>
+</p></li><li><p>
+  Чтобы сделать его загружающимся/выгружающимся автоматически, сначала вставьте
+  следующую строку в конец <tt class="filename">/etc/modules.conf</tt>:
+
+  </p><pre class="programlisting">alias char-major-178 tdfx_vid</pre><p>
+</p></li></ol></div><p>
+В том же каталоге есть тестовая программа, называющаяся
+<span><strong class="command">tdfx_vid_test</strong></span>. Она должна вывести некоторую полезную
+информацию, если все работает нормально.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tdfxfb.html">Пред.</a> </td><td width="20%" align="center"><a accesskey="u" href="video.html">Уровень выше</a></td><td width="40%" align="right"> <a accesskey="n" href="opengl.html">След.</a></td></tr><tr><td width="40%" align="left" valign="top">10.8. Поддержка 3Dfx YUV </td><td width="20%" align="center"><a accesskey="h" href="index.html">Начало</a></td><td width="40%" align="right" valign="top"> 10.10. OpenGL вывод</td></tr></table></div></body></html>

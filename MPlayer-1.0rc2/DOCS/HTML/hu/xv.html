@@ -1,0 +1,160 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>8.2. Xv</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - The Movie Player"><link rel="up" href="video.html" title="8. fejezet - Videó kimeneti eszközök"><link rel="prev" href="mtrr.html" title="8.1. Az MTRR beállítása"><link rel="next" href="dga.html" title="8.3. DGA"><link rel="preface" href="howtoread.html" title="Hogyan olvasd ezt a dokumentációt"><link rel="chapter" href="intro.html" title="1. fejezet - Bevezetés"><link rel="chapter" href="install.html" title="2. fejezet - Telepítés"><link rel="chapter" href="usage.html" title="3. fejezet - Használat"><link rel="chapter" href="cd-dvd.html" title="4. fejezet - CD/DVD használat"><link rel="chapter" href="faq.html" title="5. fejezet - Gyakran ismételt kérdések"><link rel="chapter" href="containers.html" title="6. fejezet - Konténerek"><link rel="chapter" href="codecs.html" title="7. fejezet - Codec-ek"><link rel="chapter" href="video.html" title="8. fejezet - Videó kimeneti eszközök"><link rel="chapter" href="audio.html" title="9. fejezet - Audió kimeneti eszközök"><link rel="chapter" href="tv.html" title="10. fejezet - TV"><link rel="chapter" href="radio.html" title="11. fejezet - Rádió"><link rel="chapter" href="ports.html" title="12. fejezet - Portok"><link rel="chapter" href="mencoder.html" title="13. fejezet - A MEncoder használatának alapjai"><link rel="chapter" href="encoding-guide.html" title="14. fejezet - Kódolás a MEncoderrel"><link rel="appendix" href="bugreports.html" title="A. függelék - Hogyan jelentsd a hibákat"><link rel="appendix" href="bugs.html" title="B. függelék - Ismert hibák"><link rel="appendix" href="skin.html" title="C. függelék - MPlayer skin formátum"><link rel="appendix" href="history.html" title="D. függelék - Történelem"><link rel="subsection" href="xv.html#tdfx" title="8.2.1. 3dfx kártyák"><link rel="subsection" href="xv.html#s3" title="8.2.2. S3 kártyák"><link rel="subsection" href="xv.html#nvidia" title="8.2.3. nVidia kártyák"><link rel="subsection" href="xv.html#ati" title="8.2.4. ATI kártyák"><link rel="subsection" href="xv.html#neomagic" title="8.2.5. NeoMagic kártyák"><link rel="subsection" href="xv.html#trident" title="8.2.6. Trident kártyák"><link rel="subsection" href="xv.html#kyro" title="8.2.7. Kyro/PowerVR kártyák"><link rel="subsection" href="xv.html#intel" title="8.2.8. Intel kártyák"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.2. Xv</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="mtrr.html">Előző</a> </td><th width="60%" align="center">8. fejezet - Videó kimeneti eszközök</th><td width="20%" align="right"> <a accesskey="n" href="dga.html">Következő</a></td></tr></table><hr></div><div class="sect1" lang="hu"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xv"></a>8.2. Xv</h2></div></div></div><p>
+XFree86 4.0.2 vagy újabb alatt használhatod a kártyád YUV rutinjait
+az XVideo kiterjesztés használatával. Ez az, amit a <tt class="option">-vo xv</tt>
+kapcsoló használ. Ez a vezérlő támogatja a
+fényerősség/kontraszt/árnyalat/stb. állítását (hacsak nem a régi, lassú
+DirectShow DivX codec-et használod, ami mindenhol támogatja), lásd a man oldalt.
+</p><p>
+A beüzemeléséhez ellenőrizd a következőket:
+
+</p><div class="orderedlist"><ol type="1"><li><p>
+  XFree86 4.0.2 vagy újabbat kell használnod (korábbi verziókban nincs XVideo)
+</p></li><li><p>
+  A kártyádnak támogatnia kell a hardveres gyorsítást (a modern kártyák tudják)
+</p></li><li><p>
+  Az X-nek írnia kell az XVideo kiegészítés betöltését valahogy így:
+  </p><pre class="programlisting">(II) Loading extension XVideo</pre><p>
+  a <tt class="filename">/var/log/XFree86.0.log</tt> fájlban.
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Megjegyzés</h3><p>
+   Ez csak az XFree86 kiegészítését tölti be. Egy jó telepítésben ez
+   mindig betöltődik, de ez nem jelenti azt, hogy a
+   <span class="bold"><strong>kártya</strong></span> XVideo támogatása is be van töltve!
+  </p></div><p>
+</p></li><li><p>
+  A kártyádnak van Xv támogatása Linux alatt. Ennek az ellenőrzéséhez add ki az
+  <span><strong class="command">xvinfo</strong></span> parancsot, ez része az XFree86 disztribúciónak. Egy
+  hosszú szöveget kell kiírnia, valami ilyesmit:
+  </p><pre class="screen">
+X-Video Extension version 2.2
+screen #0
+  Adaptor #0: "Savage Streams Engine"
+    number of ports: 1
+    port base: 43
+    operations supported: PutImage
+    supported visuals:
+      depth 16, visualID 0x22
+      depth 16, visualID 0x23
+    number of attributes: 5
+(...)
+    Number of image formats: 7
+      id: 0x32595559 (YUY2)
+        guid: 59555932-0000-0010-8000-00aa00389b71
+        bits per pixel: 16
+        number of planes: 1
+        type: YUV (packed)
+      id: 0x32315659 (YV12)
+        guid: 59563132-0000-0010-8000-00aa00389b71
+        bits per pixel: 12
+        number of planes: 3
+        type: YUV (planar)
+(...stb...)</pre><p>
+  Támogatnia kell a tömörített YUY2 és a YV12 planar pixel formátumokat, hogy az
+  <span class="application">MPlayer</span> használni tudja.
+</p></li><li><p>
+  És végül, nézd meg, hogy az <span class="application">MPlayer</span> 'xv' támogatással
+  lett-e fordítva. Írd be ezt: <span><strong class="command">mplayer -vo help | grep xv </strong></span>.
+  Ha az 'xv' támogatás be van építve, egy ehhez hasonló sornak szerepelnie kell:
+  </p><pre class="screen">  xv      X11/Xv</pre><p>
+</p></li></ol></div><p>
+</p><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="tdfx"></a>8.2.1. 3dfx kártyák</h3></div></div></div><p>
+A régebbi 3dfx vezérlőknek tudvalevőleg problémáik vannak az XVideo gyorsítással,
+nem támogatják a YUY2 és YV12 színtereket. Nézd meg, hogy 4.2.0 vagy
+újabb XFree86-tal rendelkezel-e, ez jól kezeli a YV12-őt és a YUY2-őt, míg a
+korábbi verziók beleértve a 4.1.0-t is, <span class="bold"><strong>összeomlanak az YV12-vel</strong></span>.
+Ha különös effekteket tapasztalsz a <tt class="option">-vo xv</tt> használatakor,
+próbáld ki az SDL-t (ebben is van XVideo) és nézd meg, hogy ez segít-e. Lásd az
+<a href="sdl.html" title="8.4. SDL">SDL</a> fejezetet a részletekért.
+</p><p>
+<span class="bold"><strong>VAGY</strong></span>, próbáld ki az ÚJ
+<tt class="option">-vo tdfxfb</tt> vezérlőt! Lásd a <a href="tdfxfb.html" title="8.8. 3Dfx YUV támogatás">tdfxfb</a>
+részt.
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="s3"></a>8.2.2. S3 kártyák</h3></div></div></div><p>
+Az S3 Savage3D nem működik megfelelően, de a Savage4 igen 4.0.3 vagy újabb XFree86
+használata mellett (képhibák esetén próbáld 16bpp-vel). Ami az S3 Virge-eket illeti:
+van xv támogatás, de maga a kártya túl lassú, így jobb, ha eladod.
+</p><p>
+Már van natív framebuffer vezérlő az S3 Virge kártyákhoz, hasonlóan a tdfxfb-hez.
+Állítsd be a framebuffer-ed (pl. add hozzá a
+"<tt class="option">vga=792 video=vesa:mtrr</tt>" opciót a kernel parancssorához) és használd
+a <tt class="option">-vo s3fb</tt> opciót (<tt class="option">-vf yuy2</tt> és <tt class="option">-dr</tt>
+szintén segíthet).
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Megjegyzés</h3><p>
+Jelenleg nem tisztázott, hogy mely Savage modellekből hiányzik a YV12 támogatás, és
+konvertál a vezérlő (lassú). Ha a kártyára gyanakodsz, szerezz be egy újabb vezérlőt,
+vagy udvariasan kérj az MPlayer-users levelezési listán egy MMX/3DNow! támogatású vezérlőt.
+</p></div></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="nvidia"></a>8.2.3. nVidia kártyák</h3></div></div></div><p>
+Az nVidia nem mindig a legjobb választás Linux alatt... Az XFree86
+nyílt forráskódú vezérlője támogatja a legtöbb kártyát, de a legtöbb esetben a
+bináris, zárt forrású nVidia vezérlőt kell használnod, ami elérhető
+az <a href="http://www.nvidia.com/object/linux.html" target="_top">nVidia weboldalán</a>.
+Erre a vezérlőre mindenképpen szükséged lesz, ha 3D gyorsítást akarsz.
+</p><p>
+A Riva128 kártyákkal nincs XVideo támogatás az XFree86 nVidia vezérlőjével :(
+Panaszkodj az nVidia-nak.
+</p><p>
+Habár az <span class="application">MPlayer</span> a legtöbb nVidia kártyához
+rendelkezik <a href="vidix.html" title="8.15. VIDIX">VIDIX</a> vezérlővel. Jelenleg még
+béta állapotú, és van pár bökkenője. További információkért lásd az
+<a href="vidix.html#vidix-nvidia" title="8.15.5. nVidia kártya">nVidia VIDIX</a> részt.
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="ati"></a>8.2.4. ATI kártyák</h3></div></div></div><p>
+A <a href="http://gatos.sf.net" target="_top">GATOS vezérlő</a> (amit
+használnod illene, hacsak nem Rage128 vagy Radeon kártyád van) alapértelmezésként
+engedélyezi a VSYNC-et. Ez azt jelenti, hogy a dekódolási sebesség (!) a
+monitor frissítési rátájához van szinkronizálva. Ha a lejátszás lassúnak
+tűnik, próbáld meg valahogy kikapcsolni a VSYNC-et vagy állítsd be a
+frissítést n*(film fps értéke) Hz-re.
+</p><p>
+A Radeon VE - ha X kell, használj XFree 4.2.0-t vagy újabbat ehhez a kártyához.
+Nincs TV kimenet támogatás. Természetesen az <span class="application">MPlayer</span>rel
+simán is <span class="bold"><strong>gyorsított</strong></span> megjelenítést kapsz,
+<span class="bold"><strong>TV kimenettel</strong></span> vagy anélkül, és így sem
+függvénykönyvtárra sem X-re nincs szükség.
+Olvasd el a <a href="vidix.html" title="8.15. VIDIX">VIDIX</a> részt.
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="neomagic"></a>8.2.5. NeoMagic kártyák</h3></div></div></div><p>
+Ilyen kártyák általában laptopokban találhatóak. XFree86 4.3.0 vagy
+újabbat kell használnod, vagy Stefan Seyfried
+<a href="http://www.mplayerhq.hu/MPlayer/contrib/NeoMagic-driver/" target="_top">Xv-t támogató vezérlőjét</a>.
+Csak válaszd ki az te XFree86-odhoz illő verziót.
+</p><p>
+Az XFree86 4.3.0-ban van Xv támogatás, Bohdan Horst pedig küldött egy kis
+<a href="http://www.mplayerhq.hu/MPlayer/contrib/NeoMagic-driver/neo_driver.patch" target="_top">javítást</a>
+az XFree86 forrásához, ami a framebuffer műveleteket felgyorsítja (XVideo-t
+is) akár négyszeresére is. A javítás belekerült az XFree86 CVS-ébe és a
+4.3.0 utáni következő kiadásban is benne lesz.
+</p><p>
+A DVD méretű tartalmak lejátszásához az XF86Config-odat módosítanod kell:
+</p><pre class="programlisting">
+Section "Device"
+    [...]
+    Driver "neomagic"
+    <span class="emphasis"><em>Option "OverlayMem" "829440"</em></span>
+    [...]
+EndSection</pre><p>
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="trident"></a>8.2.6. Trident kártyák</h3></div></div></div><p>
+Ha az Xv-t Trident kártyával akarod használni, feltéve hogy nem megy 4.1.0-val,
+telepítsd fel az XFree 4.2.0-t. A 4.2.0-ban teljes képernyős Xv támogatás van
+a Cyberblade XP kártyával.
+</p><p>
+Alternatívaként az <span class="application">MPlayer</span> is tartalmaz egy
+<a href="vidix.html" title="8.15. VIDIX">VIDIX</a> vezérlőt a Cyberblade/i1 kártyához.
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="kyro"></a>8.2.7. Kyro/PowerVR kártyák</h3></div></div></div><p>
+Ha az Xv-t Kyro alapú kártyával akarod használni (például Hercules
+Prophet 4000XT-vel), akkor le kell töltened a vezérlőt a
+<a href="http://www.powervr.com/" target="_top">PowerVR oldaláról</a>.
+</p></div><div class="sect2" lang="hu"><div class="titlepage"><div><div><h3 class="title"><a name="intel"></a>8.2.8. Intel kártyák</h3></div></div></div><p>
+Ez a kártya sok laptopban megtalálható. A legújabb Xorg javasolt hozzá.
+</p><p>
+A DVD méretű (és nagyobb) tartalom lejátszásának engedélyezéséhez módosítanod
+kell az XF86Config/xorg.conf fájlodat így:
+</p><pre class="programlisting">
+Section "Device"
+    [...]
+    Driver "intel"
+    <span class="emphasis"><em>Option "LinearAlloc" "6144"</em></span>
+    [...]
+EndSection
+</pre><p>
+Ezen opció hiánya általában egy ehhez hasonló hibát eredményez:
+</p><pre class="screen">X11 error: BadAlloc (insufficient resources for operation)</pre><p>
+when attempting to use <tt class="option">-vo xv</tt>.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="mtrr.html">Előző</a> </td><td width="20%" align="center"><a accesskey="u" href="video.html">Fel</a></td><td width="40%" align="right"> <a accesskey="n" href="dga.html">Következő</a></td></tr><tr><td width="40%" align="left" valign="top">8.1. Az MTRR beállítása </td><td width="20%" align="center"><a accesskey="h" href="index.html">Tartalom</a></td><td width="40%" align="right" valign="top"> 8.3. DGA</td></tr></table></div></body></html>

@@ -1,0 +1,105 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Appendice D. Storia</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="up" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="prev" href="skin-quality.html" title="C.5. Creating quality skins"><link rel="preface" href="howtoread.html" title="Come leggere questa documentazione"><link rel="chapter" href="intro.html" title="Capitolo 1. Introduzione"><link rel="chapter" href="install.html" title="Capitolo 2. Installazione"><link rel="chapter" href="usage.html" title="Capitolo 3. Utilizzo"><link rel="chapter" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="chapter" href="faq.html" title="Capitolo 5. Frequently Asked Questions"><link rel="chapter" href="containers.html" title="Capitolo 6. Contenitori"><link rel="chapter" href="codecs.html" title="Capitolo 7. Codec"><link rel="chapter" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="chapter" href="audio.html" title="Capitolo 9. Dispositivi di uscita audio"><link rel="chapter" href="tv.html" title="Capitolo 10. TV"><link rel="chapter" href="radio.html" title="Capitolo 11. Radio"><link rel="chapter" href="ports.html" title="Capitolo 12. Ports"><link rel="chapter" href="mencoder.html" title="Capitolo 13. Utilizzo base di MEncoder"><link rel="chapter" href="encoding-guide.html" title="Capitolo 14. Encoding with MEncoder"><link rel="appendix" href="bugreports.html" title="Appendice A. Come segnalare i bug (errori)"><link rel="appendix" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="appendix" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="appendix" href="history.html" title="Appendice D. Storia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Appendice D. Storia</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-quality.html">Indietro</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> </td></tr></table><hr></div><div class="appendix" lang="it"><div class="titlepage"><div><div><h2 class="title"><a name="history"></a>Appendice D. Storia</h2></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+E' inziato un anno fa... Avevo provato molto riproduttori sotto Linux
+(<span class="application">mtv</span>, <span class="application">xmps</span>,
+<span class="application">dvdview</span>, <span class="application">livid/oms</span>,
+<span class="application">videolan</span>, <span class="application">xine</span>,
+<span class="application">xanim</span>, <span class="application">avifile</span>,
+<span class="application">xmmp</span>), ma tutti avevano qualche problema. Soprattutto
+con file particolari o con la sincronia audio/video. Molti di essi non erano in
+grado di riprodurre file sia MPEG-1, che MPEG-2 o AVI (DivX). Molti lettori
+avevano inoltre una brutta qualità dell'immagine o problemi di velocità.
+Perciò ho deciso di scriverne/modificarne uno...
+</p></blockquote></div><p>A'rpi, 2001</p><div class="itemizedlist"><ul type="disc"><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.1-v0.3</strong></span>: Sep 22-25, 2000
+</p><p>
+Il primo tentativo, messo insieme in mezz'ora! Avevo usato libmpeg3 da
+<a href="http://www.heroinewarrior.com" target="_top">http://www.heroinewarrior.com</a> fino alla versione 0.3, ma con
+esso c'erano problemi di qualità dell'immagine e di velocità.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.5-v0.87</strong></span>: Sep 28-Oct 20, 2000
+</p><p>
+Rimpiazzato il codec MPEG con DVDview di Dirk Farin, era un buon codice, ma era
+lento ed era scritto in C++ (A'rpi odia il C++!!!)
+</p></li><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.9-v0.95pre5</strong></span>: Oct 21-Nov 2, 2000
+</p><p>
+Il codec MPEG era libmpeg2 (mpeg2dec) di Aaron Holtzman e Michel Lespinasse.
+E' grande, codice C ottimizzato molto veloce, con qualità dell'immagine
+perfetta e compatibilità al 100% con lo standard MPEG.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.3-v0.9</strong></span>: Nov 18-Dec 4, 2000
+</p><p>
+Era un insieme di due programmi: mpg12play v0.95pre6 e il mio nuovo semplice
+riproduttore AVI, 'avip', basato sull'interprete di avifile delle DLL di Win32.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.10</strong></span>: Jan 1, 2001
+</p><p>
+I riproduttori MPEG ed AVI in un singolo eseguibile!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> serie v0.11pre</strong></span>:
+</p><p>
+Si sono aggiunti alcuni nuovi sviluppatori e dalla 0.11 il progetto di
+<span class="application">MPlayer</span> è un lavoro di gruppo! Aggiunte la
+de/codifica dei formati ASF e OpenDivX
+(vedi <a href="http://www.projectmayo.com" target="_top">http://www.projectmayo.com</a>).
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.17a "The IdegCounter" ("Il misuratore di Ideg")</strong></span>: Apr 27, 2001
+</p><p>
+Il rilascio della versione 0.11pre dopo 4 mesi di pesante sviluppo!
+Provala, sarai affascinato! Aggiunte migliaia di nuove funzionalità...
+e chiaramente è stato migliorato anche il codice precedente, eliminati dei bug,
+etc...
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.18 "The BugCounter" ("Il contatore di Bug")</strong></span>: Jul 9, 2001
+</p><p>
+2 mesi dalla 0.17 e qui c'è un nuovo rilascio... Complatata la gestione degli
+ASF, di ulteriori formati di sottotitoli, introdotta libao (simile a libvo, ma
+per l'audio), ancora più stabile di prima, e così via. E' un MUST!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.50 "The Faszom(C)ounter" ("Il misuratore di Faszom(C)")</strong></span>: Oct 8, 2001
+</p><p>
+Hmm. Un altro rilascio. Tante nuove funzioni, versione beta della GUI, corretti
+dei bug, nuovi driver di vo e ao, portato su molti sistemi, include codec DivX
+e altro ancora. Provalo!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.60 "The RTFMCounter" ("Il contatore di RTFM")</strong></span>: Jan 3, 2002
+</p><p>
+Supporto per formati file MOV/VIVO/RM/FLI/NUV, CRAM nativo, Cinepak, codec
+ADPCM e supporto per i codec binari di XAnim; sottotitoli dei DVD, il primo
+rilascio di <span class="application">MEncoder</span>, acquisizione TV, cache, liba52,
+svariate correzioni.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90pre10 "The BirthdayCounter" ("Il contatore di Compleanni")</strong></span> Nov 11, 2002
+</p><p>
+Anche se questo non è un rilascio, lo segnalerò dato che è uscito 2 anni
+dopo <span class="application">MPlayer</span> v0.01.
+Buon Compleanno, <span class="application">MPlayer</span>!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90rc1 "The CodecCounter" ("Il contatore dei Codec")</strong></span> Dec 7, 2002
+</p><p>
+Di nuovo non un rilascio, ma dopo l'aggiunta di Sorenson 3 (QuickTime) e
+Windows Media 9, <span class="application">MPlayer</span> è il primo riproduttore al
+mondo che supporta tutti i formati video conosciuti!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90 "The CounterCounter" ("Il contatore dei Contatori")</strong></span> Apr 6, 2003
+</p><p>
+Dopo più di un anno, abbiamo finalmente stabilito che il codice è di nuovo
+davvero stabile, e pronto ad essere reso pubblico come un rilascio.
+Sfortunatamente abbiamo dimenticato di aumentare il numero di versione e altri
+irritanti bug sono stati scoperti, per cui preparati a...
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.91</strong></span> Aug 13, 2003
+</p><p>
+Sono stati corretti i bug suddetti e molti altri.
+Questa è la versione stabile più recente.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 1.0pre1 "Development on the beach" ("Sviluppo in spiaggia")</strong></span> Sep 1, 2003
+</p><p>
+Anche se questo non è un rilascio stabile, lo menzionerò perché è la prima
+pre-versione della serie 1.0 di <span class="application">MPlayer</span> ed è
+considerata come aiuto per il
+<span class="emphasis"><em>grande party della caccia ai bug</em></span>.
+Questo è un immenso passo avanti!
+</p></li><li><p>
+La data per <span class="bold"><strong><span class="application">MPlayer</span> 1.0</strong></span> è ancora sconosciuta
+</p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-quality.html">Indietro</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">C.5. Creating quality skins </td><td width="20%" align="center"><a accesskey="h" href="index.html">Partenza</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

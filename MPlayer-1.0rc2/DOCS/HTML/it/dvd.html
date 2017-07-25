@@ -1,0 +1,79 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>4.2. Riproduzione DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="up" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="prev" href="drives.html" title="4.1. Lettori CD/DVD"><link rel="next" href="vcd.html" title="4.3. Riproduzione VCD"><link rel="preface" href="howtoread.html" title="Come leggere questa documentazione"><link rel="chapter" href="intro.html" title="Capitolo 1. Introduzione"><link rel="chapter" href="install.html" title="Capitolo 2. Installazione"><link rel="chapter" href="usage.html" title="Capitolo 3. Utilizzo"><link rel="chapter" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="chapter" href="faq.html" title="Capitolo 5. Frequently Asked Questions"><link rel="chapter" href="containers.html" title="Capitolo 6. Contenitori"><link rel="chapter" href="codecs.html" title="Capitolo 7. Codec"><link rel="chapter" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="chapter" href="audio.html" title="Capitolo 9. Dispositivi di uscita audio"><link rel="chapter" href="tv.html" title="Capitolo 10. TV"><link rel="chapter" href="radio.html" title="Capitolo 11. Radio"><link rel="chapter" href="ports.html" title="Capitolo 12. Ports"><link rel="chapter" href="mencoder.html" title="Capitolo 13. Utilizzo base di MEncoder"><link rel="chapter" href="encoding-guide.html" title="Capitolo 14. Encoding with MEncoder"><link rel="appendix" href="bugreports.html" title="Appendice A. Come segnalare i bug (errori)"><link rel="appendix" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="appendix" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="appendix" href="history.html" title="Appendice D. Storia"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2. Riproduzione DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="drives.html">Indietro</a> </td><th width="60%" align="center">Capitolo 4. Utilizzo CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="vcd.html">Avanti</a></td></tr></table><hr></div><div class="sect1" lang="it"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dvd"></a>4.2. Riproduzione DVD</h2></div></div></div><p>
+Per una lista completa delle opzioni disponibili per favore leggi la pagina man.
+La sintassi per riprodurre un DVD normale è la seguente:
+</p><pre class="screen">
+mplayer dvd://<em class="replaceable"><code>&lt;traccia&gt;</code></em> [-dvd-device <em class="replaceable"><code>&lt;dispositivo&gt;</code></em>]
+</pre><p>
+</p><p>
+Esempio:
+</p><pre class="screen">mplayer dvd://1 -dvd-device /dev/hdc</pre><p>
+</p><p>
+Se hai compilato <span class="application">MPlayer</span> con il supporto per dvdnav,
+la sintassi è la stessa, tranne che devi usare dvdnav:// invece di dvd://.
+</p><p>
+Il dispositivo DVD di default è <tt class="filename">/dev/dvd</tt>. Se la tua
+impostazione è diversa, crea un collegamento simbolico o indica il dispositivo
+giusto dalla riga comando con l'opzione <tt class="option">-dvd-device</tt>.
+</p><p>
+<span class="application">MPlayer</span> usa <code class="systemitem">libdvdread</code> e
+<code class="systemitem">libdvdcss</code> per la riproduzione e la decrittazione dei
+DVD. Queste due librerie sono contenute nei sorgenti di
+<span class="application">MPlayer</span>, non hai bisogno di installarle
+separatamente. Puoi anche usare le controparti di sistema delle due librerie,
+ma questa non è la soluzione raccomandata, in quanto può portare a bachi,
+incompatibilità di librerie e minor velocità.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Nota</h3><p>
+Nel caso di problemi di decodifica di DVD, prova a disabilitare il supermount,
+o qualsiasi altra utilità. Alcuni lettori RPC-2 possono anche aver bisogno di
+avere il codice di zona impostato.
+</p></div><p><b>Struttura DVD. </b>
+I dischi DVD hanno 2048 byte per settore con ECC/CRC. Di solito hanno un
+filesystem UDF su una sola traccia, contenente svariati file (piccoli file
+.IFO e .BUP e grossi (1GB) file .VOB). Questi sono file veri e possono esser
+copiati/riprodotti dal filesystem montato di un DVD non criptato.
+</p><p>
+I file .IFO contengono le informazioni per navigare nel film
+(capitoli/titoli/angolazioni, tabella lingue, etc) e sono necessari per leggere
+ed interpretare il contenuto .VOB (il film). I file .BUP sono dei loro backup.
+Usano <span class="bold"><strong>sectors</strong></span> dappertutto, per cui hai bisogno
+di usare un indirizzamento dei settori del disco a basso livello per
+implementare la navigazione DVD o decrittarne il contenuto.
+</p><p>
+Il supporto per DVD ha bisogno di un accesso di basso livello basato su settori
+al dispositivo. Sfortunatamente devi (sotto Linux) essere root per ottenere
+l'indirizzamento del settore in un file. Per questo non usiamo proprio il
+filesystem del kernel, piuttosto lo reimplementiamo nello spazio utente di
+esecuzione. <code class="systemitem">libdvdread</code> 0.9.x fa ciò. Non serve il
+driver del kernel per il filesystem UDF visto che ha già il suo driver
+integrato per il filesystem UDF. Inoltre non serve che il DVD sia montato visto
+che viene utilizzato solo l'accesso di basso livello a settori.
+</p><p>
+Alcune volte <tt class="filename">/dev/dvd</tt> non può esser letto dagli utenti,
+perciò gli autori di <code class="systemitem">libdvdread</code> hanno implementato un
+livello di emulazione che traduce gli indirizzi dei settori in
+nomifile+posizioni relative, per emulare un accesso di basso livello su di un
+filesystem montato o anche su un disco fisso.
+</p><p>
+<code class="systemitem">libdvdread</code> accetta anche il nome del punto di mount al
+posto del nome del dispositivo per l'accesso di basso livello e controlla in
+<tt class="filename">/proc/mounts</tt> per definire il nome del dispositivo.
+E' stato sviluppato per Solaris, dove i nomi dei dispositivi sono allocati
+dinamicamente.
+</p><p><b>Decrittazione DVD. </b>
+La decrittazione dei DVD viene fatta da <code class="systemitem">libdvdcss</code>. La
+modalità può esser specificata attraverso la variabile d'ambiente
+<code class="envar">DVDCSS_METHOD</code>, vedi la pagina di manuale per i dettagli.
+</p><p>
+<span class="bold"><strong>Attenzione</strong></span>: puoi cambiare la zona solo 5 volte.
+I lettori DVD RPC-1 proteggono le impostazioni di zona solo via software. I
+lettori RPC-2 hanno invece una protezione hardware che permette solo 5
+modifiche. Può esser necessario/consigliato aggiornare il firmware a RPC-1 se
+hai un lettore DVD RPC-2. Puoi provare a cercare aggiornamenti di firmware per
+il tuo lettore su internet,
+<a href="http://forum.rpc-1.com/dl_all.php" target="_top">questo forum su firmware</a>
+potrebbe essere un buon punto di partenza per la tua ricerca.
+Se non c'è alcun aggiornamento di firmware disponibile per il tuo dispositivo,
+usa lo strumento
+<a href="http://linvdr.org/projects/regionset/" target="_top">regionset</a> per
+impostare la zona del tuo lettore DVD (sotto Linux).
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="drives.html">Indietro</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Risali</a></td><td width="40%" align="right"> <a accesskey="n" href="vcd.html">Avanti</a></td></tr><tr><td width="40%" align="left" valign="top">4.1. Lettori CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Partenza</a></td><td width="40%" align="right" valign="top"> 4.3. Riproduzione VCD</td></tr></table></div></body></html>

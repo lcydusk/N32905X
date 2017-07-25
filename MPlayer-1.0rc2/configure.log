@@ -1,0 +1,2627 @@
+configuration: --host-cc=gcc --cc=arm-none-linux-gnueabi-gcc --target=arm-linux --enable-static --enable-ossaudio --prefix=/usr/mplayer-rc2 --disable-win32dll --disable-dvdread --enable-fbdev --disable-mencoder --disable-live --disable-mp3lib --enable-mad --enable-libavcodec_a --disable-armv5te --disable-armv6 --disable-dvdnav --disable-dvdread --disable-dvdread-internal --with-extraincdir=/home/sunny/workspace/madplay/_install_arm/include --with-extralibdir=/home/sunny/workspace/madplay/_install_arm/lib --disable-ivtv
+
+============ Checking for arm-none-linux-gnueabi-gcc version ============
+Result is: 4.4.3, ok 
+##########################################
+
+============ Checking for host cc ============
+Result is: gcc 
+##########################################
+
+============ Checking for cross compilation ============
+
+int main() { return 0; }
+
+arm-none-linux-gnueabi-gcc  -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for assembler support of -pipe option ============
+
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc  -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -pipe
+
+
+Result is: yes 
+##########################################
+
+============ Checking for compiler support of named assembler arguments ============
+Result is: yes 
+##########################################
+
+============ Checking for .align is a power of two ============
+
+main() { asm (".align 3"); }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1: warning: return type defaults to 'int'
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:1: warning: control reaches end of non-void function
+
+
+Result is: yes 
+##########################################
+
+============ Checking for ARMv5TE (Enhanced DSP Extensions) ============
+Result is: no 
+##########################################
+
+============ Checking for ARMv6 (SIMD instructions) ============
+Result is: no 
+##########################################
+
+============ Checking for iWMMXt (Intel XScale SIMD instructions) ============
+
+int main(void) {
+    __asm__ __volatile__ ("wunpckelub wr6, wr4");
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: control reaches end of non-void function
+{standard input}: Assembler messages:
+{standard input}:21: Error: selected processor does not support `wunpckelub wr6,wr4'
+
+
+Result is: no 
+##########################################
+
+============ Checking for -lposix ============
+
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lposix
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -lposix
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for -lm ============
+
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lm
+
+
+Result is: yes 
+##########################################
+
+============ Checking for langinfo ============
+
+#include <langinfo.h>
+int main(void) { nl_langinfo(CODESET); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for language ============
+Result is: using en (man pages: en ) 
+##########################################
+
+============ Checking for enable sighandler ============
+Result is: yes 
+##########################################
+
+============ Checking for runtime cpudetection ============
+Result is: no 
+##########################################
+
+============ Checking for restrict keyword ============
+
+void foo(char * restrict p); int main(){}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1: error: expected ';', ',' or ')' before 'p'
+
+
+
+void foo(char * __restrict p); int main(){}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:1: warning: control reaches end of non-void function
+
+
+Result is: __restrict 
+##########################################
+
+============ Checking for __builtin_expect ============
+
+int foo (int a) {
+    a = __builtin_expect (a, 10);
+    return a == 10 ? 0 : 1;
+}
+int main() { return foo(10) && foo(0); }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for kstat ============
+
+#include <kstat.h>
+int main(void) { (void) kstat_open(); (void) kstat_close(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lkstat
+/tmp/mplayer-conf--42458.c:1:19: error: kstat.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'kstat_open'
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'kstat_close'
+
+
+Result is: no 
+##########################################
+
+============ Checking for posix4 ============
+
+#include <time.h>
+int main(void) { (void) nanosleep(0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lposix4
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -lposix4
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for lrintf ============
+
+#include <math.h>
+int main(void) { long (*foo)(float); foo = lrintf; (void)(*foo)(0.0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -D_GNU_SOURCE -lm
+
+
+Result is: yes 
+##########################################
+
+============ Checking for mkstemp ============
+
+#include <stdlib.h>
+int main(void) { char a;  mkstemp(&a); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for nanosleep ============
+
+#include <time.h>
+int main(void) { (void) nanosleep(0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for socklib ============
+
+#include <netdb.h>
+#include <sys/socket.h>
+int main(void) { (void) gethostbyname(0); (void) socket(AF_INET, SOCK_STREAM, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/cc5AUKz4.o: In function `main':
+mplayer-conf--42458.c:(.text+0x8): warning: Using 'gethostbyname' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+
+
+
+#include <winsock2.h>
+int main(void) { (void) gethostbyname(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lws2_32
+/tmp/mplayer-conf--42458.c:1:22: error: winsock2.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'gethostbyname'
+
+
+Result is: yes 
+##########################################
+
+============ Checking for inet_pton() ============
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+int main(void) { (void) inet_pton(0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes (using )
+##########################################
+
+============ Checking for network ============
+Result is: yes 
+##########################################
+
+============ Checking for inttypes.h (required) ============
+
+#include <inttypes.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for int_fastXY_t in inttypes.h ============
+
+#include <inttypes.h>
+int main(void) { 
+volatile int_fast16_t v= 0;
+return v; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for word size ============
+
+#include <stdio.h>
+#include <sys/types.h>
+int main(void) { printf("%d\n", sizeof(size_t)*8); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is:  
+##########################################
+
+============ Checking for malloc.h ============
+
+#include <malloc.h>
+int main(void) { (void) malloc(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for memalign() ============
+
+#include <malloc.h>
+int main (void) { (void) memalign(64, sizeof(char)); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for alloca.h ============
+
+#include <alloca.h>
+int main(void) { (void) alloca(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+
+#include <alloca.h>
+int main(void) { (void) alloca(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for mman.h ============
+
+#include <sys/types.h>
+#include <sys/mman.h>
+int main(void) { (void) mmap(0, 0, 0, 0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+
+#include <sys/types.h>
+#include <sys/mman.h>
+int main(void) { void *p = MAP_FAILED; return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: unused variable 'p'
+
+
+============ Checking for dynamic loader ============
+
+#include <dlfcn.h>
+int main(void) { dlopen(0, 0); dlclose(0); dlsym(0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: null argument where non-null required (argument 1)
+/tmp/mplayer-conf--42458.c:2: warning: null argument where non-null required (argument 2)
+/tmp/cclHbBy2.o: In function `main':
+mplayer-conf--42458.c:(.text+0xc): undefined reference to `dlopen'
+mplayer-conf--42458.c:(.text+0x14): undefined reference to `dlclose'
+mplayer-conf--42458.c:(.text+0x20): undefined reference to `dlsym'
+collect2: ld returned 1 exit status
+
+
+
+#include <dlfcn.h>
+int main(void) { dlopen(0, 0); dlclose(0); dlsym(0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ldl
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: null argument where non-null required (argument 1)
+/tmp/mplayer-conf--42458.c:2: warning: null argument where non-null required (argument 2)
+/tmp/ccYkCMEa.o: In function `main':
+mplayer-conf--42458.c:(.text+0xc): warning: Using 'dlopen' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+
+
+Result is: yes 
+##########################################
+
+============ Checking for dynamic a/v plugins support ============
+Result is: no 
+##########################################
+
+============ Checking for pthread ============
+
+#include <pthread.h>
+void* func(void *arg) { return arg; }
+int main(void) { pthread_t tid; return pthread_create (&tid, 0, func, 0) == 0 ? 0 : 1; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lpthreadGC2
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -lpthreadGC2
+collect2: ld returned 1 exit status
+
+
+
+#include <pthread.h>
+void* func(void *arg) { return arg; }
+int main(void) { pthread_t tid; return pthread_create (&tid, 0, func, 0) == 0 ? 0 : 1; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/ccHgiBmi.o: In function `main':
+mplayer-conf--42458.c:(.text+0x1c): undefined reference to `pthread_create'
+collect2: ld returned 1 exit status
+
+
+
+#include <pthread.h>
+void* func(void *arg) { return arg; }
+int main(void) { pthread_t tid; return pthread_create (&tid, 0, func, 0) == 0 ? 0 : 1; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lpthread
+
+
+Result is: yes (using -lpthread)
+##########################################
+
+============ Checking for w32threads ============
+Result is: no (using pthread instead)
+##########################################
+
+============ Checking for rpath ============
+Result is: no 
+##########################################
+
+============ Checking for iconv ============
+
+#include <stdio.h>
+#include <unistd.h>
+#include <iconv.h>
+#define INBUFSIZE 1024
+#define OUTBUFSIZE 4096
+
+char inbuffer[INBUFSIZE];
+char outbuffer[OUTBUFSIZE];
+
+int main(void) {
+  size_t numread;
+  iconv_t icdsc;
+  char *tocode="UTF-8";
+  char *fromcode="cp1250";
+  if ((icdsc = iconv_open (tocode, fromcode)) != (iconv_t)(-1)) {
+    while ((numread = read (0, inbuffer, INBUFSIZE))) {
+      char *iptr=inbuffer;
+      char *optr=outbuffer;
+      size_t inleft=numread;
+      size_t outleft=OUTBUFSIZE;
+      if (iconv(icdsc, (const char **)&iptr, &inleft, &optr, &outleft)
+          != (size_t)(-1)) {
+        write (1, outbuffer, OUTBUFSIZE - outleft);
+      }
+    }
+    if (iconv_close(icdsc) == -1)
+      ;
+  }
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib    -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lm
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:21: warning: passing argument 2 of 'iconv' from incompatible pointer type
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../arm-none-linux-gnueabi//sys-root/usr/include/iconv.h:43: note: expected 'char ** __restrict__' but argument is of type 'const char **'
+/tmp/mplayer-conf--42458.c:29: warning: control reaches end of non-void function
+
+
+Result is: yes 
+##########################################
+
+============ Checking for soundcard.h ============
+
+#include <sys/soundcard.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes (sys/soundcard.h)
+##########################################
+
+============ Checking for sys/dvdio.h ============
+
+#include <unistd.h>
+#include <sys/dvdio.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:2:23: error: sys/dvdio.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for sys/cdio.h ============
+
+#include <unistd.h>
+#include <sys/cdio.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:2:22: error: sys/cdio.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for linux/cdrom.h ============
+
+#include <sys/types.h>
+#include <linux/cdrom.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for dvd.h ============
+
+#include <dvd.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:17: error: dvd.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for termcap ============
+
+int main(void) { tgetent(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lncurses
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:1: warning: implicit declaration of function 'tgetent'
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -lncurses
+collect2: ld returned 1 exit status
+
+
+
+int main(void) { tgetent(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ltinfo
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:1: warning: implicit declaration of function 'tgetent'
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -ltinfo
+collect2: ld returned 1 exit status
+
+
+
+int main(void) { tgetent(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ltermcap
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:1: warning: implicit declaration of function 'tgetent'
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -ltermcap
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for termios ============
+
+#include <sys/termios.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes (sys/termios.h)
+##########################################
+
+============ Checking for shm ============
+
+#include <sys/types.h>
+#include <sys/shm.h>
+int main(void) { shmget(0, 0, 0); shmat(0, 0, 0); shmctl(0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for strsep() ============
+
+#include <string.h>
+int main (void) { char *s = "Hello, world!"; (void) strsep(&s, ","); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for vsscanf() ============
+
+#include <stdarg.h>
+int main(void) { vsscanf(0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'vsscanf'
+/tmp/mplayer-conf--42458.c:2: warning: too many arguments for format
+
+
+Result is: yes 
+##########################################
+
+============ Checking for swab() ============
+
+#include <unistd.h>
+int main(void) { swab(0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'swab'
+
+
+Result is: yes 
+##########################################
+
+============ Checking for POSIX select() ============
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <string.h>
+#include <sys/time.h>
+#include <unistd.h>
+int main(void) {int nfds = 1; fd_set readfds; struct timeval timeout; select(nfds,&readfds,NULL,NULL,&timeout); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for gettimeofday() ============
+
+#include <stdio.h>
+#include <sys/time.h>
+int main(void) {struct timeval tv_start; gettimeofday(&tv_start, NULL); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for glob() ============
+
+#include <stdio.h>
+#include <glob.h>
+int main(void) { glob_t gg; glob("filename",0,NULL,&gg); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for setenv() ============
+
+#include <stdlib.h>
+int main (void){ setenv("","",0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for sys/sysinfo.h ============
+
+#include <sys/sysinfo.h>
+int main(void) {
+  struct sysinfo s_info;
+  sysinfo(&s_info);
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for pkg-config ============
+Result is: yes 
+##########################################
+
+============ Checking for Samba support (libsmbclient) ============
+
+#include <libsmbclient.h>
+int main(void) { smbc_opendir("smb://"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lsmbclient
+/tmp/mplayer-conf--42458.c:1:26: error: libsmbclient.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'smbc_opendir'
+
+
+
+#include <libsmbclient.h>
+int main(void) { smbc_opendir("smb://"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lsmbclient -ldl
+/tmp/mplayer-conf--42458.c:1:26: error: libsmbclient.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'smbc_opendir'
+
+
+
+#include <libsmbclient.h>
+int main(void) { smbc_opendir("smb://"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lsmbclient -ldl -lnsl
+/tmp/mplayer-conf--42458.c:1:26: error: libsmbclient.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'smbc_opendir'
+
+
+
+#include <libsmbclient.h>
+int main(void) { smbc_opendir("smb://"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lsmbclient -ldl -lssl -lnsl
+/tmp/mplayer-conf--42458.c:1:26: error: libsmbclient.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'smbc_opendir'
+
+
+Result is: no 
+##########################################
+
+============ Checking for tdfxfb ============
+Result is: no 
+##########################################
+
+============ Checking for s3fb ============
+Result is: no 
+##########################################
+
+============ Checking for tdfxvid ============
+Result is: no 
+##########################################
+
+============ Checking for xvr100 ============
+
+#include <unistd.h>
+#include <sys/fbio.h>
+#include <sys/visual_io.h>
+int main(void) {
+struct vis_identifier ident;
+struct fbgattr attr;
+
+ioctl(0, VIS_GETIDENTIFIER, &ident);
+ioctl(0, FBIOGATTR, &attr);
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:2:22: error: sys/fbio.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:27: error: sys/visual_io.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: storage size of 'ident' isn't known
+/tmp/mplayer-conf--42458.c:6: error: storage size of 'attr' isn't known
+/tmp/mplayer-conf--42458.c:8: warning: implicit declaration of function 'ioctl'
+/tmp/mplayer-conf--42458.c:8: error: 'VIS_GETIDENTIFIER' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:8: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:8: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:9: error: 'FBIOGATTR' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:6: warning: unused variable 'attr'
+/tmp/mplayer-conf--42458.c:5: warning: unused variable 'ident'
+
+
+Result is: no 
+##########################################
+
+============ Checking for tga ============
+Result is: yes 
+##########################################
+
+============ Checking for md5sum support ============
+Result is: yes 
+##########################################
+
+============ Checking for bl ============
+Result is: no 
+##########################################
+
+============ Checking for DirectFB ============
+
+#include <directfb.h>
+int main(void) { IDirectFB *foo; DirectFBInit(0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ldirectfb
+/tmp/mplayer-conf--42458.c:1:22: error: directfb.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: error: 'IDirectFB' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:2: error: 'foo' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'DirectFBInit'
+
+
+
+#include <directfb.h>
+int main(void) { IDirectFB *foo; DirectFBInit(0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/local/include/directfb -ldirectfb
+/tmp/mplayer-conf--42458.c:1:22: error: directfb.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: error: 'IDirectFB' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:2: error: 'foo' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'DirectFBInit'
+
+
+
+#include <directfb.h>
+int main(void) { IDirectFB *foo; DirectFBInit(0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/include/directfb -ldirectfb
+/tmp/mplayer-conf--42458.c:1:22: error: directfb.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: error: 'IDirectFB' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:2: error: 'foo' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'DirectFBInit'
+
+
+
+#include <directfb.h>
+int main(void) { IDirectFB *foo; DirectFBInit(0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/local/include -ldirectfb
+/tmp/mplayer-conf--42458.c:1:22: error: directfb.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: error: 'IDirectFB' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:2: error: 'foo' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'DirectFBInit'
+
+
+Result is: no 
+##########################################
+
+============ Checking for X11 headers presence ============
+Result is: yes 
+##########################################
+
+============ Checking for X11 ============
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/X11R6/lib -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/lib/X11R6 -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/X11/lib -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/lib32 -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/openwin/lib -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/X11R6/lib64 -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+int main(void) { (void) XCreateWindow(0,0,0,0,0,0,0,0,0,0,0,0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -L/usr/lib -lXext -lX11 -lpthread
+/tmp/mplayer-conf--42458.c:1:22: error: X11/Xlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:23: error: X11/Xutil.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'XCreateWindow'
+
+
+Result is: no (check if the dev(el) packages are installed)
+##########################################
+
+============ Checking for DPMS ============
+Result is: no 
+##########################################
+
+============ Checking for Xv ============
+Result is: no 
+##########################################
+
+============ Checking for XvMC ============
+Result is: no 
+##########################################
+
+============ Checking for Xinerama ============
+Result is: no 
+##########################################
+
+============ Checking for Xxf86vm ============
+Result is: no 
+##########################################
+
+============ Checking for XF86keysym ============
+Result is: no 
+##########################################
+
+============ Checking for DGA ============
+Result is: no 
+##########################################
+
+============ Checking for 3dfx ============
+Result is: no 
+##########################################
+
+============ Checking for OpenGL ============
+Result is: no 
+##########################################
+
+============ Checking for VIDIX ============
+
+#include <vidix/vidix.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lvidix
+/tmp/mplayer-conf--42458.c:1:25: error: vidix/vidix.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for /dev/mga_vid ============
+Result is: no 
+##########################################
+
+============ Checking for xmga ============
+Result is: no 
+##########################################
+
+============ Checking for GGI ============
+
+#include <ggi/ggi.h>
+int main(void) { ggiInit(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lggi
+/tmp/mplayer-conf--42458.c:1:21: error: ggi/ggi.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'ggiInit'
+
+
+Result is: no 
+##########################################
+
+============ Checking for GGI extension: libggiwmh ============
+
+#include <ggi/ggi.h>
+#include <ggi/wmh.h>
+int main(void) { ggiInit(); ggiWmhInit(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lggi -lggiwmh
+/tmp/mplayer-conf--42458.c:1:21: error: ggi/ggi.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:21: error: ggi/wmh.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'ggiInit'
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'ggiWmhInit'
+
+
+Result is: no 
+##########################################
+
+============ Checking for AA ============
+
+#include <aalib.h>
+extern struct aa_hardware_params aa_defparams;
+extern struct aa_renderparams aa_defrenderparams;
+int main(void) {
+aa_context *c;
+aa_renderparams *p;
+(void) aa_init(0, 0, 0);
+c = aa_autoinit(&aa_defparams);
+p = aa_getrenderparams();
+aa_autoinitkbd(c,0);
+return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -laa
+/tmp/mplayer-conf--42458.c:1:19: error: aalib.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: 'aa_context' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:5: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:5: error: 'c' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:6: error: 'aa_renderparams' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:6: error: 'p' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:7: warning: implicit declaration of function 'aa_init'
+/tmp/mplayer-conf--42458.c:8: warning: implicit declaration of function 'aa_autoinit'
+/tmp/mplayer-conf--42458.c:9: warning: implicit declaration of function 'aa_getrenderparams'
+/tmp/mplayer-conf--42458.c:10: warning: implicit declaration of function 'aa_autoinitkbd'
+
+
+Result is: no 
+##########################################
+
+============ Checking for CACA ============
+./configure: 4385: ./configure: caca-config: not found
+Result is: no 
+##########################################
+
+============ Checking for SVGAlib ============
+
+#include <vga.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lvga -lm
+/tmp/mplayer-conf--42458.c:1:17: error: vga.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for FBDev ============
+Result is: yes 
+##########################################
+
+============ Checking for DVB ============
+
+#include <sys/poll.h>
+#include <sys/ioctl.h>
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+
+#include <ost/dmx.h>
+#include <ost/frontend.h>
+#include <ost/sec.h>
+#include <ost/video.h>
+#include <ost/audio.h>
+int main(void) {return 0;}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:7:21: error: ost/dmx.h: No such file or directory
+/tmp/mplayer-conf--42458.c:8:26: error: ost/frontend.h: No such file or directory
+/tmp/mplayer-conf--42458.c:9:21: error: ost/sec.h: No such file or directory
+/tmp/mplayer-conf--42458.c:10:23: error: ost/video.h: No such file or directory
+/tmp/mplayer-conf--42458.c:11:23: error: ost/audio.h: No such file or directory
+
+
+
+#include <sys/poll.h>
+#include <sys/ioctl.h>
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+
+#include <ost/dmx.h>
+#include <ost/frontend.h>
+#include <ost/sec.h>
+#include <ost/video.h>
+#include <ost/audio.h>
+int main(void) {return 0;}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/src/DVB/ost/include
+/tmp/mplayer-conf--42458.c:7:21: error: ost/dmx.h: No such file or directory
+/tmp/mplayer-conf--42458.c:8:26: error: ost/frontend.h: No such file or directory
+/tmp/mplayer-conf--42458.c:9:21: error: ost/sec.h: No such file or directory
+/tmp/mplayer-conf--42458.c:10:23: error: ost/video.h: No such file or directory
+/tmp/mplayer-conf--42458.c:11:23: error: ost/audio.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for DVB HEAD ============
+
+#include <sys/poll.h>
+#include <sys/ioctl.h>
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+
+#include <linux/dvb/dmx.h>
+#include <linux/dvb/frontend.h>
+#include <linux/dvb/video.h>
+#include <linux/dvb/audio.h>
+int main(void) {return 0;}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for zr ============
+Result is: no 
+##########################################
+
+============ Checking for PNG support ============
+
+#include <png.h>
+#include <string.h>
+int main(void) {
+  printf("png.h : %s\n", PNG_LIBPNG_VER_STRING);
+  printf("libpng: %s\n", png_libpng_ver);
+  return (strcmp(PNG_LIBPNG_VER_STRING, png_libpng_ver));
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lpng -lz -lm
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -lpng
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for JPEG support ============
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <setjmp.h>
+#include <string.h>
+#include <jpeglib.h>
+int main(void) {
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ljpeg -lm
+/usr/local/arm_linux_4.4/opt/FriendlyARM/toolschain/4.4.3/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.3/../../../../arm-none-linux-gnueabi/bin/ld: cannot find -ljpeg
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for PNM support ============
+Result is: yes 
+##########################################
+
+============ Checking for GIF support ============
+
+#include <gif_lib.h>
+int main(void) {
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lungif
+/tmp/mplayer-conf--42458.c:1:21: error: gif_lib.h: No such file or directory
+
+
+
+#include <gif_lib.h>
+int main(void) {
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lgif
+/tmp/mplayer-conf--42458.c:1:21: error: gif_lib.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for VESA support ============
+
+#include <vbe.h>
+int main(void) { vbeVersion(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lvbe -llrmi
+/tmp/mplayer-conf--42458.c:1:17: error: vbe.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'vbeVersion'
+
+
+Result is: no 
+##########################################
+
+============ Checking for SDL ============
+./configure: 4751: ./configure: sdl-config: not found
+./configure: 4753: ./configure: sdl11-config: not found
+Result is: no 
+##########################################
+
+============ Checking for NAS ============
+
+#include <audio/audiolib.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lm -laudio -lXt
+/tmp/mplayer-conf--42458.c:1:28: error: audio/audiolib.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for DXR2 ============
+
+#include <dxr2ioctl.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:23: error: dxr2ioctl.h: No such file or directory
+
+
+
+#include <dxr2ioctl.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/local/include/dxr2
+/tmp/mplayer-conf--42458.c:1:23: error: dxr2ioctl.h: No such file or directory
+
+
+
+#include <dxr2ioctl.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/include/dxr2
+/tmp/mplayer-conf--42458.c:1:23: error: dxr2ioctl.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for DXR3/H+ ============
+
+#include <linux/em8300.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:26: error: linux/em8300.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for IVTV TV-Out ============
+Result is: no 
+##########################################
+
+============ Checking for V4L2 MPEG Decoder ============
+
+#include <stdlib.h>
+#include <inttypes.h>
+#include <linux/types.h>
+#include <linux/videodev2.h>
+#include <linux/version.h>
+int main(void) {
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,22)
+#error kernel headers too old, need 2.6.22
+  bad_kernel_version();
+#endif
+  struct v4l2_ext_controls ctrls;
+  ctrls.ctrl_class = V4L2_CTRL_CLASS_MPEG;
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for OSS Audio ============
+
+#include <sys/ioctl.h>
+#include <sys/soundcard.h>
+#ifdef OPEN_SOUND_SYSTEM
+int main(void) { return 0; }
+#else
+#error Not the real thing
+#endif
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for aRts ============
+./configure: 5042: ./configure: artsc-config: not found
+Result is: no 
+##########################################
+
+============ Checking for EsounD ============
+./configure: 5068: ./configure: esd-config: not found
+Result is: no 
+##########################################
+
+============ Checking for Polyp ============
+Result is: no 
+##########################################
+
+============ Checking for JACK ============
+
+#include <jack/jack.h>
+int main(void) { jack_client_new("test"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ljack
+/tmp/mplayer-conf--42458.c:1:23: error: jack/jack.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'jack_client_new'
+
+
+
+#include <jack/jack.h>
+int main(void) { jack_client_new("test"); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:23: error: jack/jack.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'jack_client_new'
+
+
+Result is: no 
+##########################################
+
+============ Checking for OpenAL ============
+
+#ifdef OPENAL_AL_H
+#include <OpenAL/al.h>
+#else
+#include <AL/al.h>
+#endif
+int main(void) {
+  alSourceQueueBuffers(0, 0, 0);
+//  alGetSourcei(0, AL_SAMPLE_OFFSET, 0);
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lopenal
+/tmp/mplayer-conf--42458.c:4:19: error: AL/al.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:7: warning: implicit declaration of function 'alSourceQueueBuffers'
+
+
+
+#ifdef OPENAL_AL_H
+#include <OpenAL/al.h>
+#else
+#include <AL/al.h>
+#endif
+int main(void) {
+  alSourceQueueBuffers(0, 0, 0);
+//  alGetSourcei(0, AL_SAMPLE_OFFSET, 0);
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -DOPENAL_AL_H=1 -lopenal
+/tmp/mplayer-conf--42458.c:2:23: error: OpenAL/al.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:7: warning: implicit declaration of function 'alSourceQueueBuffers'
+
+
+
+#ifdef OPENAL_AL_H
+#include <OpenAL/al.h>
+#else
+#include <AL/al.h>
+#endif
+int main(void) {
+  alSourceQueueBuffers(0, 0, 0);
+//  alGetSourcei(0, AL_SAMPLE_OFFSET, 0);
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -framework OpenAL
+.arm-none-linux-gnueabi-gcc: OpenAL: No such file or directory
+cc1: error: unrecognized command line option "-framework"
+
+
+
+#ifdef OPENAL_AL_H
+#include <OpenAL/al.h>
+#else
+#include <AL/al.h>
+#endif
+int main(void) {
+  alSourceQueueBuffers(0, 0, 0);
+//  alGetSourcei(0, AL_SAMPLE_OFFSET, 0);
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -DOPENAL_AL_H=1 -framework OpenAL
+.arm-none-linux-gnueabi-gcc: OpenAL: No such file or directory
+cc1: error: unrecognized command line option "-framework"
+
+
+Result is: no 
+##########################################
+
+============ Checking for ALSA audio ============
+
+#include <sys/asoundlib.h>
+#if !((SND_LIB_MAJOR == 0) && (SND_LIB_MINOR == 5))
+#error "alsa version != 0.5.x"
+#endif
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lasound -ldl -lpthread
+/tmp/mplayer-conf--42458.c:1:27: error: sys/asoundlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:2: error: #error "alsa version != 0.5.x"
+
+
+
+#include <sys/asoundlib.h>
+#if !((SND_LIB_MAJOR == 0) && (SND_LIB_MINOR == 9))
+#error "alsa version != 0.9.x"
+#endif
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lasound -ldl -lpthread
+/tmp/mplayer-conf--42458.c:1:27: error: sys/asoundlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:2: error: #error "alsa version != 0.9.x"
+
+
+
+#include <alsa/asoundlib.h>
+#if !((SND_LIB_MAJOR == 0) && (SND_LIB_MINOR == 9))
+#error "alsa version != 0.9.x"
+#endif
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lasound -ldl -lpthread
+/tmp/mplayer-conf--42458.c:1:28: error: alsa/asoundlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:2: error: #error "alsa version != 0.9.x"
+
+
+
+#include <sys/asoundlib.h>
+#if !((SND_LIB_MAJOR == 1) && (SND_LIB_MINOR == 0))
+#error "alsa version != 1.0.x"
+#endif
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lasound -ldl -lpthread
+/tmp/mplayer-conf--42458.c:1:27: error: sys/asoundlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:2: error: #error "alsa version != 1.0.x"
+
+
+
+#include <alsa/asoundlib.h>
+#if !((SND_LIB_MAJOR == 1) && (SND_LIB_MINOR == 0))
+#error "alsa version != 1.0.x"
+#endif
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lasound -ldl -lpthread
+/tmp/mplayer-conf--42458.c:1:28: error: alsa/asoundlib.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:2: error: #error "alsa version != 1.0.x"
+
+
+Result is: no 
+##########################################
+
+============ Checking for Sun audio ============
+
+#include <sys/types.h>
+#include <sys/audioio.h>
+int main(void) { audio_info_t info; AUDIO_INITINFO(&info); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:2:25: error: sys/audioio.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: error: 'audio_info_t' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:3: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:3: error: expected ';' before 'info'
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'AUDIO_INITINFO'
+/tmp/mplayer-conf--42458.c:3: error: 'info' undeclared (first use in this function)
+
+
+Result is: no 
+##########################################
+
+============ Checking for VCD support ============
+Result is: yes 
+##########################################
+
+============ Checking for dvdread ============
+Result is: no 
+##########################################
+
+============ Checking for internal libdvdcss ============
+Result is: no 
+##########################################
+
+============ Checking for cdparanoia ============
+
+#include <cdda_interface.h>
+#include <cdda_paranoia.h>
+// This need a better test. How ?
+int main(void) {
+    void *test = cdda_verbose_set;
+    return test == (void *)1;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lcdda_interface -lcdda_paranoia -lm
+/tmp/mplayer-conf--42458.c:1:28: error: cdda_interface.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:27: error: cdda_paranoia.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:5: error: for each function it appears in.)
+
+
+
+#include <cdda_interface.h>
+#include <cdda_paranoia.h>
+// This need a better test. How ?
+int main(void) {
+    void *test = cdda_verbose_set;
+    return test == (void *)1;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/include/cdda -lcdda_interface -lcdda_paranoia -lm
+/tmp/mplayer-conf--42458.c:1:28: error: cdda_interface.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:27: error: cdda_paranoia.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:5: error: for each function it appears in.)
+
+
+
+#include <cdda_interface.h>
+#include <cdda_paranoia.h>
+// This need a better test. How ?
+int main(void) {
+    void *test = cdda_verbose_set;
+    return test == (void *)1;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/local/include/cdda -lcdda_interface -lcdda_paranoia -lm
+/tmp/mplayer-conf--42458.c:1:28: error: cdda_interface.h: No such file or directory
+/tmp/mplayer-conf--42458.c:2:27: error: cdda_paranoia.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:5: error: for each function it appears in.)
+
+
+Result is: no 
+##########################################
+
+============ Checking for libcdio ============
+
+#include <stdio.h>
+#include <cdio/version.h>
+#include <cdio/cdda.h>
+#include <cdio/paranoia.h>
+int main()
+{
+    void *test = cdda_verbose_set;
+    printf("%s\n", CDIO_VERSION);
+    return test == (void *)1;
+    
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lcdio_cdda -lcdio -lcdio_paranoia -lm
+/tmp/mplayer-conf--42458.c:2:26: error: cdio/version.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:23: error: cdio/cdda.h: No such file or directory
+/tmp/mplayer-conf--42458.c:4:27: error: cdio/paranoia.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:7: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:7: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:7: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: 'CDIO_VERSION' undeclared (first use in this function)
+
+
+
+#include <stdio.h>
+#include <cdio/version.h>
+#include <cdio/cdda.h>
+#include <cdio/paranoia.h>
+int main()
+{
+    void *test = cdda_verbose_set;
+    printf("%s\n", CDIO_VERSION);
+    return test == (void *)1;
+    
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lcdio_cdda -lcdio -lcdio_paranoia -lwinmm -lm
+/tmp/mplayer-conf--42458.c:2:26: error: cdio/version.h: No such file or directory
+/tmp/mplayer-conf--42458.c:3:23: error: cdio/cdda.h: No such file or directory
+/tmp/mplayer-conf--42458.c:4:27: error: cdio/paranoia.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:7: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:7: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:7: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: 'CDIO_VERSION' undeclared (first use in this function)
+
+
+Result is: no 
+##########################################
+
+============ Checking for bitmap font support ============
+Result is: yes 
+##########################################
+
+============ Checking for freetype >= 2.0.9 ============
+
+#include <stdio.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
+#if ((FREETYPE_MAJOR < 2) || ((FREETYPE_MINOR == 0) && (FREETYPE_PATCH < 9)))
+#error "Need FreeType 2.0.9 or newer"
+#endif
+int main()
+{
+    FT_Library library;
+    FT_Int major=-1,minor=-1,patch=-1;
+    int err=FT_Init_FreeType(&library);
+    if(err){
+	printf("Couldn't initialize freetype2 lib, err code: %d\n",err);
+	exit(err);
+    }
+    FT_Library_Version(library,&major,&minor,&patch); // in v2.1.0+ only :(((
+    printf("freetype2  header version: %d.%d.%d  library version: %d.%d.%d\n",
+	FREETYPE_MAJOR,FREETYPE_MINOR,FREETYPE_PATCH,
+	(int)major,(int)minor,(int)patch );
+    if(major!=FREETYPE_MAJOR || minor!=FREETYPE_MINOR){
+	printf("Library and header version mismatch! Fix it in your distribution!\n");
+	exit(1);
+    }
+    return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I/usr/include/freetype2 -L/usr/lib/x86_64-linux-gnu -lfreetype -lz -lpng12
+/usr/lib/x86_64-linux-gnu/libfreetype.a: could not read symbols: File format not recognized
+collect2: ld returned 1 exit status
+
+
+Result is: no 
+##########################################
+
+============ Checking for fontconfig ============
+Result is: no (freetype support needed)
+##########################################
+
+============ Checking for SSA/ASS support ============
+Result is: no (FreeType support needed)
+##########################################
+
+============ Checking for fribidi with charsets ============
+Result is: no 
+##########################################
+
+============ Checking for ENCA ============
+
+#include <enca.h>
+int main()
+{
+    const char **langs;
+    size_t langcnt;
+    langs = enca_get_languages(&langcnt);
+    return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lenca -lm
+/tmp/mplayer-conf--42458.c:1:18: error: enca.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: error: 'size_t' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:5: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:5: error: expected ';' before 'langcnt'
+/tmp/mplayer-conf--42458.c:6: warning: implicit declaration of function 'enca_get_languages'
+/tmp/mplayer-conf--42458.c:6: error: 'langcnt' undeclared (first use in this function)
+
+
+Result is: no 
+##########################################
+
+============ Checking for zlib ============
+
+#include <zlib.h>
+int main(void) { (void) inflate(0, Z_NO_FLUSH); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib     -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lz
+
+
+Result is: yes 
+##########################################
+
+============ Checking for RTC ============
+
+#include <sys/ioctl.h>
+#ifdef __linux__
+#include <linux/rtc.h>
+#else
+#include <rtc.h>
+#define RTC_PIE_ON RTCIO_PIE_ON
+#endif
+int main(void) { return RTC_PIE_ON; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for liblzo2 support ============
+
+#include <lzo/lzo1x.h>
+int main(void) { lzo_init();return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -llzo2
+/tmp/mplayer-conf--42458.c:1:23: error: lzo/lzo1x.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'lzo_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for mad support ============
+Result is: yes 
+##########################################
+
+============ Checking for Twolame ============
+
+#include <twolame.h>
+int main(void) { twolame_init(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ltwolame -lm
+/tmp/mplayer-conf--42458.c:1:21: error: twolame.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'twolame_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for Toolame ============
+
+#include <toolame.h>
+int main(void) { toolame_init(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ltoolame -lm
+/tmp/mplayer-conf--42458.c:1:21: error: toolame.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'toolame_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for OggVorbis support ============
+Result is: yes (internal Tremor)
+##########################################
+
+============ Checking for libspeex (version >= 1.1 required) ============
+
+#include <speex/speex.h>
+int main(void) {
+  SpeexBits bits;
+  void *dec;
+  speex_decode_int(dec, &bits, dec);
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lspeex -lm
+/tmp/mplayer-conf--42458.c:1:25: error: speex/speex.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: error: 'SpeexBits' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:3: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:3: error: expected ';' before 'bits'
+/tmp/mplayer-conf--42458.c:5: warning: implicit declaration of function 'speex_decode_int'
+/tmp/mplayer-conf--42458.c:5: error: 'bits' undeclared (first use in this function)
+
+
+Result is: no 
+##########################################
+
+============ Checking for OggTheora support ============
+
+#include <theora/theora.h>
+#include <string.h>
+int main(void) 
+{ 
+  /* theora is in flux, make sure that all interface routines and 
+   * datatypes exist and work the way we expect it, so we don't break
+   * mplayer */
+  ogg_packet op;
+  theora_comment tc;
+  theora_info inf;
+  theora_state st;
+  yuv_buffer yuv;
+  int r;
+  double t;
+
+  theora_info_init (&inf);
+  theora_comment_init (&tc);
+ 
+  return 0;
+
+  /* we don't want to execute this kind of nonsense; just for making sure
+   * that compilation works... */
+  memset(&op, 0, sizeof(op));
+  r = theora_decode_header (&inf, &tc, &op);
+  r = theora_decode_init (&st, &inf);
+  t = theora_granule_time (&st, op.granulepos);
+  r = theora_decode_packetin (&st, &op);
+  r = theora_decode_YUVout (&st, &yuv);
+  theora_clear (&st);
+
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:8: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:8: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:8: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: expected ';' before 'op'
+/tmp/mplayer-conf--42458.c:9: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:9: error: expected ';' before 'tc'
+/tmp/mplayer-conf--42458.c:10: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:10: error: expected ';' before 'inf'
+/tmp/mplayer-conf--42458.c:11: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:11: error: expected ';' before 'st'
+/tmp/mplayer-conf--42458.c:12: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:12: error: expected ';' before 'yuv'
+/tmp/mplayer-conf--42458.c:16: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-conf--42458.c:16: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:17: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-conf--42458.c:17: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:23: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:24: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-conf--42458.c:25: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-conf--42458.c:25: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:26: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-conf--42458.c:27: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-conf--42458.c:28: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-conf--42458.c:28: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:29: warning: implicit declaration of function 'theora_clear'
+
+
+
+#include <theora/theora.h>
+#include <string.h>
+int main(void) 
+{ 
+  /* theora is in flux, make sure that all interface routines and 
+   * datatypes exist and work the way we expect it, so we don't break
+   * mplayer */
+  ogg_packet op;
+  theora_comment tc;
+  theora_info inf;
+  theora_state st;
+  yuv_buffer yuv;
+  int r;
+  double t;
+
+  theora_info_init (&inf);
+  theora_comment_init (&tc);
+ 
+  return 0;
+
+  /* we don't want to execute this kind of nonsense; just for making sure
+   * that compilation works... */
+  memset(&op, 0, sizeof(op));
+  r = theora_decode_header (&inf, &tc, &op);
+  r = theora_decode_init (&st, &inf);
+  t = theora_granule_time (&st, op.granulepos);
+  r = theora_decode_packetin (&st, &op);
+  r = theora_decode_YUVout (&st, &yuv);
+  theora_clear (&st);
+
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ltheora -logg
+/tmp/mplayer-conf--42458.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:8: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:8: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:8: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: expected ';' before 'op'
+/tmp/mplayer-conf--42458.c:9: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:9: error: expected ';' before 'tc'
+/tmp/mplayer-conf--42458.c:10: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:10: error: expected ';' before 'inf'
+/tmp/mplayer-conf--42458.c:11: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:11: error: expected ';' before 'st'
+/tmp/mplayer-conf--42458.c:12: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:12: error: expected ';' before 'yuv'
+/tmp/mplayer-conf--42458.c:16: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-conf--42458.c:16: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:17: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-conf--42458.c:17: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:23: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:24: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-conf--42458.c:25: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-conf--42458.c:25: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:26: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-conf--42458.c:27: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-conf--42458.c:28: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-conf--42458.c:28: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:29: warning: implicit declaration of function 'theora_clear'
+
+
+
+#include <theora/theora.h>
+#include <string.h>
+int main(void) 
+{ 
+  /* theora is in flux, make sure that all interface routines and 
+   * datatypes exist and work the way we expect it, so we don't break
+   * mplayer */
+  ogg_packet op;
+  theora_comment tc;
+  theora_info inf;
+  theora_state st;
+  yuv_buffer yuv;
+  int r;
+  double t;
+
+  theora_info_init (&inf);
+  theora_comment_init (&tc);
+ 
+  return 0;
+
+  /* we don't want to execute this kind of nonsense; just for making sure
+   * that compilation works... */
+  memset(&op, 0, sizeof(op));
+  r = theora_decode_header (&inf, &tc, &op);
+  r = theora_decode_init (&st, &inf);
+  t = theora_granule_time (&st, op.granulepos);
+  r = theora_decode_packetin (&st, &op);
+  r = theora_decode_YUVout (&st, &yuv);
+  theora_clear (&st);
+
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I. tremor/bitwise.c
+/tmp/mplayer-conf--42458.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:8: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:8: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:8: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: expected ';' before 'op'
+/tmp/mplayer-conf--42458.c:9: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:9: error: expected ';' before 'tc'
+/tmp/mplayer-conf--42458.c:10: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:10: error: expected ';' before 'inf'
+/tmp/mplayer-conf--42458.c:11: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:11: error: expected ';' before 'st'
+/tmp/mplayer-conf--42458.c:12: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:12: error: expected ';' before 'yuv'
+/tmp/mplayer-conf--42458.c:16: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-conf--42458.c:16: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:17: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-conf--42458.c:17: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:23: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:24: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-conf--42458.c:25: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-conf--42458.c:25: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:26: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-conf--42458.c:27: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-conf--42458.c:28: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-conf--42458.c:28: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:29: warning: implicit declaration of function 'theora_clear'
+
+
+
+#include <theora/theora.h>
+#include <string.h>
+int main(void) 
+{ 
+  /* theora is in flux, make sure that all interface routines and 
+   * datatypes exist and work the way we expect it, so we don't break
+   * mplayer */
+  ogg_packet op;
+  theora_comment tc;
+  theora_info inf;
+  theora_state st;
+  yuv_buffer yuv;
+  int r;
+  double t;
+
+  theora_info_init (&inf);
+  theora_comment_init (&tc);
+ 
+  return 0;
+
+  /* we don't want to execute this kind of nonsense; just for making sure
+   * that compilation works... */
+  memset(&op, 0, sizeof(op));
+  r = theora_decode_header (&inf, &tc, &op);
+  r = theora_decode_init (&st, &inf);
+  t = theora_granule_time (&st, op.granulepos);
+  r = theora_decode_packetin (&st, &op);
+  r = theora_decode_YUVout (&st, &yuv);
+  theora_clear (&st);
+
+  return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -I. tremor/bitwise.c -ltheora -logg
+/tmp/mplayer-conf--42458.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:8: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:8: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:8: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:8: error: expected ';' before 'op'
+/tmp/mplayer-conf--42458.c:9: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:9: error: expected ';' before 'tc'
+/tmp/mplayer-conf--42458.c:10: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:10: error: expected ';' before 'inf'
+/tmp/mplayer-conf--42458.c:11: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:11: error: expected ';' before 'st'
+/tmp/mplayer-conf--42458.c:12: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:12: error: expected ';' before 'yuv'
+/tmp/mplayer-conf--42458.c:16: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-conf--42458.c:16: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:17: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-conf--42458.c:17: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:23: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:24: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-conf--42458.c:25: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-conf--42458.c:25: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:26: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-conf--42458.c:27: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-conf--42458.c:28: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-conf--42458.c:28: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:29: warning: implicit declaration of function 'theora_clear'
+
+
+Result is: no 
+##########################################
+
+============ Checking for internal mp3lib support ============
+Result is: no 
+##########################################
+
+============ Checking for internal liba52 support ============
+Result is: yes 
+##########################################
+
+============ Checking for libdca support ============
+
+#include <inttypes.h>
+#include <dts.h>
+int main(void) { dts_init (0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ldts -lm
+/tmp/mplayer-conf--42458.c:2:17: error: dts.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'dts_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for internal libmpeg2 support ============
+Result is: yes 
+##########################################
+
+============ Checking for libmpcdec (musepack, version >= 1.2.1 required) ============
+
+#include <mpcdec/mpcdec.h>
+int main(void) {
+  mpc_streaminfo info;
+  mpc_decoder decoder;
+  mpc_decoder_set_streaminfo(&decoder, &info);
+  mpc_decoder_decode_frame(&decoder, NULL, 0, NULL);
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lmpcdec -lm
+/tmp/mplayer-conf--42458.c:1:27: error: mpcdec/mpcdec.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: error: 'mpc_streaminfo' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:3: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:3: error: expected ';' before 'info'
+/tmp/mplayer-conf--42458.c:4: error: 'mpc_decoder' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:4: error: expected ';' before 'decoder'
+/tmp/mplayer-conf--42458.c:5: warning: implicit declaration of function 'mpc_decoder_set_streaminfo'
+/tmp/mplayer-conf--42458.c:5: error: 'decoder' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:5: error: 'info' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:6: warning: implicit declaration of function 'mpc_decoder_decode_frame'
+/tmp/mplayer-conf--42458.c:6: error: 'NULL' undeclared (first use in this function)
+
+
+Result is: no 
+##########################################
+
+============ Checking for FAAC (AAC encoder) support ============
+
+#include <inttypes.h> 
+#include <faac.h>
+int main(void) { unsigned long x, y; faacEncOpen(48000, 2, &x, &y); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -O4 -lfaac -lm
+/tmp/mplayer-conf--42458.c:2:18: error: faac.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'faacEncOpen'
+
+
+
+#include <inttypes.h> 
+#include <faac.h>
+int main(void) { unsigned long x, y; faacEncOpen(48000, 2, &x, &y); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -O4 -lfaac -lmp4v2 -lstdc++ -lm
+/tmp/mplayer-conf--42458.c:2:18: error: faac.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'faacEncOpen'
+
+
+Result is: no (in libavcodec: ) 
+##########################################
+
+============ Checking for FAAD2 (AAC) support ============
+Result is: yes (internal floating-point)
+##########################################
+
+============ Checking for LADSPA plugin support ============
+
+#include <stdio.h>
+#include <ladspa.h>
+int main(void) {
+const LADSPA_Descriptor *ld = NULL;
+return 0;
+}
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:2:20: error: ladspa.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:4: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/tmp/mplayer-conf--42458.c:4: error: 'ld' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:4: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:4: error: for each function it appears in.)
+
+
+Result is: no 
+##########################################
+
+============ Checking for Win32 codecs ============
+Result is: no 
+##########################################
+
+============ Checking for XAnim codecs ============
+Result is: yes (using /usr/mplayer-rc2/lib/codecs)
+##########################################
+
+============ Checking for RealPlayer codecs ============
+Result is: yes (using /usr/mplayer-rc2/lib/codecs)
+##########################################
+
+============ Checking for QuickTime codecs ============
+Result is: auto 
+##########################################
+
+============ Checking for Nemesi Streaming Media libraries ============
+Result is: no 
+##########################################
+
+============ Checking for LIVE555 Streaming Media libraries ============
+Result is: no 
+##########################################
+
+============ Checking for FFmpeg libavutil ============
+Result is: yes (static)
+##########################################
+
+============ Checking for FFmpeg libavcodec ============
+
+#include <ffmpeg/avcodec.h>
+int main(void) { avcodec_find_encoder_by_name(""); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -pthread -lavcodec -ldl -lXfixes -lXext -lX11 -lcdio_paranoia -lcdio_cdda -lcdio -ljack -lasound -ldc1394 -lraw1394 -lgcrypt -lxvidcore -lx264 -lvpx -lvorbisenc -lvorbis -ltheoraenc -ltheoradec -logg -lspeex -lschroedinger-1.0 -lrtmp -lpulse-simple -lpulse -lopus -lopenjpeg -lmp3lame -lgsm -lfreetype -lgnutls -lva -lbz2 -lz -lavutil -lm
+/tmp/mplayer-conf--42458.c:1:28: error: ffmpeg/avcodec.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'avcodec_find_encoder_by_name'
+
+
+Result is: yes (libavcodec.so is discouraged over static libavcodec)
+##########################################
+
+============ Checking for FFmpeg libavformat ============
+Result is: yes (static)
+##########################################
+
+============ Checking for FFmpeg libpostproc ============
+Result is: yes (static)
+##########################################
+
+============ Checking for libamr narrowband ============
+
+#include <amrnb/interf_dec.h>
+int main(void) { Speech_Decode_Frame_init(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lamrnb
+/tmp/mplayer-conf--42458.c:1:30: error: amrnb/interf_dec.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'Speech_Decode_Frame_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for libamr wideband ============
+
+#include <amrwb/dec_if.h>
+int main(void) { D_IF_init(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lamrwb
+/tmp/mplayer-conf--42458.c:1:26: error: amrwb/dec_if.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'D_IF_init'
+
+
+Result is: no 
+##########################################
+
+============ Checking for libdv-0.9.5+ ============
+
+#include <libdv/dv.h>
+int main(void) { dv_encoder_t* enc=dv_encoder_new(1,1,1); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -ldv -lpthread -lm
+/tmp/mplayer-conf--42458.c:1:22: error: libdv/dv.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: error: 'dv_encoder_t' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+/tmp/mplayer-conf--42458.c:2: error: 'enc' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'dv_encoder_new'
+
+
+Result is: no 
+##########################################
+
+============ Checking for XviD ============
+
+#include <xvid.h>
+int main(void) { xvid_global(0, 0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lxvidcore -lm
+/tmp/mplayer-conf--42458.c:1:18: error: xvid.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'xvid_global'
+
+
+
+#include <xvid.h>
+int main(void) { xvid_global(0, 0, 0, 0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lxvidcore -lm -lpthread
+/tmp/mplayer-conf--42458.c:1:18: error: xvid.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'xvid_global'
+
+
+Result is: no 
+##########################################
+
+============ Checking for x264 ============
+
+#include <inttypes.h>
+#include <x264.h>
+#if X264_BUILD < 53
+#error We do not support old versions of x264. Get the latest from SVN.
+#endif
+int main(void) { x264_encoder_open((void*)0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lx264 -lpthread
+/tmp/mplayer-conf--42458.c:2:18: error: x264.h: No such file or directory
+/tmp/mplayer-conf--42458.c:4:2: error: #error We do not support old versions of x264. Get the latest from SVN.
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:6: warning: implicit declaration of function 'x264_encoder_open'
+
+
+
+#include <inttypes.h>
+#include <x264.h>
+#if X264_BUILD < 53
+#error We do not support old versions of x264. Get the latest from SVN.
+#endif
+int main(void) { x264_encoder_open((void*)0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lx264 -lpthread -lm
+/tmp/mplayer-conf--42458.c:2:18: error: x264.h: No such file or directory
+/tmp/mplayer-conf--42458.c:4:2: error: #error We do not support old versions of x264. Get the latest from SVN.
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:6: warning: implicit declaration of function 'x264_encoder_open'
+
+
+Result is: no (in libavcodec: no) 
+##########################################
+
+============ Checking for libnut ============
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
+#include <libnut.h>
+int main(void) { (void)nut_error(0); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lnut
+/tmp/mplayer-conf--42458.c:4:20: error: libnut.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: warning: implicit declaration of function 'nut_error'
+
+
+Result is: no 
+##########################################
+
+============ Checking for mencoder ============
+Result is: no 
+##########################################
+
+============ Checking for fastmemcpy ============
+Result is: yes 
+##########################################
+
+============ Checking for UniquE RAR File Library ============
+Result is: yes 
+##########################################
+
+============ Checking for TV interface ============
+Result is: yes 
+##########################################
+
+============ Checking for Video 4 Linux TV interface ============
+
+#include <stdlib.h>
+#include <linux/videodev.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for Video 4 Linux 2 TV interface ============
+
+#include <stdlib.h>
+#include <linux/types.h>
+#include <linux/videodev2.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: yes 
+##########################################
+
+============ Checking for TV teletext interface ============
+Result is: no 
+##########################################
+
+============ Checking for Radio interface ============
+Result is: no 
+##########################################
+
+============ Checking for Capture for Radio interface ============
+Result is: no 
+##########################################
+
+============ Checking for Video 4 Linux 2 Radio interface ============
+Result is: no 
+##########################################
+
+============ Checking for Video 4 Linux Radio interface ============
+Result is: no 
+##########################################
+
+============ Checking for Video 4 Linux 2 MPEG PVR interface ============
+
+#include <stdlib.h>
+#include <inttypes.h>
+#include <linux/types.h>
+#include <linux/videodev2.h>
+int main(void) { struct v4l2_ext_controls ext; return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:5: warning: unused variable 'ext'
+
+
+Result is: yes 
+##########################################
+
+============ Checking for audio select() ============
+Result is: yes 
+##########################################
+
+============ Checking for ftp ============
+Result is: yes 
+##########################################
+
+============ Checking for vstream client ============
+
+#include <vstream-client.h>
+void vstream_error(const char *format, ... ) {}
+int main(void) { vstream_start(); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -lvstream-client
+/tmp/mplayer-conf--42458.c:1:28: error: vstream-client.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:3: warning: implicit declaration of function 'vstream_start'
+
+
+Result is: no 
+##########################################
+
+============ Checking for byte order ============
+
+short ascii_name[] = { (('M'<<8)|'P'),(('l'<<8)|'a'),(('y'<<8)|'e'),(('r'<<8)|'B'),
+                      (('i'<<8)|'g'),(('E'<<8)|'n'),(('d'<<8)|'i'),(('a'<<8)|'n'),0};
+int main(){
+  return (int)ascii_name;
+} 
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+
+
+Result is: little-endian 
+##########################################
+
+============ Checking for OSD menu ============
+Result is: no 
+##########################################
+
+============ Checking for Subtitles sorting ============
+Result is: yes 
+##########################################
+
+============ Checking for XMMS inputplugin support ============
+Result is: no 
+##########################################
+
+============ Checking for inet6 ============
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+int main(void) { struct sockaddr_in6 six; socket(AF_INET6, SOCK_STREAM, AF_INET6); }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:4: warning: unused variable 'six'
+/tmp/mplayer-conf--42458.c:4: warning: control reaches end of non-void function
+
+
+Result is: yes 
+##########################################
+
+============ Checking for gethostbyname2 ============
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+int main(void) { gethostbyname2("", AF_INET); }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:4: warning: control reaches end of non-void function
+/tmp/ccTrgrBY.o: In function `main':
+mplayer-conf--42458.c:(.text+0xc): warning: Using 'gethostbyname2' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+
+
+Result is: yes 
+##########################################
+
+============ Checking for GUI ============
+============ Checking for automatic gdb attach ============
+Result is: no 
+##########################################
+
+============ Checking for compiler support for noexecstack ============
+
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -Wl,-z,noexecstack
+
+
+Result is: yes 
+##########################################
+
+============ Checking for joystick ============
+Result is: no 
+##########################################
+
+============ Checking for lirc ============
+
+#include <lirc/lirc_client.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -llirc_client
+/tmp/mplayer-conf--42458.c:1:30: error: lirc/lirc_client.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for lircc ============
+
+#include <lirc/lircc.h>
+int main(void) { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -llircc
+/tmp/mplayer-conf--42458.c:1:24: error: lirc/lircc.h: No such file or directory
+
+
+Result is: no 
+##########################################
+
+============ Checking for maemo (Nokia 770) ============
+
+#include <libosso.h>
+int main(void) { (void) osso_initialize("", "", 0, NULL); return 0; }
+
+arm-none-linux-gnueabi-gcc -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c
+/tmp/mplayer-conf--42458.c:1:21: error: libosso.h: No such file or directory
+/tmp/mplayer-conf--42458.c: In function 'main':
+/tmp/mplayer-conf--42458.c:2: warning: implicit declaration of function 'osso_initialize'
+/tmp/mplayer-conf--42458.c:2: error: 'NULL' undeclared (first use in this function)
+/tmp/mplayer-conf--42458.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-conf--42458.c:2: error: for each function it appears in.)
+
+
+Result is: no 
+##########################################
+
+============ Checking for color console output ============
+Result is: no 
+##########################################
+
+
+int main() { return 0; }
+
+arm-none-linux-gnueabi-gcc -I. -I.. -I../libavutil -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -D_REENTRANT -DHAVE_CONFIG_H -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -Wdeclaration-after-statement
+
+
+
+int main() { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wdeclaration-after-statement -I. -I.. -I../libavutil -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -D_REENTRANT -DHAVE_CONFIG_H -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -Wno-pointer-sign
+
+
+
+int main() { return 0; }
+
+arm-none-linux-gnueabi-gcc -Wno-pointer-sign -Wdeclaration-after-statement -I. -I.. -I../libavutil -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4   -pipe -ffast-math -fomit-frame-pointer -D_REENTRANT -DHAVE_CONFIG_H -I/home/sunny/workspace/madplay/_install_arm/include  -static -Wl,-z,noexecstack -L/home/sunny/workspace/madplay/_install_arm/lib   -lz -lmad -lpthread -ldl -rdynamic   -o /tmp/mplayer-conf--42458 /tmp/mplayer-conf--42458.c -Wdisabled-optimization
+
+
+============ Checking for DVD support (libdvdnav) ============
+Result is: no 
+##########################################
+

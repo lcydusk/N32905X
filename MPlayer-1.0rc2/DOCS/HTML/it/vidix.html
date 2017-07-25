@@ -1,0 +1,154 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>8.15. VIDIX</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="up" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="prev" href="x11.html" title="8.14. X11"><link rel="next" href="directfb.html" title="8.16. DirectFB"><link rel="preface" href="howtoread.html" title="Come leggere questa documentazione"><link rel="chapter" href="intro.html" title="Capitolo 1. Introduzione"><link rel="chapter" href="install.html" title="Capitolo 2. Installazione"><link rel="chapter" href="usage.html" title="Capitolo 3. Utilizzo"><link rel="chapter" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="chapter" href="faq.html" title="Capitolo 5. Frequently Asked Questions"><link rel="chapter" href="containers.html" title="Capitolo 6. Contenitori"><link rel="chapter" href="codecs.html" title="Capitolo 7. Codec"><link rel="chapter" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="chapter" href="audio.html" title="Capitolo 9. Dispositivi di uscita audio"><link rel="chapter" href="tv.html" title="Capitolo 10. TV"><link rel="chapter" href="radio.html" title="Capitolo 11. Radio"><link rel="chapter" href="ports.html" title="Capitolo 12. Ports"><link rel="chapter" href="mencoder.html" title="Capitolo 13. Utilizzo base di MEncoder"><link rel="chapter" href="encoding-guide.html" title="Capitolo 14. Encoding with MEncoder"><link rel="appendix" href="bugreports.html" title="Appendice A. Come segnalare i bug (errori)"><link rel="appendix" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="appendix" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="appendix" href="history.html" title="Appendice D. Storia"><link rel="subsection" href="vidix.html#vidix-ati" title="8.15.1. Schede ATI"><link rel="subsection" href="vidix.html#vidix-mga" title="8.15.2. Schede Matrox"><link rel="subsection" href="vidix.html#vidix-trident" title="8.15.3. Schede Trident"><link rel="subsection" href="vidix.html#vidix-3dlabs" title="8.15.4. Schede 3DLabs"><link rel="subsection" href="vidix.html#vidix-nvidia" title="8.15.5. Schede nVidia"><link rel="subsection" href="vidix.html#vidix-sis" title="8.15.6. Schede SiS"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.15. VIDIX</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="x11.html">Indietro</a> </td><th width="60%" align="center">Capitolo 8. Dispositivi di uscita video</th><td width="20%" align="right"> <a accesskey="n" href="directfb.html">Avanti</a></td></tr></table><hr></div><div class="sect1" lang="it"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="vidix"></a>8.15. VIDIX</h2></div></div></div><p><b>PREAMBOLO. </b>
+<acronym class="acronym">VIDIX</acronym> è un nome breve che sta per 
+<span class="bold"><strong>VID</strong></span>eo
+<span class="bold"><strong>I</strong></span>nterface
+per *ni<span class="bold"><strong>X</strong></span>.
+VIDIX è stato progettato ed introdotto com un'interfaccia per driver veloci
+nello spazio utente, fornendo delle prestazioni video come quelle che fornisce
+mga_vid per le schede Matrox. E' anche molto portabile.
+</p><p>
+Quest'interfaccia è stata progettata come un tentativo di riunire le
+interfacce di accelerazione video già esistenti (conosciute come mga_vid,
+rage128_vid, radeon_vid, pm3_vid) in uno schema fissato. Fornisce un'interfaccia
+di alto livello a chip conosciuti come BES (BackEnd scalers) o OV (Video
+Overlays). Non fornisce un'interfaccia a basso livello a cose conosciute come
+server grafici (non voglio entrare in competizione con il gruppo di X11 per le
+modifiche alla modalità grafica). Per es. l'obiettivo principale di
+quest'intarfaccia è quello di velocizzare la riproduzione video.
+</p><div class="itemizedlist"><p class="title"><b>USO</b></p><ul type="disc" compact><li><p>
+  Puoi usare un driver di uscita video a sé stante: <tt class="option">-vo xvidix</tt>.
+  Questo driver è stato sviluppato come un front-end tra X11 e la tecnologia
+  VIDIX. Richiede l'X server e può funzionare solo dentro all'X server stesso.
+  Nota che, visto che accede direttamente all'hardware e oltrepassa il driver X,
+  le immagini memorizzate nella memoria della scheda video possono venir
+  corrotte. Puoi evitarlo limitando la dimensione della memoria video usata da
+  X con l'opzine "VideoRam" nella sezione device di XF86Config. Dovresti
+  impostare tale opzione alla quantità di memoria della tua scheda meno 4MB.
+  Se hai meno di 8MB di ram video, puoi usare invece l'opzione
+  "XaaNoPixmapCache" nella sezione screen.
+</p></li><li><p>
+  C'è poi un driver VIDIX per la console: <tt class="option">-vo cvidix</tt>.
+  Questo richiede per la maggior parte delle schede un framebuffer
+  inizializzato e funzionante  (altrimenti incasinerai solamente lo schermo), e
+  otterrai un effetto simile a <tt class="option">-vo mga</tt> o
+  <tt class="option">-vo fbdev</tt>. Le schede nVidia tuttavia sono in grado di
+  emettere video completamente grafico su vere console di testo. Vedi la sezione
+  <a href="vidix.html#vidix-nvidia" title="8.15.5. Schede nVidia">nvidia_vid</a> per ulteriori informazioni.
+  Per evitare il testo sui bordi e il cursore lampeggiante, prova qualcosa tipo
+  </p><pre class="screen">setterm -cursor off &gt; /dev/tty9</pre><p>
+  (presumendo che <code class="systemitem">tty9</code> non venga utilizzata) e poi
+  passa a <code class="systemitem">tty9</code>.
+  D'altro canto, <tt class="option">-colorkey 0</tt> dovrebbe mostrarti il video sullo
+  "sfondo", anche se questo dipende dal fatto che colorkey funzioni bene o no.
+  </p></li><li><p>
+  Puoi usare un sotto-dispositivo VIDIX che sia stato applicato a vari driver
+  di uscita video, così: <tt class="option">-vo vesa:vidix</tt>
+  (<span class="bold"><strong>solo per Linux</strong></span>) e
+  <tt class="option">-vo fbdev:vidix</tt>.
+</p></li></ul></div><p>
+In verità non conta quale driver di uscita video venga usato con
+<span class="bold"><strong>VIDIX</strong></span>.
+</p><div class="itemizedlist"><p class="title"><b>PREREQUISITI</b></p><ul type="disc" compact><li><p>
+  La scheda video dovrebbe essere in modalità grafica (tranne le schede nVidia
+  con il driver di uscita <tt class="option">-vo cvidix</tt>).
+</p></li><li><p>
+  Il driver di uscita video di <span class="application">MPlayer</span> dovrebbe
+  conoscere la modalità video attiva ed essere in grado di fornire al
+  sotto-dispositivo VIDIX alcune caratteristiche video del server.
+</p></li></ul></div><p><b>MODI DI UTILIZZO. </b>
+Quando VIDIX viene usato come un
+<span class="bold"><strong>sotto-dispositivo</strong></span> (<tt class="option">-vo
+vesa:vidix</tt>) allora la configurazione della modalità video viene
+eseguita dal dispositivo di uscita video
+(<span class="bold"><strong>vo_server</strong></span>, in breve). Perciò puoi passare
+sulla riga comando di <span class="application">MPlayer</span> le stesse chiavi per
+vo_server. Inoltre accetta <tt class="option">-double</tt> come un parametro globale
+(si consiglia di usare questa opzione con VIDIX almeno per le schede ATI).
+Come <tt class="option">-vo xvidix</tt>, attualmente riconosce le seguenti opzioni:
+<tt class="option">-fs -zoom -x -y -double</tt>.
+</p><p>
+Poi puoi specificare il driver VIDIX direttamente sulla riga comando come una
+terza sotto-opzione:
+</p><pre class="screen">
+mplayer -vo xvidix:mga_vid.so -fs -zoom -double <em class="replaceable"><code>file.avi</code></em>
+</pre><p>
+o
+</p><pre class="screen">
+mplayer -vo vesa:vidix:radeon_vid.so -fs -zoom -double -bpp 32 <em class="replaceable"><code>file.avi</code></em>
+</pre><p>
+ma è pericoloso e non dovresti farlo. In questo caso il driver indicato verrà
+forzato e i risultati sono imprevedibili (potrebbe mandarti il computer in
+<span class="bold"><strong>freeze</strong></span>). Dovresti farlo SOLO se sei
+assolutamente sicuro che funzionerà e <span class="application">MPlayer</span> non
+lo farà automaticamente. Per favore dillo agli sviluppatori. Il modo corretto
+è utilizzare VIDIX senza argomenti per abilitare la rilevazione automatica del
+driver.
+</p><p>
+Visto che VIDIX richiede un accesso diretto all'hardware puoi sia eseguirlo come
+root, sia impostare il bit SUID sull'eseguibile di
+<span class="application">MPlayer</span>.
+(<span class="bold"><strong>Attenzione: questo è un rischio di sicurezza!</strong></span>)
+Alternativamente puoi usare uno modulo del kernel speciale, come questo:
+</p><div class="procedure"><ol type="1"><li><p>
+  Scarica la <a href="http://www.arava.co.il/matan/svgalib/" target="_top">versione di
+  sviluppo</a> di svgalib (per esempio la 1.9.17),
+  <span class="bold"><strong>OPPURE</strong></span> scarica una versione fatta da Alex
+  appositamente per essere usata con <span class="application">MPlayer</span> (non ha
+  bisogno dei sorgenti di svgalib per la compilazione) da
+  <a href="http://www.mplayerhq.hu/MPlayer/contrib/svgalib/svgalib_helper-1.9%20%20%20.17-mplayer.tar.bz2" target="_top">qui</a>.
+</p></li><li><p>
+  Compila il modulo nella directory
+  <tt class="filename">svgalib_helper</tt> (si trova dentro la
+  directory <tt class="filename">svgalib-1.9.17/kernel/</tt> se hai
+  scaricato i sorgenti dal sito di svgalib) e caricalo nel kernel.
+</p></li><li><p>
+  Per creare i dispositivi necessari nella directory
+  <tt class="filename">/dev</tt>, esegui, come root,
+  </p><pre class="screen">make device</pre><p> nella directory
+  <tt class="filename">svgalib_helper</tt>.
+</p></li><li><p>
+  Sposta la directory <tt class="filename">svgalib_helper</tt>
+  nella sotto-directory <tt class="filename">vidix</tt> nei
+  sorgenti di <span class="application">MPlayer</span>.
+</p></li><li><p>
+  Togli il commento prima della riga con CFLAGS che contiene "svgalib_helper"
+  dal file <tt class="filename">vidix/Makefile</tt>.
+</p></li><li><p>
+  Ricompila.
+</p></li></ol></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-ati"></a>8.15.1. Schede ATI</h3></div></div></div><p>
+Attualmente la maggior parte delle schede ATI è supportata nativamente, dalle
+Mach64 alle più recenti Radeon.
+</p><p>
+Ci sono due binari compilati: <tt class="filename">radeon_vid</tt> per le Radeon e
+<tt class="filename">rage128_vid</tt> per le schede Rage 128. Puoi forzare
+l'utilizzo di uno dei due, oppure lasciare che il sistema VIDIX provi tutti i
+driver disponibili.
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-mga"></a>8.15.2. Schede Matrox</h3></div></div></div><p>
+Le Matrox G200, G400, G450 and G550 sono state riportate come funzionanti.
+</p><p>
+Il driver supporta gli equalizzatori video e dovrebbe essere veloce quasi quanto
+il <a href="mga_vid.html" title="8.7. Framebuffer Matrox (mga_vid)">framebuffer Matrox</a>.
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-trident"></a>8.15.3. Schede Trident</h3></div></div></div><p>
+C'è un driver disponibile per il chipset Trident Cyberblade/i1, che si può
+trovare sulle schede madri VIA Epia.
+</p><p>
+Il driver è scritto e mantenuto da
+<a href="http://www.blackfiveservices.co.uk/EPIAVidix.shtml" target="_top">Alastair M. Robinson</a>.
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-3dlabs"></a>8.15.4. Schede 3DLabs</h3></div></div></div><p>
+Anche se esiste un driver per i chip 3DLabs GLINT R3 e Permedia3, nessuno lo ha
+provato, perciò delle informazioni sono benvenute.
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-nvidia"></a>8.15.5. Schede nVidia</h3></div></div></div><p>
+Una caratteristica unica del driver nvidia_vid è la sua abilità nel mostrare
+video su di una
+<span class="bold"><strong>semplice, pura, console di testo</strong></span> - senza alcun
+framebuffer o qualche magia di X. Per questo fine, dovremo usare il driver di
+uscita video <tt class="option">cvidix</tt>, come mostrato nell'esempio che segue:
+</p><pre class="screen">mplayer -vo cvidix <em class="replaceable"><code>esempio.avi</code></em></pre><p>
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="vidix-sis"></a>8.15.6. Schede SiS</h3></div></div></div><p>
+Questo codice è davvero sperimentale, proprio come nvidia_vid.
+</p><p>
+E' stato testato su SiS 650/651/740 (i chipset più diffusi usati nelle versioni
+SiS dello "Shuttle XPC").
+</p><p>
+Si attendono resoconti!
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="x11.html">Indietro</a> </td><td width="20%" align="center"><a accesskey="u" href="video.html">Risali</a></td><td width="40%" align="right"> <a accesskey="n" href="directfb.html">Avanti</a></td></tr><tr><td width="40%" align="left" valign="top">8.14. X11 </td><td width="20%" align="center"><a accesskey="h" href="index.html">Partenza</a></td><td width="40%" align="right" valign="top"> 8.16. DirectFB</td></tr></table></div></body></html>

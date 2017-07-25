@@ -1,0 +1,52 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>4.1. Lettori CD/DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="up" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="prev" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="next" href="dvd.html" title="4.2. Riproduzione DVD"><link rel="preface" href="howtoread.html" title="Come leggere questa documentazione"><link rel="chapter" href="intro.html" title="Capitolo 1. Introduzione"><link rel="chapter" href="install.html" title="Capitolo 2. Installazione"><link rel="chapter" href="usage.html" title="Capitolo 3. Utilizzo"><link rel="chapter" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="chapter" href="faq.html" title="Capitolo 5. Frequently Asked Questions"><link rel="chapter" href="containers.html" title="Capitolo 6. Contenitori"><link rel="chapter" href="codecs.html" title="Capitolo 7. Codec"><link rel="chapter" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="chapter" href="audio.html" title="Capitolo 9. Dispositivi di uscita audio"><link rel="chapter" href="tv.html" title="Capitolo 10. TV"><link rel="chapter" href="radio.html" title="Capitolo 11. Radio"><link rel="chapter" href="ports.html" title="Capitolo 12. Ports"><link rel="chapter" href="mencoder.html" title="Capitolo 13. Utilizzo base di MEncoder"><link rel="chapter" href="encoding-guide.html" title="Capitolo 14. Encoding with MEncoder"><link rel="appendix" href="bugreports.html" title="Appendice A. Come segnalare i bug (errori)"><link rel="appendix" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="appendix" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="appendix" href="history.html" title="Appendice D. Storia"><link rel="subsection" href="drives.html#drives_linux" title="4.1.1. Linux"><link rel="subsection" href="drives.html#drives_freebsd" title="4.1.2. FreeBSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.1. Lettori CD/DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cd-dvd.html">Indietro</a> </td><th width="60%" align="center">Capitolo 4. Utilizzo CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="dvd.html">Avanti</a></td></tr></table><hr></div><div class="sect1" lang="it"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="drives"></a>4.1. Lettori CD/DVD</h2></div></div></div><p>
+I lettori CD-ROM recenti possono raggiungere velocità molto alte, ma molti
+lettori sono capaci di girare a velocità ridotte. Ci sono diversi motivi che
+possono farti pensare di cambiare la velocità di un'unità CD-ROM:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Ci sono state notifiche di errori di lettura ad alte velocità, specialmente
+  con CD-ROM malamente pressati. Ridurre la velocità può prevenire la
+  perdita di dati in queste circostanze.
+</p></li><li><p>
+  Molti lettori CD-ROM sono fastidiosamente rumorosi, una minor velocità
+  può ridurre il rumore.
+</p></li></ul></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="drives_linux"></a>4.1.1. Linux</h3></div></div></div><p>
+Puoi diminuire la velocità delle unità CD-ROM IDE con
+<span><strong class="command">hdparm</strong></span>, <span><strong class="command">setcd</strong></span> o <span><strong class="command">cdctl</strong></span>.
+Funziona così:
+</p><pre class="screen">hdparm -E <em class="replaceable"><code>[velocità]</code></em> <em class="replaceable"><code>[dispositivo cdrom]</code></em></pre><p>
+</p><pre class="screen">setcd -x <em class="replaceable"><code>[velocità]</code></em> <em class="replaceable"><code>[dispositivo cdrom]</code></em></pre><p>
+</p><pre class="screen">cdctl -bS <em class="replaceable"><code>[velocità]</code></em></pre><p>
+</p><p>
+Se stai usando l'emulazione SCSI, puoi dover applicare le impostazioni al
+lettore IDE reale, e non al dispositivo emulato come SCSI.
+</p><p>
+Se hai i privilegi di root può essere di aiuto anche il comando seguente:
+</p><pre class="screen">echo file_readahead:2000000 &gt; /proc/ide/<em class="replaceable"><code>[dispositivo cdrom]</code></em>/settings</pre><p>
+</p><p>
+</p><pre class="screen">hdparm -d1 -a8 -u1 <em class="replaceable"><code>[dispositivo cdrom]</code></em></pre><p>
+Ciò imposta la lettura in prefetch dei file a 2MB, che aiuta con CD-ROM
+graffiati. Se la imposti troppo alta, il lettore continuerà ad aumentare e
+diminuire la velocità, e le prestazioni diminuiranno drasticamente.
+Si raccomanda di regolare il tuo lettore CD-ROM anche con
+<span><strong class="command">hdparm</strong></span>:
+</p><pre class="screen">hdparm -d1 -a8 -u1 <em class="replaceable"><code>[dispositivo cdrom]</code></em></pre><p>
+</p><p>
+Questo abilita l'accesso in DMA, la pre-lettura, e la mascheratura IRQ (leggi
+la pagina man di <span><strong class="command">hdparm</strong></span> per una spiegazione dettagliata).
+</p><p>
+Per favore fai riferimento a
+"<tt class="filename">/proc/ide/<em class="replaceable"><code>[dispositivo cdrom]</code></em>/settings</tt>"
+per regolare con precisione il tuo CD-ROM.
+</p><p>
+I lettori SCSI non hanno un modo uniforme di impostare questi parametri (ne
+conosci uno? diccelo!). C'è uno strumento che funziona con i
+<a href="http://das.ist.org/~georg/" target="_top">lettori SCSI Plextor</a>.
+</p></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="drives_freebsd"></a>4.1.2. FreeBSD</h3></div></div></div><p>velocità:
+</p><pre class="screen">
+cdcontrol [-f <em class="replaceable"><code>dispositivo</code></em>] speed <em class="replaceable"><code>[velocità]</code></em>
+</pre><p>
+</p><p>DMA:
+</p><pre class="screen">
+sysctl hw.ata.atapi_dma=1
+</pre><p>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cd-dvd.html">Indietro</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Risali</a></td><td width="40%" align="right"> <a accesskey="n" href="dvd.html">Avanti</a></td></tr><tr><td width="40%" align="left" valign="top">Capitolo 4. Utilizzo CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Partenza</a></td><td width="40%" align="right" valign="top"> 4.2. Riproduzione DVD</td></tr></table></div></body></html>

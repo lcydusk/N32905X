@@ -1,0 +1,55 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>4.1. Napędy CD/DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="cd-dvd.html" title="Rozdział 4. Używanie CD/DVD"><link rel="prev" href="cd-dvd.html" title="Rozdział 4. Używanie CD/DVD"><link rel="next" href="dvd.html" title="4.2. Odtwarzanie DVD"><link rel="preface" href="howtoread.html" title="Jak czytać tę dokumentację"><link rel="chapter" href="intro.html" title="Rozdział 1. Wprowadzenie"><link rel="chapter" href="install.html" title="Rozdział 2. Instalacja"><link rel="chapter" href="usage.html" title="Rozdział 3. Sposób użycia"><link rel="chapter" href="cd-dvd.html" title="Rozdział 4. Używanie CD/DVD"><link rel="chapter" href="faq.html" title="Rozdział 5. FAQ - Często Zadawane Pytania"><link rel="chapter" href="formats.html" title="Rozdział 6. Kontenery"><link rel="chapter" href="codecs.html" title="Rozdział 7. Obsługiwane kodeki"><link rel="chapter" href="video.html" title="Rozdział 8. Urządzenia wyjścia video"><link rel="chapter" href="audio.html" title="Rozdział 9. Urządzenia wyjściowe audio"><link rel="chapter" href="tv.html" title="Rozdział 10. TV"><link rel="chapter" href="radio.html" title="Rozdział 11. Radio"><link rel="chapter" href="ports.html" title="Rozdział 12. Porty"><link rel="chapter" href="mencoder.html" title="Rozdział 13. Podstawy używania MEncodera"><link rel="chapter" href="encoding-guide.html" title="Rozdział 14. Kodowanie przy użyciu MEncodera"><link rel="appendix" href="bugreports.html" title="Dodatek A. Jak zgłaszać błędy"><link rel="appendix" href="bugs.html" title="Dodatek B. Znane błędy"><link rel="appendix" href="skin.html" title="Dodatek C. Format skórki MPlayera"><link rel="appendix" href="history.html" title="Dodatek D. Historia"><link rel="subsection" href="drives.html#drives_linux" title="4.1.1. Linux"><link rel="subsection" href="drives.html#drives_freebsd" title="4.1.2. FreeBSD"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.1. Napędy CD/DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="cd-dvd.html">Poprzedni</a> </td><th width="60%" align="center">Rozdział 4. Używanie CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="dvd.html">Następny</a></td></tr></table><hr></div><div class="sect1" lang="pl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="drives"></a>4.1. Napędy CD/DVD</h2></div></div></div><p>
+Nowoczesne napędy CD-ROM osiągają bardzo duże prędkości. Niektóre z nich są
+dodatkowo zdolne do pracy przy zredukowanych prędkościach. Oto kilka powodów,
+dla których powinniśmy zastanowić się czy nie należy zredukować prędkości
+naszego napędu:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  Istnieją doniesienia o błędach odczytu przy dużych prędkościach, szczególnie
+  podczas używania uszkodzonych bądź wadliwie wytłoczonych/nagranych płyt CD.
+  Redukcja prędkości odczytu może uchronić nas przed utratą danych w takich
+  przypadkach.
+</p></li><li><p>
+  Wiele napędów CD jest dokuczliwie głośnych. Redukcja prędkości może zmniejszyć
+  natężenie hałasu.
+</p></li></ul></div><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="drives_linux"></a>4.1.1. Linux</h3></div></div></div><p>
+Możesz zredukować prędkość napędu CD z interfejsem IDE korzystając
+z <span><strong class="command">hdparm</strong></span>, <span><strong class="command">setcd</strong></span> lub
+<span><strong class="command">cdctl</strong></span>.
+Działają one w następujący sposób:
+</p><pre class="screen">hdparm -E <em class="replaceable"><code>[prędkość]</code></em> <em class="replaceable"><code>[urządzenie cdrom]</code></em></pre><p>
+</p><pre class="screen">setcd -x <em class="replaceable"><code>[prędkość]</code></em> <em class="replaceable"><code>[urządzenie cdrom]</code></em></pre><p>
+</p><pre class="screen">cdctl -bS <em class="replaceable"><code>[speed]</code></em></pre><p>
+</p><p>
+Jeśli używasz emulacji SCSI, możesz musieć zastosować ustawienia do prawdziwego
+urządzenia IDE a nie emulowanego SCSI.
+</p><p>
+Jeżeli masz uprawnienia roota, to pomóc może także następująca komenda:
+</p><pre class="screen">echo file_readahead:2000000 &gt; /proc/ide/<em class="replaceable"><code>[urządzenie cdrom]</code></em>/settings</pre><p>
+</p><p>
+Ustawiamy w ten sposób wielkość bufora odczytu na 2MB, co pomaga przy odczycie
+porysowanych płyt. Jeżeli ustawimy zbyt dużą wielkość tego bufora, napęd będzie
+stale rozkręcał się i zwalniał, co spowoduje bardzo znaczny spadek wydajności.
+Zaleca się również dostrojenie napędu CD-ROM przy użyciu
+<span><strong class="command">hdparm</strong></span>:
+</p><pre class="screen">hdparm -d1 -a8 -u1 <em class="replaceable"><code>[urządzenie cdrom]</code></em></pre><p>
+</p><p>
+Włączamy w ten sposób dostęp DMA do dysku, czytanie z wyprzedzeniem i
+odmaskowanie IRQ (IRQ unmasking) (więcej przeczytasz na stronach man do
+<span><strong class="command">hdparm</strong></span>)
+</p><p>
+Proszę sprawdzić
+"<tt class="filename">/proc/ide/<em class="replaceable"><code>[urządzenie cdrom]</code></em>/settings</tt>"
+by dostroić swój napędu CD-ROM.
+</p><p>
+Dla napędów SCSI nie istnieje jednolity sposób ustawiawiania tych parametrów
+(jeżeli znasz jakiś to napisz nam o nim). Istnieje narzędzie które działa z
+<a href="http://das.ist.org/~georg/" target="_top">napędami SCSI Plextor</a>.
+</p></div><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="drives_freebsd"></a>4.1.2. FreeBSD</h3></div></div></div><p>Prędkość:
+</p><pre class="screen">
+cdcontrol [-f <em class="replaceable"><code>urządzenie</code></em>] speed <em class="replaceable"><code>[prędkość]</code></em>
+</pre><p>
+</p><p>DMA:
+</p><pre class="screen">
+sysctl hw.ata.atapi_dma=1
+</pre><p>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="cd-dvd.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Początek rozdziału</a></td><td width="40%" align="right"> <a accesskey="n" href="dvd.html">Następny</a></td></tr><tr><td width="40%" align="left" valign="top">Rozdział 4. Używanie CD/DVD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis treści</a></td><td width="40%" align="right" valign="top"> 4.2. Odtwarzanie DVD</td></tr></table></div></body></html>

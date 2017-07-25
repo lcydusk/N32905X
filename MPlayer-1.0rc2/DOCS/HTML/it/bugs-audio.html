@@ -1,0 +1,62 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>B.2. Vari problemi di sincronizzazione A-V e altri audio</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Il Visualizzatore di film"><link rel="up" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="prev" href="bugs-special.html" title="B.1. Bug/problemi speciali relativi al sistema/alla CPU"><link rel="next" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="preface" href="howtoread.html" title="Come leggere questa documentazione"><link rel="chapter" href="intro.html" title="Capitolo 1. Introduzione"><link rel="chapter" href="install.html" title="Capitolo 2. Installazione"><link rel="chapter" href="usage.html" title="Capitolo 3. Utilizzo"><link rel="chapter" href="cd-dvd.html" title="Capitolo 4. Utilizzo CD/DVD"><link rel="chapter" href="faq.html" title="Capitolo 5. Frequently Asked Questions"><link rel="chapter" href="containers.html" title="Capitolo 6. Contenitori"><link rel="chapter" href="codecs.html" title="Capitolo 7. Codec"><link rel="chapter" href="video.html" title="Capitolo 8. Dispositivi di uscita video"><link rel="chapter" href="audio.html" title="Capitolo 9. Dispositivi di uscita audio"><link rel="chapter" href="tv.html" title="Capitolo 10. TV"><link rel="chapter" href="radio.html" title="Capitolo 11. Radio"><link rel="chapter" href="ports.html" title="Capitolo 12. Ports"><link rel="chapter" href="mencoder.html" title="Capitolo 13. Utilizzo base di MEncoder"><link rel="chapter" href="encoding-guide.html" title="Capitolo 14. Encoding with MEncoder"><link rel="appendix" href="bugreports.html" title="Appendice A. Come segnalare i bug (errori)"><link rel="appendix" href="bugs.html" title="Appendice B. Bug conosciuti"><link rel="appendix" href="skin.html" title="Appendice C. MPlayer skin format"><link rel="appendix" href="history.html" title="Appendice D. Storia"><link rel="subsection" href="bugs-audio.html#bugs-delay-all" title="B.2.1. Ritardo generico dell'audio o suono saltellante (presente con tutti o molti file)"><link rel="subsection" href="bugs-audio.html#bugs-delay-specific" title="B.2.2. Ritardo/desincronizzazione audio relativi a uno o pochi file"><link rel="subsection" href="bugs-audio.html#bugs-nosound" title="B.2.3. Nessun suono"><link rel="subsection" href="bugs-audio.html#bugs-nopicture" title="B.2.4. Nessuna immagine (solo una finestra grigia o verde)"><link rel="subsection" href="bugs-audio.html#bugs-video" title="B.2.5. Problemi di uscita video"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.2. Vari problemi di sincronizzazione A-V e altri audio</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugs-special.html">Indietro</a> </td><th width="60%" align="center">Appendice B. Bug conosciuti</th><td width="20%" align="right"> <a accesskey="n" href="skin.html">Avanti</a></td></tr></table><hr></div><div class="sect1" lang="it"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bugs-audio"></a>B.2. Vari problemi di sincronizzazione A-V e altri audio</h2></div></div></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-delay-all"></a>B.2.1. Ritardo generico dell'audio o suono saltellante
+  (presente con tutti o molti file)</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  il più comune: driver audio bacato! - prova ad usare driver diversi, prova
+  l'emulazione OSS di ALSA con <tt class="option">-ao oss</tt>, prova anche
+  <tt class="option">-ao sdl</tt>, a volte aiuta. Se il file viene letto bene con
+  <tt class="option">-nosound</tt>, allora puoi essere certo che sia un problema
+  (del driver) della scheda audio.
+</p></li><li><p>problemi del buffer audio (dimensione del buffer mal rilevata)</p><p>
+  Workaround: l'opzione <tt class="option">-abs</tt> di <span class="application">MPlayer</span>
+  </p></li><li><p>
+  problemi della frequenza di campionamento - probabilmente la tua scheda non
+  supporta la frequenza di campionamento usata nei tuoi file - prova il filtro
+  di ricampionamento (<tt class="option">-af resample=...</tt>)
+</p></li><li><p>macchina lenta (CPU o VGA)</p><p>
+  prova con <tt class="option">-vo null</tt>, se funziona bene, allora hai la
+  scheda/il driver VGA lenta/o
+  </p><p>
+  Workaround: compra una scheda più veloce o leggi questa documentazione
+  su come velocizzare le cose
+  </p><p>Also try <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-delay-specific"></a>B.2.2. Ritardo/desincronizzazione audio relativi a uno o pochi file</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>file danneggiato</p><p>
+  Workaround:
+  </p><div class="itemizedlist"><ul type="circle"><li><p>
+        opzioni <tt class="option">-ni</tt> o <tt class="option">-nobps</tt>
+	(per file danneggiati o senza interleave)
+	</p><p>e/o</p></li><li><p>
+	<tt class="option">-mc 0</tt>
+	(richiesta per file con audio VBR interleave scorretto)
+	</p><p>e/o</p></li><li><p>
+        <tt class="option">-delay</tt> o tasti <span class="keycap"><b>+</b></span>/<span class="keycap"><b>-</b></span>
+        durante la riproduzione per correggere il ritardo
+	</p></li></ul></div><p>
+  Se nulla di ciò aiuta, per favore mandaci il file,
+  controlleremo (e correggeremo).
+  </p></li><li><p>la tua scheda audio non supporta la riproduzione a 48kHz</p><p>
+  Workaround: compra una scheda migliore...  o prova a diminuire del 10% gli
+  fps (usa <tt class="option">-fps 27</tt> per un filmato a 30fps) o usa il filtro di
+  ricampionamento
+  </p></li><li><p>
+  macchina lenta (se A-V non è intorno a 0,
+  e l'ultimo numero nella riga di stato aumenta)
+  </p><p>Workaround: <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-nosound"></a>B.2.3. Nessun suono</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>il tuo file usa un codec audio non supportato</p><p>
+  Soluzione: leggi la documentazione e aiutaci ad aggiungerne il supporto
+  </p></li></ul></div></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-nopicture"></a>B.2.4. Nessuna immagine (solo una finestra grigia o verde)</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>il tuo file usa un codec video non supportato</p><p>
+  Soluzione: leggi la documentazione e aiutaci ad aggiungerne il supporto
+  </p></li><li><p>
+  il codec selezionato in automatico non riesce a decodificare il file, prova ad
+  impostarne un altro usando le opzioni <tt class="option">-vc</tt> o
+  <tt class="option">-vfm</tt>
+  </p></li></ul></div></div><div class="sect2" lang="it"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-video"></a>B.2.5. Problemi di uscita video</h3></div></div></div><p>
+Prima di tutto fai attenzione che le opzioni <tt class="option">-fs</tt>,
+<tt class="option">-vm</tt> e <tt class="option">-zoom</tt> non sono supportate da tutti i
+driver. Inoltre, non tutti i driver supportano il ridimensionamento/lo zoom via
+hardware.
+</p><p><b>Sfarfallio OSD/sub. </b>
+</p><div class="itemizedlist"><ul type="disc"><li><p>driver x11: spiacenti, non può venir corretto ora</p></li><li><p>driver xv: usa l'opzione <tt class="option">-double</tt></p></li></ul></div><p>
+</p><p><b>Immagine verde usando mga_vid 
+  (<tt class="option">-vo mga</tt> / <tt class="option">-vo xmga</tt>). </b>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  mga_vid ha rilevato male la quantità di RAM della tua scheda,
+  ricaricalo usando l'opzione <tt class="option">mga_ram_size</tt>.
+</p></li></ul></div><p>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugs-special.html">Indietro</a> </td><td width="20%" align="center"><a accesskey="u" href="bugs.html">Risali</a></td><td width="40%" align="right"> <a accesskey="n" href="skin.html">Avanti</a></td></tr><tr><td width="40%" align="left" valign="top">B.1. Bug/problemi speciali relativi al sistema/alla CPU </td><td width="20%" align="center"><a accesskey="h" href="index.html">Partenza</a></td><td width="40%" align="right" valign="top"> Appendice C. <span class="application">MPlayer</span> skin format</td></tr></table></div></body></html>

@@ -1,0 +1,27 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>8.9. tdfx_vid</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Movie Player"><link rel="up" href="video.html" title="Kapitel 8. Videoausgabegeräte"><link rel="prev" href="tdfxfb.html" title="8.8. 3dfx-YUV-Unterstützung (tdfxfb)"><link rel="next" href="opengl.html" title="8.10. OpenGL-Ausgabe"><link rel="preface" href="howtoread.html" title="Wie diese Dokumentation gelesen werden soll"><link rel="chapter" href="intro.html" title="Kapitel 1. Einführung"><link rel="chapter" href="install.html" title="Kapitel 2. Installation"><link rel="chapter" href="usage.html" title="Kapitel 3. Gebrauch"><link rel="chapter" href="cd-dvd.html" title="Kapitel 4. CD/DVD Nutzung"><link rel="chapter" href="faq.html" title="Kapitel 5. Häufig gestellte Fragen"><link rel="chapter" href="containers.html" title="Kapitel 6. Containerformate"><link rel="chapter" href="codecs.html" title="Kapitel 7. Codecs"><link rel="chapter" href="video.html" title="Kapitel 8. Videoausgabegeräte"><link rel="chapter" href="audio.html" title="Kapitel 9. Audioausgabegeräte"><link rel="chapter" href="tv.html" title="Kapitel 10. TV"><link rel="chapter" href="radio.html" title="Kapitel 11. Radio"><link rel="chapter" href="ports.html" title="Kapitel 12. Portierungen"><link rel="chapter" href="mencoder.html" title="Kapitel 13. Allgemeiner Gebrauch von MEncoder"><link rel="chapter" href="encoding-guide.html" title="Kapitel 14. Encodieren mit MEncoder"><link rel="appendix" href="bugreports.html" title="Anhang A. Wie Fehler (Bugs) berichtet werden"><link rel="appendix" href="bugs.html" title="Anhang B. Bekannte Fehler"><link rel="appendix" href="skin.html" title="Anhang C. MPlayers Skinformat"><link rel="appendix" href="history.html" title="Anhang D. Geschichte"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.9. tdfx_vid</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tdfxfb.html">Zurück</a> </td><th width="60%" align="center">Kapitel 8. Videoausgabegeräte</th><td width="20%" align="right"> <a accesskey="n" href="opengl.html">Weiter</a></td></tr></table><hr></div><div class="sect1" lang="de"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tdfx_vid"></a>8.9. tdfx_vid</h2></div></div></div><p>
+  Dies ist eine Kombination aus Linux-Kernelmodul und einem Videoausgabetreiber,
+  ähnlich <a href="mga_vid.html" title="8.7. Matrox-Framebuffer (mga_vid)">mga_vid</a>.
+  Du wirst einen 2.4.x-Kernel mit dem <code class="systemitem">agpgart</code>-Treiber
+  brauchen, denn <code class="systemitem">tdfx_vid</code> verwendet AGP.
+  Übergib <tt class="option">--enable-tdfxfb</tt> an <span><strong class="command">configure</strong></span>, um
+  den Videoausgabetreiber zu erstellen, und erzeuge das Kernelmodul nach folgenden
+  Anweisungen.
+</p><div class="procedure"><a name="id2571950"></a><p class="title"><b>Das tdfx_vid.o-Kernelmodul installieren:</b></p><ol type="1"><li><p>
+    Compiliere <tt class="filename">tdfx_vid.o</tt>:
+</p><pre class="screen">
+cd drivers
+make</pre><p>
+  </p></li><li><p>
+    Führe dann (als <code class="systemitem">root</code>) folgenden Befehl aus:
+    </p><pre class="screen">make install</pre><p>
+    Dies sollte das Modul installieren und das Device-Node für dich erstellen.
+    Lade den Treiber mit </p><pre class="screen">insmod tdfx_vid.o</pre><p>
+  </p></li><li><p>
+    Um es automatisch nach Bedarf zu laden bzw. zu entfernen, füge folgende Zeile
+    am Ende von <tt class="filename">/etc/modules.conf</tt> hinzu:
+
+    </p><pre class="programlisting">alias char-major-178 tdfx_vid</pre><p>
+  </p></li></ol></div><p>
+  Es gibt ein Testprogramm namens <span><strong class="command">tdfx_vid_test</strong></span> im selben Verzeichnis.
+  Es sollte nützliche Informationen ausgeben, wenn alles gut funktioniert.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tdfxfb.html">Zurück</a> </td><td width="20%" align="center"><a accesskey="u" href="video.html">Nach oben</a></td><td width="40%" align="right"> <a accesskey="n" href="opengl.html">Weiter</a></td></tr><tr><td width="40%" align="left" valign="top">8.8. 3dfx-YUV-Unterstützung (tdfxfb) </td><td width="20%" align="center"><a accesskey="h" href="index.html">Zum Anfang</a></td><td width="40%" align="right" valign="top"> 8.10. OpenGL-Ausgabe</td></tr></table></div></body></html>

@@ -1,0 +1,75 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>4.2. Přehrávání DVD</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="up" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="prev" href="drives.html" title="4.1. CD/DVD mechaniky"><link rel="next" href="vcd.html" title="4.3. Přehrávání VCD"><link rel="preface" href="howtoread.html" title="Jak číst tuto dokumentaci"><link rel="chapter" href="intro.html" title="Kapitola 1. Představení"><link rel="chapter" href="install.html" title="Kapitola 2. Instalace"><link rel="chapter" href="usage.html" title="Kapitola 3. Použití"><link rel="chapter" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="chapter" href="faq.html" title="Kapitola 5. Často Kladené Dotazy (FAQ)"><link rel="chapter" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="chapter" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="chapter" href="video.html" title="Kapitola 8. Výstupní video zařízení/rozhraní"><link rel="chapter" href="audio.html" title="Kapitola 9. Výstupní zvuková zařízení"><link rel="chapter" href="tv.html" title="Kapitola 10. TV"><link rel="chapter" href="radio.html" title="Kapitola 11. Rádio"><link rel="chapter" href="ports.html" title="Kapitola 12. Porty"><link rel="chapter" href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><link rel="chapter" href="encoding-guide.html" title="Kapitola 14. Enkódování s MEncoderem"><link rel="appendix" href="bugreports.html" title="Příloha A. Jak hlásit chyby"><link rel="appendix" href="bugs.html" title="Příloha B. Známé chyby"><link rel="appendix" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="appendix" href="history.html" title="Příloha D. Historie"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.2. Přehrávání DVD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="drives.html">Předcházející</a> </td><th width="60%" align="center">Kapitola 4. Použití CD/DVD</th><td width="20%" align="right"> <a accesskey="n" href="vcd.html">Další</a></td></tr></table><hr></div><div class="sect1" lang="cs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dvd"></a>4.2. Přehrávání DVD</h2></div></div></div><p>
+Úplný seznam dostupných voleb naleznete v man stránce.
+Syntaxe pro přehrání standardního DVD je následující:
+</p><pre class="screen">
+mplayer dvd://<em class="replaceable"><code>&lt;track&gt;</code></em> [-dvd-device <em class="replaceable"><code>&lt;DVD_zařízení&gt;</code></em>]
+</pre><p>
+</p><p>
+Příklad:
+</p><pre class="screen">mplayer dvd://1 -dvd-device /dev/hdc</pre><p>
+</p><p>
+Pokud jste kompilovali <span class="application">MPlayer</span> s podporou dvdnav,
+je syntaxe stejná až na to, že musíte používat dvdnav:// místo dvd://.
+</p><p>
+Výchozím DVD zařízením je <tt class="filename">/dev/dvd</tt>. Pokud se vaše nastavení
+liší, vytvořte symlink, nebo uveďte správné zařízení na příkazovém řádku
+pomocí volby <tt class="option">-dvd-device</tt>.
+</p><p>
+<span class="application">MPlayer</span> používá <code class="systemitem">libdvdread</code> a
+<code class="systemitem">libdvdcss</code> pro přehrávání a dekódování DVD. Tyto dvě
+knihovny jsou obsaženy ve zdrojových kódech
+<span class="application">MPlayer</span>u, nemusíte je tedy instalovat zvlášť.
+Můžete rovněž použít systémové verze těchto knihoven, ale toto řešení
+nedoporučujeme, protože může vést k chybám,
+nekompatibilitě knihovny a nižší rychlosti.
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Poznámka</h3><p>
+V případě problémů s dekódováním DVD, zkuste vypnout supermount a podobná udělátka.
+Některé RPC-2 mechaniky mohou rovněž vyžadovat nastavení region kódu.
+</p></div><p><b>Struktura DVD. </b>
+DVD disky mají 2048 bajtů na sektor s ECC/CRC. Obvykle mají souborový systém UDF
+v jediné stopě, obsahující různé soubory (malé .IFO a .BUK soubory a velké (1GB)
+.VOB soubory). Jsou to reálné soubory a mohou být kopírovány/přehrávány
+z připojeného systému souborů nešifrovaného DVD.
+</p><p>
+Soubory .IFO obsahují informace pro navigaci ve filmu (kapitola/titul/mapa úhlů,
+tabulka jazyků, atd) a jsou potřeba pro čtení a interpretaci obsahu .VOBu
+(filmu). Soubory .BUK jsou jejich zálohami. Všude používají
+<span class="bold"><strong>sektory</strong></span>, takže musíte použít surové (RAW)
+adresování sektorů na disku, abyste se mohli navigovat v DVD, nebo dekryptovat
+jeho obsah.
+</p><p>
+Podpora DVD vyžaduje přímý sektorově-orientovaný přístup k zařízení. Naneštěstí
+musíte (pod Linuxem) být root, abyste dostali adresu sektoru souboru.
+To je důvod proč vůbec nepoužíváme modul souborového systému z kernelu a místo
+něj jej implementujeme v uživatelském prostoru.
+To zajistí <code class="systemitem">libdvdread</code> 0.9.x.
+UDF ovladač z kernelu není potřeba, jelikož tyto knihovny mají zabudován svůj
+vlastní. Rovněž nemusí být DVD přimountováno vzhledem k tomu že používáme
+pouze přímý sektorově orientovaný přístup.
+</p><p>
+Někdy <tt class="filename">/dev/dvd</tt> nemůže být čteno uživateli, proto autoři
+<code class="systemitem">libdvdread</code> implementovali emulační vrstvu, která
+převádí sektorové adresy na soubor+offset za účelem emulace raw přístupu
+nad připojeným souborovým systémem nebo dokonce i hard diskem.
+</p><p>
+<code class="systemitem">libdvdread</code> dokonce přijme bod připojení (mountpoint)
+místo názvu zařízení pro přímý přístup a podívá se do
+<tt class="filename">/proc/mounts</tt> na jméno zařízení. To bylo vyvinuto pro
+Solaris, kde jsou názvy souborů dynamicky alokovány.
+</p><p><b>Dešifrování DVD. </b>
+Dešifrování DVD provádí <code class="systemitem">libdvdcss</code>. Metoda
+může být zvolena pomocí proměnné prostředí <code class="envar">DVDCSS_METHOD</code>,
+detaily viz manuálovou stránku.
+</p><p>
+RPC-1 DVD mechaniky chrání nastavení regionu pouze softwarově. RPC-2 mechaniky
+mají hardwarovou ochranu umožňující pouze 5 změn. Může být potřeba/doporučeno
+provést upgrade firmwaru na RPC-1 pokud máte RPC-2 DVD mechaniku.
+Můžete zkusit najít upgrady firmwaru pro svou mechaniku na internetu,
+<a href="http://forum.rpc-1.com/dl_all.php" target="_top">toto firmwarové fórum</a>
+může být dobrým začátkem pro vaše hledání.
+Pokud pro vaši mechaniku není k dispozici upgrade firmwaru, použijte
+<a href="http://linvdr.org/projects/regionset/" target="_top">nástroj regionset</a>
+pro nastavení region kódu vaší DVD mechaniky (pod Linux).
+<span class="bold"><strong>Varování</strong></span>: Region můžete přenastavit pouze
+pětkrát.
+</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="drives.html">Předcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="cd-dvd.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="vcd.html">Další</a></td></tr><tr><td width="40%" align="left" valign="top">4.1. CD/DVD mechaniky </td><td width="20%" align="center"><a accesskey="h" href="index.html">Domů</a></td><td width="40%" align="right" valign="top"> 4.3. Přehrávání VCD</td></tr></table></div></body></html>

@@ -1,0 +1,206 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>7.1. Codecs vidéo</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Le Lecteur Vidéo"><link rel="up" href="codecs.html" title="Chapitre 7. Codecs Supportés"><link rel="prev" href="codecs.html" title="Chapitre 7. Codecs Supportés"><link rel="next" href="audio-codecs.html" title="7.2. Codecs audio"><link rel="preface" href="howtoread.html" title="Comment lire cette documentation"><link rel="chapter" href="intro.html" title="Chapitre 1. Introduction"><link rel="chapter" href="install.html" title="Chapitre 2. Installation"><link rel="chapter" href="usage.html" title="Chapitre 3. Utilisation"><link rel="chapter" href="cd-dvd.html" title="Chapitre 4. Utilisation des CD/DVD"><link rel="chapter" href="faq.html" title="Chapitre 5. Foire Aux Questions"><link rel="chapter" href="containers.html" title="Chapitre 6. Conteneurs"><link rel="chapter" href="codecs.html" title="Chapitre 7. Codecs Supportés"><link rel="chapter" href="video.html" title="Chapitre 8. Sorties vidéo"><link rel="chapter" href="audio.html" title="Chapitre 9. Périphériques de sortie audio"><link rel="chapter" href="tv.html" title="Chapitre 10. TV"><link rel="chapter" href="radio.html" title="Chapitre 11. Radio"><link rel="chapter" href="ports.html" title="Chapitre 12. Ports"><link rel="chapter" href="mencoder.html" title="Chapitre 13. Utilisation basique de MEncoder"><link rel="chapter" href="encoding-guide.html" title="Chapitre 14. L'encodage avec MEncoder"><link rel="appendix" href="bugreports.html" title="Annexe A. Comment rapporter les bogues"><link rel="appendix" href="bugs.html" title="Annexe B. Bogues connus"><link rel="appendix" href="skin.html" title="Annexe C. Format de skins MPlayer"><link rel="appendix" href="history.html" title="Annexe D. Histoire"><link rel="subsection" href="video-codecs.html#ffmpeg" title="7.1.1. FFmpeg/libavcodec"><link rel="subsection" href="video-codecs.html#xvid" title="7.1.2. Xvid"><link rel="subsection" href="video-codecs.html#codec-x264" title="7.1.3. x264"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.1. Codecs vidéo</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="codecs.html">Précédent</a> </td><th width="60%" align="center">Chapitre 7. Codecs Supportés</th><td width="20%" align="right"> <a accesskey="n" href="audio-codecs.html">Suivant</a></td></tr></table><hr></div><div class="sect1" lang="fr"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="video-codecs"></a>7.1. Codecs vidéo</h2></div></div></div><p>
+La <a href="../../codecs-status.html" target="_top">table d'état des codecs</a>
+est une liste complète, générée quotidiennement. Quelques codecs binaires à utiliser avec MPlayer
+sont disponibles dans la
+<a href="http://www.mplayerhq.hu/design7/dload.html#binary_codecs" target="_top">section téléchargement</a> de notre page web.
+</p><p>
+Les plus importants d'entre eux:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  vidéo <span class="bold"><strong>MPEG1</strong></span> (<span class="bold"><strong>VCD</strong></span>)
+  et <span class="bold"><strong>MPEG2</strong></span> (<span class="bold"><strong>DVD</strong></span>)
+  </p></li><li><p>
+  décodeurs natifs pour <span class="bold"><strong>toutes les versions de DivX
+  3ivX, MS MPEG4</strong></span> v1, v2 et autres variantes MPEG4
+  </p></li><li><p>
+  décodeur natif pour <span class="bold"><strong>Windows Media Video 7/8</strong></span>
+  (<span class="bold"><strong>WMV1/WMV2</strong></span>), et décodeur DLL Win32 pour
+  <span class="bold"><strong>Windows Media Video 9</strong></span>
+  (<span class="bold"><strong>WMV3</strong></span>), utilisés tous les deux dans les fichiers
+  <tt class="filename">.wmv</tt>
+  </p></li><li><p>
+  décodeur <span class="bold"><strong>Sorenson 1 (SVQ1)</strong></span> natif
+  </p></li><li><p>
+  décodeur <span class="bold"><strong>Sorenson 3 (SVQ3)</strong></span> natif
+  </p></li><li><p>
+  décodeur <span class="bold"><strong>3ivx</strong></span> v1, v2
+  </p></li><li><p>
+  codecs Cinepak et <span class="bold"><strong>Intel Indeo</strong></span> (3.1,3.2,4.1,5.0)
+  </p></li><li><p>
+  <span class="bold"><strong>MJPEG</strong></span>, AVID, VCR2, ASV2 et autres formats matériels
+  </p></li><li><p>
+  VIVO 1.0, 2.0, I263 et autres variantes <span class="bold"><strong>H.263(+)</strong></span>
+  </p></li><li><p>
+  FLI/FLC
+  </p></li><li><p>
+  <span class="bold"><strong>RealVideo 1.0 &amp; 2.0</strong></span> de
+  <code class="systemitem">libavcodec</code>, et
+  <span class="bold"><strong>RealVideo 3.0 &amp; 4.0</strong></span> en utilisant les
+  librairies RealPlayer
+  </p></li><li><p>
+  décodeur natif pour HuffYUV
+  </p></li><li><p>
+  vieux et simples formats variés similaires à RLE
+  </p></li></ul></div><p>
+Si vous avez un codec Win32 non listé ici qui n'est pas encore
+supporté, veuillez lire <a href="codec-importing.html" title="7.3. Comment importer les codecs Win32">Comment importer des codecs</a>
+et aidez-nous à en ajouter le support.
+</p><div class="sect2" lang="fr"><div class="titlepage"><div><div><h3 class="title"><a name="ffmpeg"></a>7.1.1. FFmpeg/libavcodec</h3></div></div></div><p>
+<a href="http://ffmpeg.org" target="_top">FFmpeg</a> contient
+<code class="systemitem">libavcodec</code>, la bibliothèque de codecs
+audio et vidéo leader de l'open source.
+Elle est capable de décoder la plupart des formats multimédia (habituellement
+plus rapidement que les solutions alternatives) et ambitionne de toutes les 
+décoder un jour.
+C'est le décodeur par défaut pour la majorité des codecs que
+<span class="application">MPlayer</span> gère.
+L'encodage est aussi possible dans certains formats, et est géré par
+<span class="application">MEncoder</span>.
+</p><p>
+Pour avoir une liste complète des codecs <a href="http://www.ffmpeg.org/ffmpeg-doc.html#SEC19" target="_top">video</a>
+et <a href="http://www.ffmpeg.org/ffmpeg-doc.html#SEC20" target="_top">audio</a>
+supportés, veuillez vous reporter à la page web de FFmpeg.
+</p><p>
+<span class="application">MPlayer</span> contient
+<code class="systemitem">libavcodec</code>.
+Lancez juste <tt class="filename">./configure</tt> et compilez.
+ </p></div><div class="sect2" lang="fr"><div class="titlepage"><div><div><h3 class="title"><a name="xvid"></a>7.1.2. Xvid</h3></div></div></div><p>
+<a href="http://www.xvid.org" target="_top">Xvid</a> est un logiciel libre
+de codec video conforme au MPEG-4 ASP, qui possède des fonctionnalités
+d'encodage en 2 passes et un support complet du MPEG-4 ASP, rendant la chose
+beaucoup plus efficace que le bien connu codec DivX.
+Il donne une très bonne qualité video et obtient de bonnes performances grâce 
+à une optimisation pour les processeurs les plus modernes.
+</p><p>
+Cela a commencé comme un fork du codec OpenDivX.
+Quand ProjectMayo a transformé le projet libre OpenDivX en
+projet propriétaire DivX4, les personnes extérieures à
+ProjectMayo travaillant sur OpenDivX se sont fâchés, et ont démarré XviD.
+Les deux projets ont donc la même origine.
+</p><p>
+Notez qu'Xvid n'est pas nécessaire pour décoder des vidéos encodée par Xvid.
+<code class="systemitem">libavcodec</code> est utilisé par défaut parce qu'il
+offre une vitesse supérieure.
+</p><div class="procedure"><a name="id2564186"></a><p class="title"><b>Installer <code class="systemitem">Xvid</code></b></p><p>
+  Comme la plupart des logiciels open source, il est disponible en deux parfums:
+  <a href="http://www.xvid.org/downloads.html" target="_top">versions officielle</a>
+  et la version CVS.
+  La version CVS est habituellement suffisament stable pour être utilisée, puisqu'elle bénéficie des
+  corrections de bogues existant dans les versions officielles.
+  Voici qui doit être fait pour faire fonctionner la version CVS de
+  <code class="systemitem">Xvid</code>
+  avec <span class="application">MEncoder</span> (vous avez besoin au minimum de
+  <span class="application">autoconf</span> 2.50,
+  <span class="application">automake</span> et <span class="application">libtool</span>):
+</p><ol type="1"><li><p>
+  </p><pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid login</pre><p>
+  </p></li><li><p>
+  </p><pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid co xvidcore</pre><p>
+</p></li><li><p>
+  </p><pre class="screen">cd xvidcore/build/generic</pre><p>
+  </p></li><li><p>
+  </p><pre class="screen">./bootstrap.sh</pre><p>
+  </p></li><li><p>
+  </p><pre class="screen">./configure</pre><p>
+  Vous pouvez avoir à ajouter des options (examinez la sortie de
+  </p><pre class="screen">./configure --help</pre><p>).
+  </p></li><li><p>
+  </p><pre class="screen">make &amp;&amp; make install</pre><p>
+  </p></li><li><p>
+  Si vous avez spécifié <tt class="option">--enable-divxcompat</tt>,
+  copiez <tt class="filename">../../src/divx4.h</tt> dans
+  <tt class="filename">/usr/local/include/</tt>.
+  </p></li><li><p>
+  Recompilez <span class="application">MPlayer</span> avec
+  <tt class="option">--with-xvidlibdir=<em class="replaceable"><code>/chemin/vers/</code></em>libxvidcore.a</tt>
+  <tt class="option">--with-xvidincdir=<em class="replaceable"><code>/chemin/vers/</code></em>xvid.h</tt>.
+  </p></li></ol></div></div><div class="sect2" lang="fr"><div class="titlepage"><div><div><h3 class="title"><a name="codec-x264"></a>7.1.3. x264</h3></div></div></div><div class="sect3" lang="fr"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-whatis"></a>7.1.3.1. Qu'est ce que le x264?</h4></div></div></div><p>
+  <a href="http://developers.videolan.org/x264.html" target="_top"><code class="systemitem">x264</code></a>
+  est une librairie pour créer des flux video H.264.
+  Il n'est pas 100% achevé, mais actuellement il bénéficie d'un minimum de
+  support pour la plupart des fonctionalités du H.264 qui impactent la qualité.
+  Il y a aussi de nombreuses fonctionalités avancées des specifications de H.264
+  qui n'ont rien avoir avec la qualité vidéo. La plupart d'entre elles ne sont pas encore
+  implémentées dans le <code class="systemitem">x264</code>.
+</p><div class="itemizedlist"><p class="title"><b>Fonctionnalités de l'encodeur</b></p><ul type="disc"><li><p>CAVLC/CABAC</p></li><li><p>Références multiples</p></li><li><p>Intra: Tout les types de macrobloc (16x16, 8x8, et 4x4 avec
+    toutes les prédictions)</p></li><li><p>Inter P: Toutes les partitions (de 16x16 jusqu'à
+  4x4)</p></li><li><p>Inter B: Les partitions de 16x16 jusqu'à 8x8
+    (incluant SKIP/DIRECT)</p></li><li><p>Control Débit: quantificateur constant, débit constant,
+    ABR simple ou multi-passe, VBV optionnel</p></li><li><p>Détection de changement de scène</p></li><li><p>Placement d'image B adaptatif</p></li><li><p>images B commme références / ordre arbitraire d'image</p></li><li><p>8x8 et 4x4 transformation spaciale adaptative</p></li><li><p>Mode sans perte</p></li><li><p>Matrices de quantification personnalisées</p></li><li><p>Encodage parallèle en multiples tranches</p></li></ul></div></div><div class="sect3" lang="fr"><div class="titlepage"><div><div><h4 class="title"><a name="codec-h264-whatis"></a>7.1.3.2. Qu'est ce que le H.264?</h4></div></div></div><p>
+  H.264 est un des noms pour le nouveau codec video numérique développé conjointement
+  par l'ITU et le MPEG.
+  Il peut être aussi correctement référencé avec les noms peu commodes de
+  "ISO/IEC 14496-10" ou "MPEG-4 Part 10".
+  Plus fréquement, on s'y réfère en tant que "MPEG-4 AVC" ou juste "AVC".
+</p><p>
+  Qu'importe la façon de l'appeler, H.264 peut valoir le coup d'être essayé
+  parce qu'il peut typiquement donner une qualité équivalente au MPEG-4 ASP avec
+  5%-30% de débit en moins.
+  Concrètement, le résultat dépendra de la source d'encodage et de l'efficacité
+  de l'encodeur.
+  Les gains apportés par H.264 ne sont pas gratuits: Décoder un flux H.264
+  augmente considérablement les besoins en processeur et mémoire.
+  Par exemple, sur un Athlon 1733 MHz, une vidéo H.264 en résolution DVD à 1500kbps
+  demande environ 35% du processeur pour décoder.
+  En comparaison, décoder un flux MPEG-4 ASP en résolution DVD à 1500kbps
+  demande environ 10% du procésseur.
+  Cela signifie que le décodage de flux haute-définition est quasiment hors de question
+  pour la majorité des utilisateurs.
+  Cela signifie aussi que même une vidéo en résolution DVD peut quelque fois être saccadé
+  sur des processeurs plus lent que 2.0 GHz.
+</p><p>
+  Au moins avec <code class="systemitem">x264</code>,
+  les besoins lors de l'encodage ne sont pas bien pire que ce à quoi on est habitué
+  avec le MPEG-4 ASP.
+  Par exemple, sur un Athlon 1733 MHz un encodage DVD typique devrait tourner
+  à 5-15fps.
+</p><p>
+  Ce document n'a pas pour but d'expliquer H.264 en détail,
+  mais si vous êtes intéressé par une brêve vue d'ensemble, vous voudrez peut-être lire (en anglais)
+  <a href="http://www.cdt.luth.se/~peppar/kurs/smd151/spie04-h264OverviewPaper.pdf" target="_top">The H.264/AVC Advanced Video Coding Standard:
+Overview and Introduction to the Fidelity Range Extensions</a>.
+</p></div><div class="sect3" lang="fr"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-playback"></a>7.1.3.3. Comment puis-je lire les vidéos H.264 avec <span class="application">MPlayer</span>?</h4></div></div></div><p>
+  <span class="application">MPlayer</span> utilise le décodeur H264 de
+  <code class="systemitem">libavcodec</code>.
+  <code class="systemitem">libavcodec</code> a eu
+  un décodeur H.264  un minimum utilisable environ juillet 2004,
+  cependant des changements et améliorations majeurs ont été implémentés depuis cette date,
+  à la fois en terme de fonctionalités supportées et d'utilisation du processeur.
+  Pour être sûr de soi, c'est toujours une bonne idée d'utiliser une version récente extraite
+  du dépot Subversion.
+</p><p>
+  Si vous voulez une façon rapide et facile de savoir si il y a eu des
+  changements récents au décodage H.264 de <code class="systemitem">libavcodec</code>,
+  vous devriez garder un oeil sur
+  <a href="http://svn.mplayerhq.hu/ffmpeg/trunk/libavcodec/h264.c?view=log" target="_top">Interface Web du Subversion de FFmpeg</a>.
+</p></div><div class="sect3" lang="fr"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-encode"></a>7.1.3.4. Comment puis-je encoder des vidéos avec <span class="application">MEncoder</span> et
+<code class="systemitem">x264</code>?</h4></div></div></div><p>
+  Si vous avez le client Subversion installé, les dernières sources de x264
+  peuvent être récupérées avec cette commande:
+  </p><pre class="screen">
+    svn co svn://svn.videolan.org/x264/trunk x264</pre><p>
+  Les sources de <span class="application">MPlayer</span> sont mises à jour lorsque survient
+  un changement de l'interface de programmation de <code class="systemitem">x264</code>,
+  donc il est toujours conseillé d'utiliser la version Subversion de
+  <span class="application">MPlayer</span>.
+  Peut-être cette situtation changera quand et si une "release" de
+  <code class="systemitem">x264</code> survient.
+  En attendant, <code class="systemitem">x264</code> devra être
+  considéré comme très instable, dans le sens où son interface de programmation
+  est sujet à changement.
+</p><p>
+  <code class="systemitem">x264</code> est construit et
+  installé de façon standard:
+  </p><pre class="screen">
+    ./configure &amp;&amp; make &amp;&amp; sudo make install</pre><p>
+  Ceci installe libx264.a dans /usr/local/lib et x264.h est placé dans
+  /usr/local/include.
+
+  Avec la bibliothèqye <code class="systemitem">x264</code> et l'en-tête
+  aux emplacements standards, construire
+  <span class="application">MPlayer</span> avec le support
+  <code class="systemitem">x264</code> est facile.
+  il suffit de lancer le standard:
+  </p><pre class="screen">./configure &amp;&amp; make &amp;&amp; sudo make install</pre><p>
+  Le script <tt class="filename">./configure</tt> détectera automatiquement que vous satisfaisez
+  aux conditions requises pour le <code class="systemitem">x264</code>.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="codecs.html">Précédent</a> </td><td width="20%" align="center"><a accesskey="u" href="codecs.html">Niveau supérieur</a></td><td width="40%" align="right"> <a accesskey="n" href="audio-codecs.html">Suivant</a></td></tr><tr><td width="40%" align="left" valign="top">Chapitre 7. Codecs Supportés </td><td width="20%" align="center"><a accesskey="h" href="index.html">Sommaire</a></td><td width="40%" align="right" valign="top"> 7.2. Codecs audio</td></tr></table></div></body></html>

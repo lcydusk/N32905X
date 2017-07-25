@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>B.2. Různé A-V sync a další problémy se zvukem</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="up" href="bugs.html" title="Příloha B. Známé chyby"><link rel="prev" href="bugs-special.html" title="B.1. Speciální systémové/CPU-specifické chyby/problémy"><link rel="next" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="preface" href="howtoread.html" title="Jak číst tuto dokumentaci"><link rel="chapter" href="intro.html" title="Kapitola 1. Představení"><link rel="chapter" href="install.html" title="Kapitola 2. Instalace"><link rel="chapter" href="usage.html" title="Kapitola 3. Použití"><link rel="chapter" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="chapter" href="faq.html" title="Kapitola 5. Často Kladené Dotazy (FAQ)"><link rel="chapter" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="chapter" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="chapter" href="video.html" title="Kapitola 8. Výstupní video zařízení/rozhraní"><link rel="chapter" href="audio.html" title="Kapitola 9. Výstupní zvuková zařízení"><link rel="chapter" href="tv.html" title="Kapitola 10. TV"><link rel="chapter" href="radio.html" title="Kapitola 11. Rádio"><link rel="chapter" href="ports.html" title="Kapitola 12. Porty"><link rel="chapter" href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><link rel="chapter" href="encoding-guide.html" title="Kapitola 14. Enkódování s MEncoderem"><link rel="appendix" href="bugreports.html" title="Příloha A. Jak hlásit chyby"><link rel="appendix" href="bugs.html" title="Příloha B. Známé chyby"><link rel="appendix" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="appendix" href="history.html" title="Příloha D. Historie"><link rel="subsection" href="bugs-audio.html#bugs-delay-all" title="B.2.1. Obecné zpoždění zvuku nebo mizerný zvuk (ve všech nebo mnoha souborech)"><link rel="subsection" href="bugs-audio.html#bugs-delay-specific" title="B.2.2. Zpoždění zvuku/de-sync typické pro jeden nebo málo souborů"><link rel="subsection" href="bugs-audio.html#bugs-nosound" title="B.2.3. Naprosto bez zvuku"><link rel="subsection" href="bugs-audio.html#bugs-nopicture" title="B.2.4. Žádný obraz (pouze šedá/zelená plocha)"><link rel="subsection" href="bugs-audio.html#bugs-video" title="B.2.5. Problémy s výstupem videa"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.2. Různé A-V sync a další problémy se zvukem</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="bugs-special.html">Předcházející</a> </td><th width="60%" align="center">Příloha B. Známé chyby</th><td width="20%" align="right"> <a accesskey="n" href="skin.html">Další</a></td></tr></table><hr></div><div class="sect1" lang="cs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bugs-audio"></a>B.2. Různé A-V sync a další problémy se zvukem</h2></div></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-delay-all"></a>B.2.1. Obecné zpoždění zvuku nebo mizerný zvuk
+  (ve všech nebo mnoha souborech)</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+  nejčastěji: vadný ovládač zvukové karty! – zkuste použít jiné ovladače,
+  Zkuste OSS emulaci z ALSA pomocí <tt class="option">-ao oss</tt>, také zkuste
+  <tt class="option">-ao sdl</tt>, občas to pomůže. Pokud se váš soubor přehrává dobře
+  s <tt class="option">-nosound</tt>, pak si můžete být jisti, že je to problém zvukové
+  karty (ovladače).
+</p></li><li><p>problémy audio bufferu (špatně detekovaná velikost bufferu)</p><p>
+  Obejití: <span class="application">MPlayer</span>ova volba <tt class="option">-abs</tt>
+  </p></li><li><p>
+  problémy se vzorkovací rychlostí – možná vaše zvuková karta nepodporuje
+  vzorkovací rychlost používanou ve vašich souborech. Zkuste převzorkovávací
+  filtr (<tt class="option">-af resample=...</tt>)
+</p></li><li><p>pomalý stroj (CPU nebo VGA)</p><p>
+  zkuste s <tt class="option">-vo null</tt>, pokud se přehrává dobře, pak máte
+  pomalou VGA kartu/rozhraní
+  </p><p>
+  Obejití: kupte si rychlejší kartu, nebo si přečtěte tu část dokumentace
+  pojednávající o tom jak urychlovat
+  </p><p>Rovněž zkuste <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-delay-specific"></a>B.2.2. Zpoždění zvuku/de-sync typické pro jeden nebo málo souborů</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>vadný soubor</p><p>
+  Obejití:
+  </p><div class="itemizedlist"><ul type="circle"><li><p>
+    volba <tt class="option">-ni</tt> nebo <tt class="option">-nobps</tt>
+    (pro neprokládané nebo vadné soubory)
+    </p><p>a/nebo</p></li><li><p>
+    <tt class="option">-mc 0</tt>
+    (vyžadováno soubory se špatně prokládaným VBR zvukem)
+    </p><p>a/nebo</p></li><li><p>
+    <tt class="option">-delay</tt> nebo <span class="keycap"><b>+</b></span>/<span class="keycap"><b>-</b></span>
+    klávesy za běhu pro nastavení zpoždění
+    </p></li></ul></div><p>
+  Pokud nic z toho nepomůže, uploadujte prosíme soubor, otestujeme jej a opravíme.
+  </p></li><li><p>vaše zvuková karta nepodporuje přehrávání při 48 kHz</p><p>Obejití: kupte si lepší zvukovou kartu... nebo zkuste snížit snímkovou
+  rychlost o 10% (použijte <tt class="option">-fps 27</tt> pro film 30fps) nebo použijte
+  resample filtr</p></li><li><p>
+  pomalý počítač (pokud není A-V okolo 0 a
+  poslední číslo stavového řádku se zvyšuje)
+  </p><p>Obejití: <tt class="option">-framedrop</tt></p></li></ul></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-nosound"></a>B.2.3. Naprosto bez zvuku</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>váš soubor používá nepodporovaný audio kodek</p><p>
+  Řešení: přečtěte si dokumentaci a pomozte nám přidat pro něj podporu
+  </p></li></ul></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-nopicture"></a>B.2.4. Žádný obraz (pouze šedá/zelená plocha)</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>váš soubor používá nepodporovaný video kodek</p><p>
+  Řešení: přečtěte si dokumentaci a pomozte nám přidat pro něj podporu
+  </p></li><li><p>
+  automaticky vybraný kodek neumí dekódovat soubor – zkuste vybrat jiný
+  pomocí volby <tt class="option">-vc</tt> nebo <tt class="option">-vfm</tt>
+  </p></li></ul></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="bugs-video"></a>B.2.5. Problémy s výstupem videa</h3></div></div></div><p>
+Nejprve poznamenejme, že volby <tt class="option">-fs -vm</tt> a
+<tt class="option">-zoom</tt> nejsou podporované všemi rozhraními. Navíc
+ne všechna rozhraní podporují škálování/zvětšování v hardwaru.
+</p><p><b>Poblikávání OSD/titulků. </b>
+</p><div class="itemizedlist"><ul type="disc"><li><p>rozhraní x11: bohužel, zatím nelze odstranit</p></li><li><p>rozhraní xv: použijte volbu <tt class="option">-double</tt></p></li></ul></div><p>
+</p><p><b>Zelený obraz při použití mga_vid 
+  (<tt class="option">-vo mga</tt> / <tt class="option">-vo xmga</tt>). </b>
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  mga_vid špatně detekovalo množství RAM videokarty, načtěte jej
+  znovu s volbou <tt class="option">mga_ram_size</tt>
+</p></li></ul></div><p>
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="bugs-special.html">Předcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="bugs.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="skin.html">Další</a></td></tr><tr><td width="40%" align="left" valign="top">B.1. Speciální systémové/CPU-specifické chyby/problémy </td><td width="20%" align="center"><a accesskey="h" href="index.html">Domů</a></td><td width="40%" align="right" valign="top"> Příloha C. Formát skinů <span class="application">MPlayer</span>u</td></tr></table></div></body></html>

@@ -1,0 +1,209 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>7.1. Video kodeky</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="up" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="prev" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="next" href="audio-codecs.html" title="7.2. Audio kodeky"><link rel="preface" href="howtoread.html" title="Jak číst tuto dokumentaci"><link rel="chapter" href="intro.html" title="Kapitola 1. Představení"><link rel="chapter" href="install.html" title="Kapitola 2. Instalace"><link rel="chapter" href="usage.html" title="Kapitola 3. Použití"><link rel="chapter" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="chapter" href="faq.html" title="Kapitola 5. Často Kladené Dotazy (FAQ)"><link rel="chapter" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="chapter" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="chapter" href="video.html" title="Kapitola 8. Výstupní video zařízení/rozhraní"><link rel="chapter" href="audio.html" title="Kapitola 9. Výstupní zvuková zařízení"><link rel="chapter" href="tv.html" title="Kapitola 10. TV"><link rel="chapter" href="radio.html" title="Kapitola 11. Rádio"><link rel="chapter" href="ports.html" title="Kapitola 12. Porty"><link rel="chapter" href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><link rel="chapter" href="encoding-guide.html" title="Kapitola 14. Enkódování s MEncoderem"><link rel="appendix" href="bugreports.html" title="Příloha A. Jak hlásit chyby"><link rel="appendix" href="bugs.html" title="Příloha B. Známé chyby"><link rel="appendix" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="appendix" href="history.html" title="Příloha D. Historie"><link rel="subsection" href="video-codecs.html#ffmpeg" title="7.1.1. FFmpeg/libavcodec"><link rel="subsection" href="video-codecs.html#xvid" title="7.1.2. Xvid"><link rel="subsection" href="video-codecs.html#codec-x264" title="7.1.3. x264"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.1. Video kodeky</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="codecs.html">Předcházející</a> </td><th width="60%" align="center">Kapitola 7. Kodeky</th><td width="20%" align="right"> <a accesskey="n" href="audio-codecs.html">Další</a></td></tr></table><hr></div><div class="sect1" lang="cs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="video-codecs"></a>7.1. Video kodeky</h2></div></div></div><p>
+Kompletní denně aktualizovaný seznam naleznete v naší
+<a href="../../codecs-status.html" target="_top">tabulce statusů kodeků</a>.
+Některé binární kodeky pro použití MPlayerem jsou dostupné
+<a href="http://www.mplayerhq.hu/design7/dload.html#binary_codecs" target="_top">sekci download</a>
+naší domácí stránky.
+</p><p>
+Nejdůležitější ze všech jsou:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <span class="bold"><strong>MPEG-1</strong></span> (<span class="bold"><strong>VCD</strong></span>) a
+  <span class="bold"><strong>MPEG-2</strong></span> (<span class="bold"><strong>DVD</strong></span>) video
+</p></li><li><p>
+  nativní dekodéry pro <span class="bold"><strong>všechny DivX varianty,
+  3ivX, MS MPEG-4</strong></span> v1, v2 a ostatní MPEG-4 varianty
+</p></li><li><p>
+  nativní dekodér pro <span class="bold"><strong>Windows Media Video 7/8</strong></span>
+  (<span class="bold"><strong>WMV1/WMV2</strong></span>), a Win32 DLL dekodér
+  pro <span class="bold"><strong>Windows Media Video 9</strong></span>
+  (<span class="bold"><strong>WMV3</strong></span>),
+  obojí používané ve <tt class="filename">.wmv</tt> souborech
+</p></li><li><p>
+  nativní <span class="bold"><strong>Sorenson 1 (SVQ1)</strong></span> dekodér
+</p></li><li><p>
+  nativní <span class="bold"><strong>Sorenson 3 (SVQ3)</strong></span> dekodér
+</p></li><li><p>
+  <span class="bold"><strong>3ivx</strong></span> v1, v2 dekodér
+</p></li><li><p>
+  Cinepak a <span class="bold"><strong>Intel Indeo</strong></span> kodeky
+  (3.1,3.2,4.1,5.0)
+</p></li><li><p>
+  <span class="bold"><strong>MJPEG</strong></span>, AVID, VCR2, ASV2 a další hardwarové
+  formáty
+</p></li><li><p>
+  VIVO 1.0, 2.0, I263 a další <span class="bold"><strong>H.263(+)</strong></span>
+  varianty
+</p></li><li><p>
+  FLI/FLC
+</p></li><li><p>
+  <span class="bold"><strong>RealVideo 1.0 &amp; 2.0</strong></span> z
+  <code class="systemitem">libavcodec</code>, a
+  <span class="bold"><strong>RealVideo 3.0 &amp; 4.0</strong></span> kodeky používající
+  knihovny z RealPlayeru
+ </p></li><li><p>
+  nativní dekodér pro HuffYUV
+</p></li><li><p>
+  Různé staré a jednoduché formáty podobné RLE
+</p></li></ul></div><p>
+Pokud máte Win32 kodek, který zde není uveden a který není zatím podporován,
+přečtěte si
+<a href="codec-importing.html" title="7.3. HOWTO: Import Win32 kodeků">codec importing HOWTO</a>
+a pomozte nám přidat pro něj podporu.
+</p><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="ffmpeg"></a>7.1.1. FFmpeg/libavcodec</h3></div></div></div><p>
+<a href="http://ffmpeg.org" target="_top">FFmpeg</a> obsahuje
+<code class="systemitem">libavcodec</code>, vedoucí
+open source video a audio kodekovou knihovnu. Ta je schopna
+dekódovat většinu formátů multimédií, obvykle vyšší rychlostí
+než alternativy a plánuje se nakonec přidat podporu všech.
+Je to výchozí dekodér pro většinu kodeků, které
+<span class="application">MPlayer</span> podporuje.
+Pro některé formáty je k dispozici také enkódování podporované
+v <span class="application">MEncoder</span>u.
+</p><p>
+Úplný seznam podporovaných
+<a href="http://ffmpeg.org/ffmpeg-doc.html#SEC19" target="_top">video</a>
+a <a href="http://ffmpeg.org/ffmpeg-doc.html#SEC20" target="_top">audio</a>
+kodeků naleznete na domácí stránce FFmpeg.
+</p><p>
+<span class="application">MPlayer</span> obsahuje
+<code class="systemitem">libavcodec</code>.
+Jen spusťte <tt class="filename">./configure</tt> a kompilujte.
+</p></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="xvid"></a>7.1.2. Xvid</h3></div></div></div><p>
+<a href="http://www.xvid.org" target="_top">Xvid</a> je free software MPEG-4 ASP
+kompatibilní video kodec, jenž má podporu pro dvouprůchodové enkódování a
+plně podporuje MPEG-4 ASP, což jej činí mnohem efektivnějším, než je
+dobře známý DivX kodek.
+Dosahuje velmi dobré kvality videa a dobrý vákon díky CPU optimalizacím
+pro většinu moderních procesorů.
+</p><p>
+Jeho vývoj je odvozen od OpenDivX kodeku.
+To se stalo poté co ProjectMayo uzavřel zdrojový kód kodeku,
+vydal jej jako DivX4 a lidé mimo ProjectMayo pracující na kodeku
+OpenDivX se naštvali a založili Xvid. Oba projekty tedy mají stejný základ.
+</p><p>
+Poznamenejme, že Xvid není nutný pro dekódování Xvidem enkódovaného videa.
+Jako výchozí je používán <code class="systemitem">libavcodec</code>,
+jelikož poskytuje vyšší rychlost.
+</p><div class="procedure"><a name="id2564460"></a><p class="title"><b>Instalace <code class="systemitem">Xvid</code></b></p><p>
+  Stejně jako většina svobodného software je dostupný ve dvou verzích:
+  <a href="http://www.xvid.org/downloads.html" target="_top">oficiálně uvolněné verzi</a>
+  a verzi CVS.
+  V současnosti je CVS verze obvykle dostatečně stabilní pro použití, jelikož
+  většinou obsahuje opravy chyb, které zůstaly po vydání.
+  Zde uvádíme postup pro zprovoznění <code class="systemitem">Xvid</code>
+  CVS v <span class="application">MEncoder</span>u (budete potřebovat alespoň
+  autoconf 2.50, automake a libtool):
+</p><ol type="1"><li><p>
+  </p><pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid login</pre><p>
+</p></li><li><p>
+  </p><pre class="screen">cvs -z3 -d:pserver:anonymous@cvs.xvid.org:/xvid co xvidcore</pre><p>
+</p></li><li><p>
+  </p><pre class="screen">cd xvidcore/build/generic</pre><p>
+</p></li><li><p>
+  </p><pre class="screen">./bootstrap.sh</pre><p>
+</p></li><li><p>
+  </p><pre class="screen">./configure</pre><p>
+  Zde můžete přidat nějaké volby (prostudujte si výstup příkazu
+  <span><strong class="command">./configure --help</strong></span>).
+</p></li><li><p>
+  </p><pre class="screen">make &amp;&amp; make install</pre><p>
+</p></li><li><p>
+  Pokud jste zadali <tt class="option">--enable-divxcompat</tt>,
+  zkopírujte <tt class="filename">../../src/divx4.h</tt> do adresáře
+  <tt class="filename">/usr/local/include/</tt>.
+</p></li><li><p>
+  Znovu zkompilujte <span class="application">MPlayer</span> s volbami
+  <tt class="option">--with-xvidlibdir=<em class="replaceable"><code>/cesta/k/</code></em>libxvidcore.a</tt>
+  <tt class="option">--with-xvidincdir=<em class="replaceable"><code>/cesta/k/</code></em>xvid.h</tt>.
+</p></li></ol></div></div><div class="sect2" lang="cs"><div class="titlepage"><div><div><h3 class="title"><a name="codec-x264"></a>7.1.3. <code class="systemitem">x264</code></h3></div></div></div><div class="sect3" lang="cs"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-whatis"></a>7.1.3.1. Co je <code class="systemitem">x264</code>?</h4></div></div></div><p>
+  <a href="http://developers.videolan.org/x264.html" target="_top"><code class="systemitem">x264</code></a>
+  je knihovna pro tvorbu H.264 video proudů.
+  Není 100% dokončena, ale již má alespoň určitou podporu většiny H.264
+  vlastností ovlivňujících kvalitu.
+  Ve specifikaci H.264 je ovšem mnoho pokročilých funkcí, které nemají přímo
+  co do činění s kvalitou videa. Mnoho z těchto vlastností zatím není
+  v <code class="systemitem">x264</code> implementováno.
+</p><div class="itemizedlist"><p class="title"><b>Vlastnosti enkodéru</b></p><ul type="disc"><li><p>CAVLC/CABAC</p></li><li><p>Multi-reference</p></li><li><p>
+  Intra: všechny typy makrobloků (16x16, 8x8 a 4x4 se všemi predikcemi)
+  </p></li><li><p>
+  Inter P: všechna rozdělení (partitiony) (od 16x16 níže až do 4x4)
+  </p></li><li><p>
+  Inter B: rozdělení od 16x16 níže až do 8x8 (včetně SKIP/DIRECT)
+  </p></li><li><p>
+  Řízení datového toku: konstantní kvantizér, konstantní datový
+  tok nebo jedno či víceprůchodový ABR
+  </p></li><li><p>Detekce změny scény</p></li><li><p>Adaptivní umísťování B-snímků</p></li><li><p>
+  B-snímky jako referenční / libovolné řazení snímků
+  </p></li><li><p>8x8 a 4x4 adaptivní prostorová transformace</p></li><li><p>Bezstrátový režim</p></li><li><p>Uživatelské kvantizační matice</p></li><li><p>Paralelní enkódování několika políček</p></li><li><p>Prokládání (Interlacing)</p></li></ul></div></div><div class="sect3" lang="cs"><div class="titlepage"><div><div><h4 class="title"><a name="codec-h264-whatis"></a>7.1.3.2. Co je H.264?</h4></div></div></div><p>
+H.264 je jeden z názvů nového kodeku digitálního videa vyvíjeného společně
+skupinami ITU a MPEG.
+Rovněž může být zprávně nazýván těžkopádně jako
+"ISO/IEC 14496-10" nebo "MPEG-4 Part 10".
+Častěji je nazýván jako "MPEG-4 AVC" nebo jen "AVC".
+</p><p>
+Ať už mu říkáte jakkoli, H.264 stojí za vyzkoušení, protože obvykle
+dosahuje kvality MPEG-4 ASP při datovém toku o 5%-30% nižším.
+Konkrétní výsledky závisí jak na zdrojovém videu, tak na enkodéru.
+Prospěch z použití H.264 není zadarmo: Zdá se, že dekódování H.264 datových
+proudů má přemrštěné nároky na CPU a paměť.
+Například na 1733 MHz Athlonu využije dekódování 1500kbps H.264 videa
+v DVD rozlišení kolem 35% CPU.
+Pro porovnání, dekódování 1500kbps MPEG-4 ASP proudu ve stejném rozlišení
+vyžaduje okolo 10% CPU.
+To znamená, že dekódování datových proudů je pro většinu uživatelů téměř
+nemožné.
+Rovněž to znamená, že dokonce i rozumný DVD rip se může občas zakousnout
+na procesorech slabších než cca 2.0 GHz.
+</p><p>
+Alespoň s <code class="systemitem">x264</code>,
+nejsou požadavky ne enkódování o mnoho větší než ty,
+které vyžaduje MPEG-4 ASP.
+Například na 1733 MHz Athlonu poběží typické DVD enkódování
+při 5-15 snímků za sekundu.
+</p><p>
+  Tento dokument se nesnaží vysvětlit detaily H.264, ale pokud máte zájem
+  o stručný přehled, přečtěte si
+  <a href="http://www.cdt.luth.se/~peppar/kurs/smd151/spie04-h264OverviewPaper.pdf" target="_top">The H.264/AVC Advanced Video Coding Standard: Overview and Introduction to the Fidelity Range Extensions</a>.
+</p></div><div class="sect3" lang="cs"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-playback"></a>7.1.3.3. Jak mohu přehrávat H.264 videa
+  <span class="application">MPlayer</span>em?</h4></div></div></div><p>
+<span class="application">MPlayer</span> používá H.264 dekodér z
+<code class="systemitem">libavcodec</code>u.
+<code class="systemitem">libavcodec</code> má alespoň
+minimálně použitelný H.264 dekodér již asi od července 2004,
+od té doby však byly provedeny velké změny a vylepšení jak
+v počtu funkčností, tak ve vylepšení použití CPU.
+Pro jistotu je vždy nejlepší používat aktuální Subversion verzi.
+</p><p>
+Chcete-li se snadno a rychle dozvědět o změnách v H.264 dekódování
+<code class="systemitem">libavcodec</code>u, sledujte
+<a href="http://svn.mplayerhq.hu/ffmpeg/trunk/libavcodec/h264.c?view=log" target="_top">webové FFmpeg Subversion rozhraní</a>.
+</p></div><div class="sect3" lang="cs"><div class="titlepage"><div><div><h4 class="title"><a name="codec-x264-encode"></a>7.1.3.4. Jak mohu enkódovat video pomocí <span class="application">MEncoder</span>
+a <code class="systemitem">x264</code>?</h4></div></div></div><p>
+Pokud máte nainstalován klient subversion, můžete si poslední x264
+zdrojové kódy x264 opatřit tímto příkazem:
+</p><pre class="screen">svn co svn://svn.videolan.org/x264/trunk x264</pre><p>
+Zdrojové kódy <span class="application">MPlayer</span>u jsou aktualizovány,
+kdykoli nastane změna API v <code class="systemitem">x264</code>,
+takže vždy doporučujeme používat také Subversion verzi
+<span class="application">MPlayer</span>u.
+Tato situace se snad změní, až
+<code class="systemitem">x264</code> dospěje k "vydání".
+Mezi tím by měla být <code class="systemitem">x264</code> považována
+za velmi nestabilní v tom smyslu, že se její programové rozhraní neustále
+mění.
+</p><p>
+<code class="systemitem">x264</code> je setavována a
+instalována standardním postupem:
+</p><pre class="screen">./configure &amp;&amp; make &amp;&amp; sudo make install</pre><p>
+To nainstaluje libx264.a do /usr/local/lib a x264.h je umístěn do
+/usr/local/include.
+
+S knihovnou <code class="systemitem">x264</code> a jejím
+hlavičkovým souborem umístěnými na standardních místech je
+sestavení <span class="application">MPlayer</span>u s podporou
+<code class="systemitem">x264</code> snadné.
+Stačí spustir standardní:
+</p><pre class="screen">./configure &amp;&amp; make &amp;&amp; sudo make install</pre><p>
+Skript <tt class="filename">./configure</tt> automaticky detekuje, že jste splnili
+požadavky pro <code class="systemitem">x264</code>.
+</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="codecs.html">Předcházející</a> </td><td width="20%" align="center"><a accesskey="u" href="codecs.html">Nahoru</a></td><td width="40%" align="right"> <a accesskey="n" href="audio-codecs.html">Další</a></td></tr><tr><td width="40%" align="left" valign="top">Kapitola 7. Kodeky </td><td width="20%" align="center"><a accesskey="h" href="index.html">Domů</a></td><td width="40%" align="right" valign="top"> 7.2. Audio kodeky</td></tr></table></div></body></html>

@@ -1,0 +1,102 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Příloha D. Historie</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="up" href="index.html" title="MPlayer - Multimediální přehrávač"><link rel="prev" href="skin-quality.html" title="C.5. Tvorba kvalitních skinů"><link rel="preface" href="howtoread.html" title="Jak číst tuto dokumentaci"><link rel="chapter" href="intro.html" title="Kapitola 1. Představení"><link rel="chapter" href="install.html" title="Kapitola 2. Instalace"><link rel="chapter" href="usage.html" title="Kapitola 3. Použití"><link rel="chapter" href="cd-dvd.html" title="Kapitola 4. Použití CD/DVD"><link rel="chapter" href="faq.html" title="Kapitola 5. Často Kladené Dotazy (FAQ)"><link rel="chapter" href="containers.html" title="Kapitola 6. Nosné formáty (Containers)"><link rel="chapter" href="codecs.html" title="Kapitola 7. Kodeky"><link rel="chapter" href="video.html" title="Kapitola 8. Výstupní video zařízení/rozhraní"><link rel="chapter" href="audio.html" title="Kapitola 9. Výstupní zvuková zařízení"><link rel="chapter" href="tv.html" title="Kapitola 10. TV"><link rel="chapter" href="radio.html" title="Kapitola 11. Rádio"><link rel="chapter" href="ports.html" title="Kapitola 12. Porty"><link rel="chapter" href="mencoder.html" title="Kapitola 13. Základní použití MEncoderu"><link rel="chapter" href="encoding-guide.html" title="Kapitola 14. Enkódování s MEncoderem"><link rel="appendix" href="bugreports.html" title="Příloha A. Jak hlásit chyby"><link rel="appendix" href="bugs.html" title="Příloha B. Známé chyby"><link rel="appendix" href="skin.html" title="Příloha C. Formát skinů MPlayeru"><link rel="appendix" href="history.html" title="Příloha D. Historie"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Příloha D. Historie</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="skin-quality.html">Předcházející</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> </td></tr></table><hr></div><div class="appendix" lang="cs"><div class="titlepage"><div><div><h2 class="title"><a name="history"></a>Příloha D. Historie</h2></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+Začalo to před rokem... Vyzkoušel jsem mnoho přehrávačů pod Linuxem
+(<span class="application">mtv</span>, <span class="application">xmps</span>,
+<span class="application">dvdview</span>, <span class="application">livid/oms</span>,
+<span class="application">videolan</span>, <span class="application">xine</span>,
+<span class="application">xanim</span>, <span class="application">avifile</span>,
+<span class="application">xmmp</span>), ale všechny měly nějaký problém.
+Většinou se zvláštními soubory nebo audio/video synchronizací. Mnoho z nich
+neumí přehrát MPEG-1, MPEG-2 a zároveň AVI (DivX) soubory. Mnoho z nich má
+i potíže se zobrazováním nebo s rychlostí. Proto jsem se rozhodl, že si nějaký
+napíšu nebo upravím...
+</p></blockquote></div><p>A'rpi, 2001</p><div class="itemizedlist"><ul type="disc"><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.1-v0.3</strong></span>: 22-25 září 2000
+</p><p>
+První pokus, zbastlený za půl hodiny! Používal jsem libmpeg3
+z <a href="http://www.heroinewarrior.com" target="_top">http://www.heroinewarrior.com</a> až do verze 0.3, ale
+měl jsem s ní problémy s obrazem i rychlostí.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.5-v0.87</strong></span>: 28. září–20. říjen 2000
+</p><p>
+MPEG kodek byl nahrazen knihovnou DVDview od Dirka Farina,
+byla skvělá, ale byla pomalá a psaná v C++ (A'rpi nenávidí C++!!!)
+</p></li><li><p>
+<span class="bold"><strong><span class="application">mpg12play</span> v0.9-v0.95pre5</strong></span>: 21. říjen–2. listopad 2000
+</p><p>
+MPEG kodekem je libmpeg2 (mpeg2dec) od Aarona Holtzmana a
+Michela Lespinasse. Je to skvělý, optimalizovaný velmi rychlý kód v C se
+skvělou kvalitou obrazu a 100% v souladu s MPEG standardem.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.3-v0.9</strong></span>: 18. listopad–4. prosinec 2000
+</p><p>
+Byl to balíček dvou programů: mpg12play v0.95pre6 a mého nového
+jednoduchého AVI přehrávače 'avip' založeného na Win32 DLL loaderu z avifile.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.10</strong></span>: 1. leden 2001
+</p><p>
+MPEG a AVI přehrávač v jedné binárce!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.11pre řada</strong></span>:
+</p><p>Přidali se někteří noví vývojáři a počínaje verzí 0.11 je
+projekt <span class="application">MPlayer</span> týmovou prací! Přidána podpora ASF
+souborů a OpenDivX
+(viz <a href="http://www.projectmayo.com" target="_top">http://www.projectmayo.com</a>) en/decoding.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> v0.17a "The IdegCounter"</strong></span> 27. duben 2001
+</p><p>
+Ostrá verze vycházející z 0.11pre po 4 měsících intenzivního
+vývoje! Zkuste ji a užasnete! Přidány tisíce nových vlastností...
+a samozřejmě byl starý kód rovněž vylepšen, chyby odstraněny atd.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.18 "The BugCounter"</strong></span> 9. červenec 2001
+</p><p>
+Uběhly 2 měsíce od 0.17 a máme novou verzi... Dokončena podpora
+ASF, více formátů titulků, představena libao (podobná libvo, ale pro zvuk),
+dokonce ještě stabilnější a tak dále. Už je to POTŘEBA!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.50 "The Faszom(C)ounter"</strong></span> 8. říjen 2001
+</p><p>
+Hmm. Opět ostrá. Tuny nových vlastností, beta verze GUI,
+oprava chyb, nové vo a ao rozhraní, portován do mnoha systémů, zahrnuje
+opensource DivX kodeky a je toho ještě víc. Zkuste to!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.60 "The RTFMCounter"</strong></span> 3. ledna 2002
+</p><p>
+Podpora pro souborové formáty MOV/VIVO/RM/FLI/NUV, nativní CRAM,
+Cinepak, ADPCM kodeky a podpora pro binární kodeky XAnim; podpora DVD titulků,
+první vydání <span class="application">MEncoder</span>u, zachytávání TV, vyrovnávací
+paměť, liba52, nespočet vylepšení.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90pre10 "The BirthdayCounter"</strong></span> 11. listopad 2002
+</p><p>
+Ačkoli to není ostrá verze, zmiňuji ji protože vyšla 2 roky po
+<span class="application">MPlayer</span>u v0.01.
+Šťastné narozeniny, <span class="application">MPlayer</span>e!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90rc1 "The CodecCounter"</strong></span> 7. prosinec 2002
+</p><p>
+Opět to není ostrá verze, ale po přidání podpory pro Sorenson 3
+(QuickTime) a Windows Media 9, je <span class="application">MPlayer</span> prvním
+filmovým přehrávačem na světě s podporou všech známých video formátů!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.90 "The CounterCounter"</strong></span> 6. duben 2003
+</p><p>
+Po více než roce jsme se nakonec shodli, že je kód opět
+dostatečně stabilní a připravený k vydání jako ostrá verze. Naneštěstí jsme
+dokonce zapomněli zvýšit číslo verze a objevily se další otravné chyby,
+takže zůstaňte připraveni...
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 0.91</strong></span> 13. srpna 2003
+</p><p>
+Výše zmíněné a mnoho dalších chyb bylo odstraněno.
+Toto je poslední stabilní verze.
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 1.0pre1 "Development on the beach"</strong></span> 1. září 2003
+</p><p>
+Ačkoli to není stabilní verze, zmiňuji se o ní, protože je to
+první pre verze řady 1.0 <span class="application">MPlayer</span>u, zamýšlená pomoci
+<span class="emphasis"><em>velké lovecké výpravě na chyby</em></span>.
+Je to velký krok vpřed!
+</p></li><li><p>
+<span class="bold"><strong><span class="application">MPlayer</span> 1.0</strong></span> datum dosud neznámý
+</p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="skin-quality.html">Předcházející</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">C.5. Tvorba kvalitních skinů </td><td width="20%" align="center"><a accesskey="h" href="index.html">Domů</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

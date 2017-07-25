@@ -1,0 +1,98 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>7.3. Importowanie kodeków Win32-HOWTO</title><link rel="stylesheet" href="default.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.71.0"><link rel="start" href="index.html" title="MPlayer - Odtwarzacz filmów"><link rel="up" href="codecs.html" title="Rozdział 7. Obsługiwane kodeki"><link rel="prev" href="audio-codecs.html" title="7.2. Kodeki audio"><link rel="next" href="video.html" title="Rozdział 8. Urządzenia wyjścia video"><link rel="preface" href="howtoread.html" title="Jak czytać tę dokumentację"><link rel="chapter" href="intro.html" title="Rozdział 1. Wprowadzenie"><link rel="chapter" href="install.html" title="Rozdział 2. Instalacja"><link rel="chapter" href="usage.html" title="Rozdział 3. Sposób użycia"><link rel="chapter" href="cd-dvd.html" title="Rozdział 4. Używanie CD/DVD"><link rel="chapter" href="faq.html" title="Rozdział 5. FAQ - Często Zadawane Pytania"><link rel="chapter" href="formats.html" title="Rozdział 6. Kontenery"><link rel="chapter" href="codecs.html" title="Rozdział 7. Obsługiwane kodeki"><link rel="chapter" href="video.html" title="Rozdział 8. Urządzenia wyjścia video"><link rel="chapter" href="audio.html" title="Rozdział 9. Urządzenia wyjściowe audio"><link rel="chapter" href="tv.html" title="Rozdział 10. TV"><link rel="chapter" href="radio.html" title="Rozdział 11. Radio"><link rel="chapter" href="ports.html" title="Rozdział 12. Porty"><link rel="chapter" href="mencoder.html" title="Rozdział 13. Podstawy używania MEncodera"><link rel="chapter" href="encoding-guide.html" title="Rozdział 14. Kodowanie przy użyciu MEncodera"><link rel="appendix" href="bugreports.html" title="Dodatek A. Jak zgłaszać błędy"><link rel="appendix" href="bugs.html" title="Dodatek B. Znane błędy"><link rel="appendix" href="skin.html" title="Dodatek C. Format skórki MPlayera"><link rel="appendix" href="history.html" title="Dodatek D. Historia"><link rel="subsection" href="codec-importing.html#vfw-codecs" title="7.3.1. Kodeki VFW"><link rel="subsection" href="codec-importing.html#dshow-codecs" title="7.3.2. Kodeki DirectShow"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. Importowanie kodeków Win32-HOWTO</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="audio-codecs.html">Poprzedni</a> </td><th width="60%" align="center">Rozdział 7. Obsługiwane kodeki</th><td width="20%" align="right"> <a accesskey="n" href="video.html">Następny</a></td></tr></table><hr></div><div class="sect1" lang="pl"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="codec-importing"></a>7.3. Importowanie kodeków Win32-HOWTO</h2></div></div></div><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="vfw-codecs"></a>7.3.1. Kodeki VFW</h3></div></div></div><p>
+VFW (Video for Windows) jest starym API Video pod Windows. Jego kodeki mają
+rozszerzenie <tt class="filename">.DLL</tt> albo (rzadziej)
+<tt class="filename">.DRV</tt>. Jeżeli <span class="application">MPlayer</span> odmawia
+odtwarzania plików AVI z komunikatem typu
+</p><pre class="screen">UNKNOWN video codec: HFYU (0x55594648)</pre><p>
+oznacza to, że twój plik AVI jest zakodowany z użyciem kodeka, który korzysta
+z fourcc HFYU (HFYU = kodek HuffYUV, DIV3 = DivX Low Motion, itd.;
+fourcc-unikalny, czteroliterowy identyfikator kodeka znajdujący się najczęściej
+w nagłówkach plików AVI-przyp. tłumacz). Kiedy już to wiesz, musisz odzukać
+DLL'a, który jest ładowany przez Windows w celu odtworzenia tego pliku.
+W naszym przypadku plik <tt class="filename">system.ini</tt> zawiera tę informację
+w następującej linii:
+</p><pre class="programlisting">VIDC.HFYU=huffyuv.dll</pre><p>
+</p><p>
+Zatem potrzebujesz pliku <tt class="filename">huffyuv.dll</tt>. Zauważ, że kodeki
+audio są oznaczane za pomocą prefiksu MSACM:
+</p><pre class="programlisting">msacm.l3acm=L3codeca.acm</pre><p>
+</p><p>
+Jest to kodek MP3. Teraz powinieneś mieć wszystkie niezbędne informacje
+(fourcc, plik z kodekiem, przykładowy plik AVI). Umieść swoją prośbę o obsługę
+kodeka za pomocą poczty elektronicznej i wyślij ww. pliki na poniższy
+serwer FTP:
+<code class="systemitem">
+ftp://upload.mplayerhq.hu/MPlayer/incoming/<em class="replaceable"><code>&lt;nazwakodeka&gt;</code></em>/
+</code>
+</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Informacja</h3><p> W systemach Windows NT/2000/XP szukaj powyższych informacji
+w rejestrze, np. szukaj wyrażenia "VIDC.HFYU". Aby dowiedzieć się jak
+to zrobić, spójrz niżej na starą metodę DirectShow.
+</p></div></div><div class="sect2" lang="pl"><div class="titlepage"><div><div><h3 class="title"><a name="dshow-codecs"></a>7.3.2. Kodeki DirectShow</h3></div></div></div><p>
+DirectShow jest nowszym API Video, które jest nawet gorsze od swojego
+poprzednika. Sprawa ma się gorzej z DirectShow, ponieważ:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+  <tt class="filename">system.ini</tt> nie zawiera wymaganych informacji,
+  zamiast tego są one przechowywane w rejestrze.
+</p></li><li><p>
+  Z tego powodu wymagane jest GUID kodeka.
+</p></li></ul></div><p>
+</p><div class="procedure"><a name="id2566214"></a><p class="title"><b>Nowa metoda:</b></p><p>
+Używając <span class="application">Microsoft GraphEdit</span> (szybki sposób)
+</p><ol type="1"><li><p>
+  Pobierz <span class="application">GraphEdit</span> z dowolnego DirectX SDK, albo z
+  <a href="http://doom9.net" target="_top">doom9</a>
+</p></li><li><p>
+  Uruchom <span><strong class="command">graphedit.exe</strong></span>.
+</p></li><li><p>
+  Z menu wybierz
+  <span class="guimenu">Graph</span> → <span class="guisubmenu">Insert Filters</span>.
+</p></li><li><p>
+  Rozwiń listę <code class="systemitem">DirectShow Filters</code>
+</p></li><li><p>
+  Wybierz właściwy kodek i rozwiń go.
+</p></li><li><p>
+  We wpisie <code class="systemitem">DisplayName</code> spójrz na tekst w
+  nawiasach klamrowych po znaku "backslash" i zapisz go (pięć bloków
+  oddzielonych kreskami, GUID).
+</p></li><li><p>
+  Binariami kodeka jest plik określony w polu <code class="systemitem">Filename</code>.
+</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Informacja</h3><p>
+Jeżeli nie ma pola <code class="systemitem">Filename</code>, a
+<code class="systemitem">DisplayName</code> zawiera coś w stylu
+<code class="systemitem">device:dmo</code>, to jest to kodek DMO.
+</p></div><div class="procedure"><a name="id2566362"></a><p class="title"><b>Stara Metoda:</b></p><p>
+Weź głęboki oddech i zacznij przeszukiwanie rejestru...
+</p><ol type="1"><li><p>
+  Uruchom <span><strong class="command">regedit</strong></span>.
+</p></li><li><p>
+  Naciśnij <span class="keycap"><b>Ctrl</b></span>-<span class="keycap"><b>F</b></span>,
+  odznacz dwa pierwsze pola (checkboxes) i zaznacz trzecie. Wpisz fourcc kodeka
+  (np.  <strong class="userinput"><code>TM20</code></strong>).
+</p></li><li><p>
+  Powinieneś zobaczyć pole zawierające ścieżkę i nazwę pliku (np.
+  <tt class="filename">C:\WINDOWS\SYSTEM\TM20DEC.AX</tt>).
+</p></li><li><p>
+  Gdy odnalazłeś już plik, potrzebny będzie GUID. Spróbuj ponownego
+  wyszukiwania, ale tym razem wpisz nazwę kodeka, a nie jego fourcc. Jego nazwę
+  można sprawdzić, kiedy Media Player odtwarza plik, odszukując ją w
+  <span class="guimenu">Plik</span> → <span class="guisubmenu">Opcje</span> → <span class="guimenuitem">Zaawansowane</span>.
+  Jeżeli jej tam nie będzie, to masz pecha. Spróbuj odgadnąć nazwę (np. spróbuj
+  wyszukać "TrueMotion").
+</p></li><li><p>
+  Jeżeli GUID został odnaleziony, powinieneś ujrzeć pola
+  <span class="guilabel">FriendlyName</span> i <span class="guilabel">CLSID</span>. Zapisz
+  szesnastobajtowy CLSID będący GUIDem, którego potrzebujemy.
+</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Informacja</h3><p>
+Jeżeli wyszukiwanie się nie powiedzie, spróbuj zaznaczyć wszystkie pola
+(checkboxes). Prawdopodobnie dostaniesz fałszywe trafienia, ale być może
+będziesz miał szczęście...
+</p></div><p>
+Teraz, kiedy masz już wszystkie niezbędne informacje (fourcc, GUID, plik
+z kodekiem, przykładowy plik AVI), umieść swoją prośbę o obsługę kodeka
+za pomocą poczty elektronicznej i wyślij ww. pliki na poniższy serwer FTP:
+<code class="systemitem">ftp://upload.mplayerhq.hu/MPlayer/incoming/<em class="replaceable"><code>&lt;nazwakodeka&gt;</code></em>/</code>
+</p><p>
+Jeżeli chcesz samodzielnie dodać obsługę kodeka, przeczytaj
+<a href="http://www.mplayerhq.hu/MPlayer/DOCS/tech/codecs.conf.txt" target="_top">
+DOCS/tech/codecs.conf.txt</a> (tylko po angielsku - przyp. tłum.).
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="audio-codecs.html">Poprzedni</a> </td><td width="20%" align="center"><a accesskey="u" href="codecs.html">Początek rozdziału</a></td><td width="40%" align="right"> <a accesskey="n" href="video.html">Następny</a></td></tr><tr><td width="40%" align="left" valign="top">7.2. Kodeki audio </td><td width="20%" align="center"><a accesskey="h" href="index.html">Spis treści</a></td><td width="40%" align="right" valign="top"> Rozdział 8. Urządzenia wyjścia video</td></tr></table></div></body></html>
