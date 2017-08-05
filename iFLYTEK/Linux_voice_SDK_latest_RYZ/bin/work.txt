@@ -1,0 +1,6 @@
+asr_sample  -----  Automatic Speech Recognition  --- 能够从语音中识别出特定的命令词或语句模式
+iat_sample  -----  iFly Auto Transform   ---- 能够实时地将语音转换成对应的文字
+iat_record_sample  ---  iFly Auto Transform from either file or record
+ise_sample    ----   xml output
+sch_speak_sample  ??
+sch_text_sample  ??

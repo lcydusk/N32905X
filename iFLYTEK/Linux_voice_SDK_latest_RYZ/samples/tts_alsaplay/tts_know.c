@@ -1,0 +1,342 @@
+﻿/*
+* 语音合成（Text To Speech，TTS）技术能够自动将任意文字实时转换为连续的
+* 自然语音，是一种能够在任何时间、任何地点，向任何人提供语音信息服务的
+* 高效便捷手段，非常符合信息时代海量数据、动态更新和个性化查询的需求。
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <alsa/asoundlib.h>
+
+#include "qtts.h"
+#include "msp_cmn.h"
+#include "msp_errors.h"
+
+#define KNOW_WAV        "tts_knowledge.wav"
+#define TTS_SESSION     "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2"
+
+static const char SoundCardPortName[] =  "default"; //"plughw:0,0"; //sj new2
+// Handle to ALSA (audio card's) playback port
+snd_pcm_t               *PlaybackHandle;  //sj new2
+
+unsigned int audio_len = 0;  //sj new3
+pthread_t id_playback  = 0;  //sj new3
+volatile  flag_ttsing  = 0;    //sj new3
+//volatile  flag_playing = 0;    //sj new3
+sem_t sem_audio;           //sj new3
+sem_t sem_available;        //sj new3
+
+#define AUDIO_BUF_SIZE          50000
+#define BUF_BLK			5
+static unsigned char audio_buf[5][AUDIO_BUF_SIZE] ; 
+
+void timestamp()
+{
+    const struct tm *tm_ptr;
+    time_t now = time ( 0 );
+    tm_ptr = localtime ( &now );
+    
+    struct timeval tv;    
+    gettimeofday(&tv,NULL);    
+
+    printf("(%02d:%02d:%02d.%06ld) : ", tm_ptr->tm_hour, tm_ptr->tm_min, tm_ptr->tm_sec, tv.tv_usec);
+}
+
+
+
+/* wav音频头部格式 */
+typedef struct _wave_pcm_hdr
+{
+	char            riff[4];                // = "RIFF"
+	int		size_8;                 // = FileSize - 8
+	char            wave[4];                // = "WAVE"
+	char            fmt[4];                 // = "fmt "
+	int		fmt_size;		// = 下一个结构体的大小 : 16
+
+	short int       format_tag;             // = PCM : 1
+	short int       channels;               // = 通道数 : 1
+	int		samples_per_sec;        // = 采样率 : 8000 | 6000 | 11025 | 16000
+	int		avg_bytes_per_sec;      // = 每秒字节数 : samples_per_sec * bits_per_sample / 8
+	short int       block_align;            // = 每采样点字节数 : wBitsPerSample / 8
+	short int       bits_per_sample;        // = 量化比特数: 8 | 16
+
+	char            data[4];                // = "data";
+	int		data_size;              // = 纯数据长度 : FileSize - 44 
+} wave_pcm_hdr;
+
+/* 默认wav音频头部数据 */
+wave_pcm_hdr default_wav_hdr = 
+{
+	{ 'R', 'I', 'F', 'F' },
+	0,
+	{'W', 'A', 'V', 'E'},
+	{'f', 'm', 't', ' '},
+	16,
+	1,
+	1,
+	16000,
+	32000,
+	2,
+	16,
+	{'d', 'a', 't', 'a'},
+	0  
+};
+
+/* sj new2 xrun_recovery*/ 
+static int xrun_recovery(snd_pcm_t *handle, int err)
+{
+        printf("stream recovery, err is %d, %s\n", err, snd_strerror(err));
+        if (err == -EPIPE) {    /* under-run */
+                err = snd_pcm_prepare(handle);
+                if (err < 0)
+                        printf("Can't recovery from underrun, prepare failed: %s\n", snd_strerror(err));
+                return 0;
+        } else if (err == -ESTRPIPE) {
+                while ((err = snd_pcm_resume(handle)) == -EAGAIN)
+                        sleep(1);       /* wait until the suspend flag is released */
+                if (err < 0) {
+                        err = snd_pcm_prepare(handle);
+                        if (err < 0)
+                                printf("Can't recovery from suspend, prepare failed: %s\n", snd_strerror(err));
+                }
+                return 0;
+        }
+        return err;
+}
+
+/* sj new2 play_audio*/ 
+static void play_audio()
+{
+    int playp = 0;
+    do {
+        sem_wait(&sem_audio);
+        
+        void* WavePtr = &audio_buf[playp][44]; 
+        int* data_len = &audio_buf[playp][40];
+        int WaveSize = *data_len / 2 ; 
+        timestamp(); printf("sjdb: start playing, data_len is %d.\n", *data_len);
+
+        int err = 0;
+        while (WaveSize > 0) {
+            err = snd_pcm_writei(PlaybackHandle, WavePtr, WaveSize);
+            if (err == -EAGAIN){
+                    //usleep(500);  //sj what make the EAGAIN happen? 
+                    timestamp(); printf("sjdb: writei EAGAIN while playing().\n");
+                    continue;
+            }
+            if (err < 0) {
+                    if (xrun_recovery(PlaybackHandle, err) < 0) {
+                            printf("Write error: %s\n", snd_strerror(err));
+                            exit(EXIT_FAILURE);
+                    }
+                    timestamp(); printf("sjdb: to skip one period .\n");
+                    break;  /* skip one period */
+            }
+            WavePtr += err * 1;
+            WaveSize -= err;
+        }        
+        //free(data4paly);
+        playp = (playp+1)%BUF_BLK; //sj new4l
+        sem_post(&sem_available); 
+        timestamp(); printf("sjdb: play_audio() data drained.\n");
+    } while(flag_ttsing);
+
+    timestamp(); printf("sjdb: exit thread play_audio() .\n");
+}
+
+
+/* 文本合成 */
+int text_to_speech(const char* src_text/*, const char* des_path, const char* params*/)
+{
+    timestamp();     printf("TTS Start ...\n");
+    int          ret          = -1;
+    FILE*        fp           = NULL;
+    const char*  sessionID    = NULL;
+    //unsigned int audio_len    = 0; //sj old3
+    wave_pcm_hdr wav_hdr      = default_wav_hdr;
+    int          synth_status = MSP_TTS_FLAG_STILL_HAVE_DATA;
+    unsigned int len = 0; 
+
+    int rc_playback  = 0;
+
+    if (NULL == src_text /*|| NULL == des_path*/)
+    {
+        printf("params is error!\n");
+        return ret;
+    }
+
+    fp = fopen(KNOW_WAV, "wb");
+    /*if (NULL == fp)
+    {
+        printf("open %s error.\n", KNOW_WAV);
+        return ret;
+    }*/ //sj old2 
+    /* 开始合成 */
+
+    sessionID = QTTSSessionBegin(TTS_SESSION, &ret);
+    if (MSP_SUCCESS != ret)
+    {
+        printf("QTTSSessionBegin failed, error code: %d.\n", ret);
+        fclose(fp);
+        return ret;
+    }
+
+    len = (unsigned int)strlen(src_text); 
+    ret = QTTSTextPut(sessionID, src_text ,len, NULL);
+
+    if (MSP_SUCCESS != ret)
+    {
+        printf("QTTSTextPut failed, error code: %d.\n",ret);
+        QTTSSessionEnd(sessionID, "TextPutError");
+        //fclose(fp); //sj old2 
+        return ret;
+    }
+
+    //fwrite(&wav_hdr, sizeof(wav_hdr) ,1, fp); //添加wav音频头，使用采样率为16000 //sj old2
+        
+    /*sj new2 Begin*/
+    register int  err;
+    if ((err = snd_pcm_open(&PlaybackHandle, &SoundCardPortName[0], SND_PCM_STREAM_PLAYBACK, 0)) < 0){
+        printf("Can't open audio %s: %s\n", &SoundCardPortName[0], snd_strerror(err));
+        QTTSSessionEnd(sessionID, "PCMOpenErr"); 
+        return err;    
+    }
+
+    if ((err = snd_pcm_set_params(PlaybackHandle, SND_PCM_FORMAT_S16 , SND_PCM_ACCESS_RW_INTERLEAVED, 1, default_wav_hdr.samples_per_sec , 1, 100000)) < 0){
+        printf("Can't set sound parameters: %s\n", snd_strerror(err));
+        snd_pcm_close(PlaybackHandle);
+        QTTSSessionEnd(sessionID, "PCMOpenErr"); 
+        return err;  
+    }
+    /*sj new2 End*/
+    
+
+    // init semaphore
+    sem_init(&sem_audio, 0, 0);
+	sem_init(&sem_available, 0, BUF_BLK);
+    rc_playback = pthread_create(&id_playback, NULL, play_audio, NULL);
+
+	int writep = 0; 
+    while (1) 
+    {
+        flag_ttsing = 1;
+        /* 获取合成音频 */
+        const void* data = QTTSAudioGet(sessionID, &audio_len, &synth_status, &ret);
+        if (MSP_SUCCESS != ret)
+            break;
+
+        if (NULL != data)
+        {
+            timestamp(); printf("sjdb: New data arrived, sem_available is %ld, audio_len is %d.\n", sem_available.__align, audio_len);
+            sem_wait(&sem_available);
+            timestamp(); printf("sem_available is %ld, writep is %d\n", sem_available.__align, writep);
+            default_wav_hdr.data_size = audio_len; default_wav_hdr.size_8 = audio_len+36; //sj fixed the bug
+            memcpy(audio_buf[writep], &default_wav_hdr, 44); 
+            memcpy(audio_buf[writep]+44, data, (audio_len < AUDIO_BUF_SIZE) ? audio_len : AUDIO_BUF_SIZE );   //sj new3
+            writep = (writep+1)%BUF_BLK; 
+            sem_post(&sem_audio);              //sj new3
+
+            continue;
+        }
+        if (MSP_TTS_FLAG_DATA_END == synth_status){
+            timestamp(); printf("sjdb: MSP_TTS_FLAG_DATA_END.\n");
+            while(BUF_BLK- sem_available.__align > 0){
+                usleep(150*1000);  //sj new3, wait for play finished.
+            }
+            break;
+        }
+		
+        printf(">");   //sj old3
+        usleep(150*1000); //防止频繁占用CPU //sj old3
+    }
+
+    flag_ttsing = 0;  //sj new3 
+    //rc_playback = pthread_join(id_playback, NULL); //sj new3 
+
+    if (MSP_SUCCESS != ret)
+    {
+        printf("QTTSAudioGet failed, errcor code: %d.\n",ret);
+        QTTSSessionEnd(sessionID, "AudioGetError");
+        //fclose(fp); //sj old2
+        snd_pcm_close(PlaybackHandle); //sj new2
+        return ret;
+    }
+
+    /* 合成完毕 */
+    ret = QTTSSessionEnd(sessionID, "Normal");
+    snd_pcm_close(PlaybackHandle);  //sj new2
+
+    if (MSP_SUCCESS != ret)
+    {
+        printf("QTTSSessionEnd failed, error code: %d.\n",ret);
+    }
+    timestamp(); printf("TTS Finished !!!\n\n");
+
+    return ret;
+}
+
+//sj: eg, ./tts "想把这句话合成语音"         
+int main(int argc, char* argv[])
+{
+	int         ret                  = MSP_SUCCESS;
+	//const char* login_params         = "appid =595c4bba, work_dir = .";//登录参数,appid与msc库绑定,请勿随意改动
+	const char* login_params         = "appid =59546cd0, work_dir = .";//登录参数,appid与msc库绑定,请勿随意改动
+	/*
+	* rdn:           合成音频数字发音方式
+	* volume:        合成音频的音量
+	* pitch:         合成音频的音调
+	* speed:         合成音频对应的语速
+	* voice_name:    合成发音人
+	* sample_rate:   合成音频采样率
+	* text_encoding: 合成文本编码格式
+	*
+	* 详细参数说明请参阅《讯飞语音云MSC--API文档》
+	*/
+	const char* session_begin_params = "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
+	const char* filename             = "tts_knowledge.wav"; //合成的语音文件名称
+	const char* txt                 = "亲爱的用户，您好，这是一个语音合成示例，感谢您对科大讯飞语音技术的支持！科大讯飞是亚太地区最大的语音上市公司，股票代码：002230"; //合成文本        
+
+	char s_cmd_play[128] = {0};
+        char* text=NULL;
+        if(argc < 2){
+          text = txt;
+        }
+        else{
+          text = argv[1];
+          printf("sjdb: text to transfer is (%s)\n",  text);
+        }
+
+	/* 用户登录 */
+	ret = MSPLogin(NULL, NULL, login_params);//第一个参数是用户名，第二个参数是密码，第三个参数是登录参数，用户名和密码可在http://www.xfyun.cn注册获取
+	if (MSP_SUCCESS != ret)
+	{
+		printf("MSPLogin failed, error code: %d.\n", ret);
+		goto exit ;//登录失败，退出登录
+	}
+	printf("\n###########################################################################\n");
+	printf("## TTS the words and play it ##\n");
+	printf("###########################################################################\n\n");
+	/* 文本合成 */
+	
+        printf("Start TTS ...\n");
+	ret = text_to_speech(text/*, filename, session_begin_params*/);
+
+	if (MSP_SUCCESS != ret)
+	{
+		printf("text_to_speech failed, error code: %d.\n", ret);
+	}
+
+
+exit:
+	//printf("按任意键退出 ...\n");
+	//getchar();
+	MSPLogout(); //退出登录
+
+	return 0;
+}
+

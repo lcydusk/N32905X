@@ -1,0 +1,22 @@
+iat_record_sample code read record: 
+1,  sr_init()  in the speech_recognizer.c under iat_record_sample folder 
+   /* use the default input device to capture the audio. see sr_init_ex */
+   by get_default_input_dev() in linuxrec.c under iat_record_sample folder.
+
+2, struct record_dev_id  /*the device id is a pcm string name in linux, like "hw:2,0", "plughw:3,1" */
+  record_dev_id  get_default_input_dev()
+  {
+	record_dev_id id; 
+	id.u.name = "default";
+	return id;
+  }
+
+
+
+############################################
+asr_sample  -----  Automatic Speech Recognition  --- 能够从语音中识别出特定的命令词或语句模式
+iat_sample  -----  iFly Auto Transform   ---- 能够实时地将语音转换成对应的文字
+iat_record_sample  ---  iFly Auto Transform from either file or record
+ise_sample    ----   xml output
+sch_speak_sample  ??
+sch_text_sample  ??
